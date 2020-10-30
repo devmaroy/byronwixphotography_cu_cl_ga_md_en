@@ -2,64 +2,64 @@
   # Page Error
 \*------------------------------------*/
 
-.page-error {
-  padding-top: 10rem;
-  background: $clr-off-light;
-  height: 100vh;
-}
+// .page-error {
+//   padding-top: 10rem;
+//   background: $clr-off-light;
+//   height: 100vh;
+// }
 
-.page-error__heading {
-  font-family: $ff-base;
-  font-size: 10rem;
-  line-height: 12rem;
-  margin: 0 0 2rem 0;
-  color: $clr-danger;
-}
+// .page-error__heading {
+//   font-family: $ff-base;
+//   font-size: 10rem;
+//   line-height: 12rem;
+//   margin: 0 0 2rem 0;
+//   color: $clr-danger;
+// }
 
-.page-error__subheading {
-  font-family: $ff-base;
-  font-size: 3rem;
-  margin: 0;
-  color: lighten($clr-danger, 10%);
-}
+// .page-error__subheading {
+//   font-family: $ff-base;
+//   font-size: 3rem;
+//   margin: 0;
+//   color: lighten($clr-danger, 10%);
+// }
 
-.page-error__text {
-  font-size: $fs-lg;
-  margin: 4rem 0;
-  line-height: 3.2rem;
-  color: $clr-gray;
-}
+// .page-error__text {
+//   font-size: $fs-lg;
+//   margin: 4rem 0;
+//   line-height: 3.2rem;
+//   color: $clr-gray;
+// }
 
-.page-error__image {
-  width: 2.5rem;
-  height: 2.5rem;
-}
+// .page-error__image {
+//   width: 2.5rem;
+//   height: 2.5rem;
+// }
 
-.page-error__link {
-  display: inline-block;
-  font-size: $fs-xl;
-  font-weight: $fw-bold;
+// .page-error__link {
+//   display: inline-block;
+//   font-size: $fs-xl;
+//   font-weight: $fw-bold;
 
-  @include link-reset;
-  @include link($clr-danger, $clr-primary);
+//   @include link-reset;
+//   @include link($clr-danger, $clr-primary);
 
-  svg {
-    position: relative;
-    top: 1px;
-    animation: jump 2s infinite;
-  }
+//   svg {
+//     position: relative;
+//     top: 1px;
+//     animation: jump 2s infinite;
+//   }
 
-  @keyframes jump {
-    0% {
-      transform: translateX(-5px);
-    }
+//   @keyframes jump {
+//     0% {
+//       transform: translateX(-5px);
+//     }
 
-    50% {
-      transform: translateX(0);
-    }
+//     50% {
+//       transform: translateX(0);
+//     }
 
-    100% {
-      transform: translateX(-5px);
-    }
-  }
-}
+//     100% {
+//       transform: translateX(-5px);
+//     }
+//   }
+// }

@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .navigation-toggle {
-  visibility: hidden;
+  // visibility: hidden;
   @include reset-appearance;
   position: absolute;
   top: 0.5rem;
@@ -18,7 +18,7 @@
 .navigation-toggle__bar {
   width: 3.2rem;
   height: 0.3rem;
-  background: $clr-dark;
+  // background: $clr-dark;
 
   transition: all $transition;
 }
@@ -43,77 +43,5 @@
   &.is-open {
     width: 3rem;
     transform: translateY(-12px) rotate(45deg);
-  }
-}
-
-.navigation {
-  display: none;
-  opacity: 0;
-
-  transition: all $transition;
-
-  &.is-open {
-    display: block;
-    opacity: 1;
-  }
-
-  position: absolute;
-  right: 0;
-  z-index: 99;
-  width: 100%;
-  padding: 1.6rem;
-  padding-top: 0;
-  background: $clr-light;
-
-  @media (min-width: 920px) {
-    position: static;
-    z-index: 1;
-    display: block;
-    opacity: 1;
-    padding: 0;
-    width: auto;
-  }
-}
-
-.navigation__list {
-  @include list-unstyled;
-  margin-top: 2.4rem;
-  padding-top: 1.6rem;
-  border-top: 0.1rem solid $clr-lightgray;
-
-  @media (min-width: 920px) {
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.navigation__item {
-  visibility: hidden;
-
-  &:not(:last-child) {
-    margin-bottom: 1.6rem;
-
-    @media (min-width: 920px) {
-      margin-bottom: 0;
-      margin-right: 1.6rem;
-    }
-  }
-
-  @media (min-width: 920px) {
-    display: inline-block;
-  }
-}
-
-.navigation__link {
-  @include link-reset;
-  @include link($clr-base-dk, $clr-primary);
-  text-transform: uppercase;
-  font-size: $fs-sm;
-  font-weight: $fw-semi-bold;
-  cursor: pointer;
-
-  &--active {
-    color: $clr-primary;
   }
 }
