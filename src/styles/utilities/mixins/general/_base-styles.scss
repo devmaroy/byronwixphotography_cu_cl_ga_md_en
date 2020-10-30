@@ -1,0 +1,40 @@
+/*------------------------------------*\
+  # Base Styles
+\*------------------------------------*/
+
+@mixin base-styles {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 62.5%;
+    height: 100%;
+  }
+
+  body {
+    font-family: $ff-base;
+    font-size: $fs-md;
+    line-height: 1.6;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img {
+    @include img-fluid;
+  }
+
+  button {
+    @include reset-appearance;
+    cursor: pointer;
+  }
+
+  .list-unstyled {
+    @include list-unstyled;
+  }
+
+  .dont-break-out {
+    @include text-dont-break-out;
+  }
+}

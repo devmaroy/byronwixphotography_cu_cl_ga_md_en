@@ -1,0 +1,13 @@
+/*------------------------------------*\
+  # Base
+\*------------------------------------*/
+
+@include base-styles;
+
+.divider-space-section {
+  padding: 8rem 0;
+
+  @media (min-width: 920px) {
+    padding: 12rem 0;
+  }
+}

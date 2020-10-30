@@ -1,0 +1,28 @@
+/*------------------------------------*\
+  # Logo
+\*------------------------------------*/
+
+.logo {
+  visibility: hidden;
+}
+
+.logo__link {
+  @include link-reset;
+
+  font-size: 2rem;
+  font-weight: $fw-bold;
+  text-transform: uppercase;
+  line-height: 1;
+  color: $clr-dark;
+
+  transition: all $transition;
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
+}
+
+.logo__highlight {
+  color: $clr-primary;
+}

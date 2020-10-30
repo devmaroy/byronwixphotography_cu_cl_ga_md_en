@@ -1,0 +1,21 @@
+/*------------------------------------*\
+  # Buttons
+\*------------------------------------*/
+
+@mixin button {
+  @include reset-appearance;
+  @include link-reset;
+
+  display: inline-block;
+  padding: 1.6rem 2.4rem;
+  border: 0.2rem solid transparent;
+  text-transform: uppercase;
+  font-size: $fs-md;
+  font-weight: $fw-bold;
+
+  transition: all $transition;
+}
+
+@mixin button-sm {
+  padding: 1rem 1.8rem;
+}

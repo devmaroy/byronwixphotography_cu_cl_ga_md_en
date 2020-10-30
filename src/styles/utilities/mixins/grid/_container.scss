@@ -1,0 +1,9 @@
+/*------------------------------------*\
+  # 8PT Grid Container
+\*------------------------------------*/
+
+@mixin grid-container($maxWidth: 144rem, $margin: 0 auto, $padding: 0 1.6rem) {
+  max-width: $maxWidth;
+  margin: $margin;
+  padding: $padding;
+}
