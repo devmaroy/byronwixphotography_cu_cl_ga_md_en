@@ -1,14 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Link } from 'gatsby';
 
-const Logo = () => {
+const Logo = ({ alt = false }) => {
   return (
     <div className="logo">
-      <Link to="/" className="logo__link">
+      <Link
+        to="/"
+        className={classNames('logo__link', {
+          'logo__link--alt': alt,
+        })}
+      >
         Byron Wix <span className="logo__highlight">Photography</span>
       </Link>
     </div>
   );
+};
+
+Logo.propTypes = {
+  alt: PropTypes.bool,
 };
 
 export default Logo;

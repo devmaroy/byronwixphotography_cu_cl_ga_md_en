@@ -1,16 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import classNames from 'classnames';
 
-const Navigation = () => {
+const Navigation = ({ isOpen, toggleNavigation }) => {
   return (
     <>
-      <button type="button" className="navigation-toggle">
-        <div className="navigation-toggle__bar navigation-toggle__bar--one" />
-        <div className="navigation-toggle__bar navigation-toggle__bar--two" />
-        <div className="navigation-toggle__bar navigation-toggle__bar--three" />
+      <button
+        type="button"
+        className="navigation-toggle"
+        onClick={toggleNavigation}
+      >
+        <div
+          className={classNames(
+            'navigation-toggle__bar navigation-toggle__bar--one',
+            { 'is-open': isOpen },
+          )}
+        />
+        <div
+          className={classNames(
+            'navigation-toggle__bar navigation-toggle__bar--two',
+            { 'is-open': isOpen },
+          )}
+        />
+        <div
+          className={classNames(
+            'navigation-toggle__bar navigation-toggle__bar--three',
+            { 'is-open': isOpen },
+          )}
+        />
       </button>
 
-      <nav className="navigation">
+      <nav className={classNames('navigation', { 'is-open': isOpen })}>
         <ul className="navigation__list">
           <li className="navigation__item">
             <Link to="/" className="navigation__link">
@@ -51,6 +72,11 @@ const Navigation = () => {
       </nav>
     </>
   );
+};
+
+Navigation.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleNavigation: PropTypes.func.isRequired,
 };
 
 export default Navigation;

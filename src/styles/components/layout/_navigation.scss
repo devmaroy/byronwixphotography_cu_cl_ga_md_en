@@ -3,28 +3,39 @@
 \*------------------------------------*/
 
 .navigation-toggle {
-  // visibility: hidden;
   @include reset-appearance;
   position: absolute;
   top: 0.5rem;
   right: 2.4rem;
   line-height: 1;
+  z-index: 99;
 
   @media (min-width: 920px) {
     display: none;
   }
+
+  &:hover {
+    .navigation-toggle__bar--two {
+      width: 3rem;
+    }
+  }
 }
 
 .navigation-toggle__bar {
-  width: 3.2rem;
+  width: 3rem;
   height: 0.3rem;
-  // background: $clr-dark;
+  border-radius: $border-radius;
+  background: $clr-dark-off;
 
   transition: all $transition;
+
+  &.is-open {
+    background: $clr-light;
+  }
 }
 
 .navigation-toggle__bar--one {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
 
   &.is-open {
     transform: rotate(-45deg);
@@ -32,16 +43,52 @@
 }
 
 .navigation-toggle__bar--two {
+  width: 1.2rem;
+
   &.is-open {
     opacity: 0;
   }
 }
 
 .navigation-toggle__bar--three {
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
 
   &.is-open {
     width: 3rem;
     transform: translateY(-12px) rotate(45deg);
   }
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transform: translateX(-100%);
+  z-index: 98;
+  background: $clr-dark-off;
+
+  transition: all $transition;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+}
+
+.navigation__list {
+  @include list-unstyled;
+  margin-top: 14.4rem;
+  text-align: center;
+}
+
+.navigation__item:not(:last-child) {
+  margin-bottom: 4.8rem;
+}
+
+.navigation__link {
+  @include link-reset;
+  @include link($clr-light, $clr-primary);
+  font-size: 3.2rem;
+  font-weight: $fw-bold;
 }

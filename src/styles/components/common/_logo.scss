@@ -3,7 +3,11 @@
 \*------------------------------------*/
 
 .logo {
+  display: inline-block;
   line-height: 1;
+  position: relative;
+
+  z-index: 99;
 }
 
 .logo__link {
@@ -12,6 +16,12 @@
   font-weight: $fw-bold;
   text-transform: uppercase;
   color: $clr-dark;
+
+  transition: all $transition;
+
+  &--alt {
+    color: $clr-light;
+  }
 }
 
 .logo__highlight {
