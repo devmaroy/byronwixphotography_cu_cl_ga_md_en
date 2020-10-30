@@ -15,8 +15,6 @@ module.exports = {
       facebook: 'https://www.facebook.com/byronwixphotography',
       twitter: 'https://www.twitter.com/byronwixphotography',
       instagram: 'https://www.instagram.com/byronwixphotography',
-      dribbble: 'https://www.dribbble.com/byronwixphotography',
-      linkedin: 'https://www.linkedin.com/in/byronwixphotography',
     },
     copyright: {
       name: 'Byron Wix Photography',

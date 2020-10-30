@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import classNames from 'classnames';
+import Social from '../common/social';
 
 const Navigation = ({ isOpen, toggleNavigation }) => {
   return (
@@ -70,6 +71,10 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
           </li>
         </ul>
       </nav>
+
+      <div className="navigation__social">
+        <Social />
+      </div>
     </>
   );
 };

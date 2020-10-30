@@ -1,0 +1,20 @@
+/*------------------------------------*\
+  # Social
+\*------------------------------------*/
+
+.social {
+  @include list-unstyled;
+}
+
+.social__item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 1.6rem;
+  }
+}
+
+.social__link {
+  @include link-reset;
+  @include link($clr-dark, $clr-primary);
+}
