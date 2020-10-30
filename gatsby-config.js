@@ -2,9 +2,9 @@ module.exports = {
   siteMetadata: {
     lang: 'en',
     locale: 'en_US',
-    title: 'Byron Wix: Official website of the Byron Wix Photography portfolio',
+    title: 'Byron Wix Photography: Professional freelance photographer',
     titleSimplified: 'Byron Wix',
-    description: 'Official website of the Byron Wix Photography portfolio.',
+    description: 'Professional freelance photographer Byron Wix',
     author: 'byron wix',
     twitterHandle: '@byronwixphotography',
     email: 'hello@byronwixphotography.com',
@@ -47,26 +47,26 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Byron Wix: Official website of the Byron Wix Photography portfolio`,
-        short_name: `Byron Wix`,
-        start_url: `/`,
-        background_color: `#418ef4`,
-        theme_color: `#418ef4`,
+        name: 'Byron Wix Photography: Professional freelance photographer',
+        short_name: 'Byron Wix Photography',
+        start_url: '/',
+        background_color: '#418ef4',
+        theme_color: '#418ef4',
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: `standalone`,
+        display: 'standalone',
         icon: `${__dirname}/src/images/favicons/favicon.png`, // This path is relative to the root of the site.
         // An optional attribute which provides support for CORS check.
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`
-        crossOrigin: `use-credentials`,
+        crossOrigin: 'use-credentials',
         icon_options: {
           // For all the options available, please see:
           // https://developer.mozilla.org/en-US/docs/Web/Manifest
           // https://w3c.github.io/manifest/#purpose-member
-          purpose: `maskable`,
+          purpose: 'maskable',
         },
         legacy: true,
       },
