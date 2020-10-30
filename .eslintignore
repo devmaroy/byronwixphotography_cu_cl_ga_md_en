@@ -6,3 +6,4 @@ package-lock.json
 lint-staged.config.js
 .stylelintrc
 README.md
+markdown-pages

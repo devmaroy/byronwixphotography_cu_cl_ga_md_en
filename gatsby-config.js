@@ -1,34 +1,75 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    lang: 'en',
+    locale: 'en_US',
+    title: 'Byron Wix: Official website of the Byron Wix Photography portfolio',
+    titleSimplified: 'Byron Wix',
+    description: 'Official website of the Byron Wix Photography portfolio.',
+    author: 'byron wix',
+    twitterHandle: '@byronwixphotography',
+    email: 'hello@byronwixphotography.com',
+    siteUrl: 'https://byronwixphotography.marekmatejovic.com/',
+    siteName: 'Byron Wix Photography',
+    image: '/images/social/social.png',
+    socialMedia: {
+      facebook: 'https://www.facebook.com/byronwixphotography',
+      twitter: 'https://www.twitter.com/byronwixphotography',
+      instagram: 'https://www.instagram.com/byronwixphotography',
+      dribbble: 'https://www.dribbble.com/byronwixphotography',
+      linkedin: 'https://www.linkedin.com/in/byronwixphotography',
+    },
+    copyright: {
+      name: 'Byron Wix Photography',
+      rights: 'All rights reserved',
+      author: 'devmaroy',
+      authorUrl: 'https://marekmatejovic.com/',
+    },
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-no-sourcemaps',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-sass',
       options: {
-        name: `images`,
+        includePaths: ['node_modules/normalize-scss/sass'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Byron Wix: Official website of the Byron Wix Photography portfolio`,
+        short_name: `Byron Wix`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#418ef4`,
+        theme_color: `#418ef4`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: `standalone`,
+        icon: `${__dirname}/src/images/favicons/favicon.png`, // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+        crossOrigin: `use-credentials`,
+        icon_options: {
+          // For all the options available, please see:
+          // https://developer.mozilla.org/en-US/docs/Web/Manifest
+          // https://w3c.github.io/manifest/#purpose-member
+          purpose: `maskable`,
+        },
+        legacy: true,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
-}
+};
