@@ -1,0 +1,57 @@
+/*------------------------------------*\
+  # Testimonial
+\*------------------------------------*/
+
+.testimonial {
+  padding: 1.6rem;
+  background: $clr-light;
+}
+
+.testimonial__text {
+  font-family: $ff-base;
+  font-weight: $fw-medium;
+  font-style: italic;
+  font-size: 1.6rem;
+  line-height: 2.9rem;
+  color: $clr-gray;
+
+  p {
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 2.4rem;
+    }
+  }
+}
+
+.testimonial-author {
+  display: flex;
+  margin-top: 2.4rem;
+}
+
+.testimonial-author__image {
+  margin-right: 1.6rem;
+
+  img {
+    width: 3.2rem;
+    height: 3.2rem;
+    object-fit: cover;
+  }
+}
+
+.testimonial-author__name {
+  font-family: $ff-base;
+  font-weight: $fw-bold;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  color: $clr-dark-off;
+}
+
+.testimonial-author__position {
+  font-family: $ff-base;
+  font-weight: $fw-normal;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin-top: 0.8rem;
+  color: $clr-base;
+}

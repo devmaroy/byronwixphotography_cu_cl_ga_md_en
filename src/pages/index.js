@@ -5,6 +5,7 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import Hero from '../components/pages/hero';
 import Services from '../components/pages/services';
+import Testimonials from '../components/pages/testimonials';
 
 const IndexPage = () => {
   return (
@@ -12,6 +13,7 @@ const IndexPage = () => {
       <SEO />
       <Hero />
       <Services />
+      <Testimonials />
     </Layout>
   );
 };
