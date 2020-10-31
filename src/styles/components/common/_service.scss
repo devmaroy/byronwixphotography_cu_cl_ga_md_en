@@ -1,0 +1,33 @@
+/*------------------------------------*\
+  # Service
+\*------------------------------------*/
+
+.service {
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+.service__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6.4rem;
+  height: 6.4rem;
+  font-size: 3.2rem;
+  background: $clr-primary;
+  color: $clr-dark;
+}
+
+.service__text {
+  margin-top: 2.4rem;
+
+  p {
+    margin: 0;
+    color: $clr-base;
+
+    &:not(:last-child) {
+      margin-bottom: 3.2rem;
+    }
+  }
+}
