@@ -1,0 +1,35 @@
+/*------------------------------------*\
+  # Instagram Feed
+\*------------------------------------*/
+
+.instagram-feed {
+  margin-top: 9.6rem;
+}
+
+.instagram-feed__header {
+  text-align: center;
+}
+
+.instagram-feed__heading {
+  font-family: $ff-heading;
+  font-weight: $fw-bold;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  margin: 0 0 0.8rem 0;
+  color: $clr-dark-off;
+}
+
+.instagram-feed__link {
+  @include link-reset;
+  @include link($clr-primary, darken($clr-primary, 15%));
+}
+
+.instagram-feed__list {
+  margin-top: 2.4rem;
+}
+
+.instagram-item {
+  background-size: cover;
+  width: 100%;
+  height: 22.5rem;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './header';
 import Footer from './footer';
+import InstagramFeed from '../common/instagramFeed';
 
 const Layout = ({ children }) => {
   return (
@@ -11,6 +12,7 @@ const Layout = ({ children }) => {
 
         <main className="main">{children}</main>
 
+        <InstagramFeed />
         <Footer />
       </div>
     </>
