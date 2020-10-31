@@ -1,0 +1,58 @@
+/*------------------------------------*\
+  # Hero
+\*------------------------------------*/
+
+.hero {
+  margin-top: 6.4rem;
+}
+
+.hero__heading {
+  font-family: $ff-heading;
+  font-size: 3.2rem;
+  font-weight: $fw-bold;
+  line-height: 5.1rem;
+  margin: 0;
+  color: $clr-dark;
+}
+
+.hero__highlight {
+  color: $clr-primary;
+}
+
+.hero__heading_break {
+  display: block;
+}
+
+.hero__text {
+  margin-top: 3.2rem;
+
+  p {
+    font-family: $ff-base;
+    font-weight: $fw-normal;
+    font-size: 1.6rem;
+    line-height: 2.9rem;
+    margin: 0;
+    color: $clr-base;
+
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+.hero__cta {
+  margin-top: 5.6rem;
+}
+
+.hero__cta_link {
+  @include link-reset;
+  @include link($clr-dark, $clr-primary);
+  font-size: 1.6rem;
+  font-weight: $fw-bold;
+  text-transform: uppercase;
+  display: flex;
+
+  img {
+    margin-right: 2.4rem;
+  }
+}
