@@ -4,30 +4,37 @@
 
 .footer {
   padding: 4rem 0;
-  font-size: $fs-md;
-  // color: $clr-gray;
-}
+  font-size: $fs-sm;
+  color: $clr-base;
 
-.footer__info {
-  visibility: hidden;
-
-  @media (min-width: 720px) {
-    display: flex;
-    justify-content: space-between;
+  p {
+    margin: 0;
   }
 }
+
+.footer__copyright {
+  margin-bottom: 1.6rem;
+}
+
+// .footer__info {
+//   visibility: hidden;
+
+//   @media (min-width: 720px) {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// }
 
 .footer__social {
   margin-top: 3.2rem;
 }
 
 .footer__highlight {
-  font-weight: $fw-bold;
-  // color: $clr-danger;
+  color: $clr-danger;
 }
 
 .footer__link {
   @include link-reset;
   @include link($clr-primary, darken($clr-primary, 15%));
-  font-weight: $fw-bold;
+  font-weight: $fw-medium;
 }
