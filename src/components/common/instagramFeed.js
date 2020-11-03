@@ -1,7 +1,25 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import Slider from 'react-slick';
 import instagramItem01 from '../../images/instagram-feed/instagram-item-01.jpg';
+import instagramItem02 from '../../images/instagram-feed/instagram-item-02.jpg';
+import instagramItem03 from '../../images/instagram-feed/instagram-item-03.jpg';
+import instagramItem04 from '../../images/instagram-feed/instagram-item-04.jpg';
+import instagramItem05 from '../../images/instagram-feed/instagram-item-05.jpg';
 
 const InstagramFeed = () => {
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    // autoplaySpeed: 6000,
+    autoplaySpeed: 6000000,
+    pauseOnHover: true,
+  };
+
   return (
     <div className="instagram-feed">
       <div className="instagram-feed__header">
@@ -15,10 +33,42 @@ const InstagramFeed = () => {
       </div>
 
       <div className="instagram-feed__list">
-        <div
-          className="instagram-item"
-          style={{ backgroundImage: `url(${instagramItem01})` }}
-        />
+        <Slider {...settings}>
+          <div>
+            <div
+              className="instagram-item"
+              style={{ backgroundImage: `url(${instagramItem01})` }}
+            />
+          </div>
+
+          <div>
+            <div
+              className="instagram-item"
+              style={{ backgroundImage: `url(${instagramItem02})` }}
+            />
+          </div>
+
+          <div>
+            <div
+              className="instagram-item"
+              style={{ backgroundImage: `url(${instagramItem03})` }}
+            />
+          </div>
+
+          <div>
+            <div
+              className="instagram-item"
+              style={{ backgroundImage: `url(${instagramItem04})` }}
+            />
+          </div>
+
+          <div>
+            <div
+              className="instagram-item"
+              style={{ backgroundImage: `url(${instagramItem05})` }}
+            />
+          </div>
+        </Slider>
       </div>
     </div>
   );
