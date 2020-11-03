@@ -12,8 +12,7 @@ const Testimonials = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    // autoplaySpeed: 6000,
-    autoplaySpeed: 6000000,
+    autoplaySpeed: 6000,
     pauseOnHover: true,
   };
 

@@ -3,7 +3,14 @@
 \*------------------------------------*/
 
 .testimonials {
+  position: relative;
   margin-top: 8rem;
+
+  &::before {
+    content: url('../images/shapes/rect-shape.svg');
+    position: absolute;
+    top: 3rem;
+  }
 }
 
 .testimonials__list {
