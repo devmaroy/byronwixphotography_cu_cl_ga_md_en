@@ -18,7 +18,7 @@ const query = graphql`
   }
 `;
 
-const Social = ({ fixedWidth = false }) => {
+const Social = ({ type = 'normal', fixedWidth = false }) => {
   const data = useStaticQuery(query);
   const socialLinks = data.site.siteMetadata.socialMedia;
 
@@ -27,7 +27,7 @@ const Social = ({ fixedWidth = false }) => {
       {Object.entries(socialLinks).map(([name, url]) => (
         <li key={name} className="social__item">
           <a href={url} target="__blank" className="social__link">
-            <SocialIcon icon={name} fixedWidth={fixedWidth} />
+            <SocialIcon type={type} icon={name} fixedWidth={fixedWidth} />
           </a>
         </li>
       ))}
@@ -37,6 +37,7 @@ const Social = ({ fixedWidth = false }) => {
 
 Social.propTypes = {
   fixedWidth: PropTypes.bool,
+  type: PropTypes.string,
 };
 
 export default Social;

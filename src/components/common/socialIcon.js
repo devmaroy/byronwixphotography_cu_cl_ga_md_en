@@ -10,7 +10,7 @@ const SocialIcon = ({ icon, type = 'normal', fixedWidth = true }) => {
     twitter: 'twitter-square',
     linkedin: 'linkedin',
     youtube: 'youtube-square',
-    instagram: 'instagram',
+    instagram: 'instagram-square',
     dribbble: 'dribbble-square',
   };
 

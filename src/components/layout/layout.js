@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from './header';
 import Footer from './footer';
 import InstagramFeed from '../common/instagramFeed';
+import PreFooter from './preFooter';
 
 const Layout = ({ children }) => {
   return (
@@ -13,6 +14,7 @@ const Layout = ({ children }) => {
         <main className="main">{children}</main>
 
         <InstagramFeed />
+        <PreFooter />
         <Footer />
       </div>
     </>

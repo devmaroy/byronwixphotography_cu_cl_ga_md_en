@@ -18,6 +18,7 @@
 // Components
 
 // Common
+@import './components/common/buttons';
 @import './components/common/grid';
 @import './components/common/page-error';
 @import './components/common/logo';
@@ -31,6 +32,7 @@
 @import './components/layout/header';
 @import './components/layout/navigation';
 @import './components/layout/footer';
+@import './components/layout/pre-footer';
 
 // Pages
 @import './components/pages/hero';

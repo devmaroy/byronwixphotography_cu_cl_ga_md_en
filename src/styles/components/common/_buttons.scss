@@ -1,0 +1,22 @@
+/*------------------------------------*\
+  # Buttons
+\*------------------------------------*/
+
+.button {
+  @include button;
+}
+
+.button--sm {
+  @include button-sm;
+}
+
+.button--primary {
+  background: $clr-primary-off-dk;
+  color: $clr-brown;
+
+  &:hover,
+  &:focus {
+    background: $clr-primary-off-dkr;
+    color: $clr-primary-off-dkst;
+  }
+}
