@@ -54,6 +54,12 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
 
           <li className="navigation__item">
             <Link to="/" className="navigation__link">
+              Contact
+            </Link>
+          </li>
+
+          <li className="navigation__item">
+            <Link to="/" className="navigation__link">
               Blog
             </Link>
           </li>
