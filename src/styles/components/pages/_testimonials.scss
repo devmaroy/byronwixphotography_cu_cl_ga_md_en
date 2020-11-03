@@ -13,3 +13,21 @@
     url('../images/pages/testimonials/testimonials_bg.jpg') no-repeat;
   background-size: cover;
 }
+
+.slick-dots {
+  position: static;
+  margin-top: 2.4rem;
+}
+
+.slick-dots li {
+  button::before,
+  &.slick-active button::before {
+    font-size: 16px;
+    opacity: 1;
+    color: $clr-slick-dots;
+  }
+
+  &.slick-active button::before {
+    color: $clr-slicks-dots-active;
+  }
+}
