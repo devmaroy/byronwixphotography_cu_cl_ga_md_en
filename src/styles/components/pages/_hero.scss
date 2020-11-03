@@ -3,7 +3,14 @@
 \*------------------------------------*/
 
 .hero {
+  position: relative;
   margin-top: 6.4rem;
+
+  &::before {
+    content: url('../images/shapes/rect-shape.svg');
+    position: absolute;
+    top: -7.3rem;
+  }
 }
 
 .hero__heading {
@@ -42,6 +49,13 @@
 
 .hero__cta {
   margin-top: 5.6rem;
+
+  &::after {
+    content: url('../images/shapes/rect-shape.svg');
+    position: absolute;
+    bottom: 4rem;
+    right: 0;
+  }
 }
 
 .hero__cta_link {
