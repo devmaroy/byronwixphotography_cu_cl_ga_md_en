@@ -9,14 +9,12 @@ import instagramItem05 from '../../images/instagram-feed/instagram-item-05.jpg';
 
 const InstagramFeed = () => {
   const settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    // autoplaySpeed: 6000,
-    autoplaySpeed: 6000000,
+    autoplay: false,
     pauseOnHover: true,
   };
 
