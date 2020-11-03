@@ -3,6 +3,8 @@ import React from 'react';
 import Slider from 'react-slick';
 import Testimonial from '../common/testimonial';
 import testimonialImage01 from '../../images/pages/testimonials/testimonial-01.jpg';
+import testimonialImage02 from '../../images/pages/testimonials/testimonial-02.jpg';
+import testimonialImage03 from '../../images/pages/testimonials/testimonial-03.jpg';
 
 const Testimonials = () => {
   const settings = {
@@ -34,31 +36,31 @@ const Testimonials = () => {
                 <p>
                   ”Cupcake cake sesame snaps lollipop powder cupcake jelly
                   marzipan. Halvah pie dragée carrot cake pudding chocolate.
-                  Pastry gummies pastry marshmallow cookie”
+                  Pastry gummies pastry marshmallow cookie.”
                 </p>
               </Testimonial>
 
               <Testimonial
-                authorImage={testimonialImage01}
-                authorName="Debbie W. Stephens"
-                authorPosition="Freelancer"
+                authorImage={testimonialImage02}
+                authorName="Timothy B. Shaw"
+                authorPosition="CEO at Shawness Technology, Inc."
               >
                 <p>
-                  ”Cupcake cake sesame snaps lollipop powder cupcake jelly
-                  marzipan. Halvah pie dragée carrot cake pudding chocolate.
-                  Pastry gummies pastry marshmallow cookie”
+                  “Tiramisu tiramisu jelly beans. Ice cream bear claw cookie
+                  danish. Bear claw tart gingerbread chupa chups. Carrot cake
+                  macaroon pie lollipop carrot cake liquorice cotton.”
                 </p>
               </Testimonial>
 
               <Testimonial
-                authorImage={testimonialImage01}
-                authorName="Debbie W. Stephens"
-                authorPosition="Freelancer"
+                authorImage={testimonialImage03}
+                authorName="William Molina"
+                authorPosition="Developer"
               >
                 <p>
-                  ”Cupcake cake sesame snaps lollipop powder cupcake jelly
-                  marzipan. Halvah pie dragée carrot cake pudding chocolate.
-                  Pastry gummies pastry marshmallow cookie”
+                  “Marshmallow bear claw dessert croissant sweet roll chocolate
+                  cake jelly beans icing. Gummies apple pie marzipan bear claw
+                  lollipop. Carrot cake roll. Soufflé tart donut.”
                 </p>
               </Testimonial>
             </Slider>
