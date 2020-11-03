@@ -4,6 +4,10 @@
 
 @include base-styles;
 
+body.is-open {
+  overflow: hidden;
+}
+
 .divider-space-section {
   padding: 8rem 0;
 

@@ -5,7 +5,7 @@
 .navigation-toggle {
   @include reset-appearance;
   position: absolute;
-  top: 0.5rem;
+  top: 1rem;
   right: 2.4rem;
   line-height: 1;
   z-index: 99;
@@ -18,6 +18,11 @@
     .navigation-toggle__bar--two {
       width: 3rem;
     }
+  }
+
+  &.is-open {
+    position: fixed;
+    top: 5rem;
   }
 }
 
@@ -66,6 +71,7 @@
   right: 0;
   left: 0;
   transform: translateX(-100%);
+  overflow-y: scroll;
   z-index: 98;
   background: $clr-dark-off;
 
@@ -79,6 +85,7 @@
 .navigation__list {
   @include list-unstyled;
   margin-top: 14.4rem;
+  margin-bottom: 6.4rem;
   text-align: center;
 }
 

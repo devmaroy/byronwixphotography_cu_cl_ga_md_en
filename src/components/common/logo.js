@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 const Logo = ({ alt = false }) => {
   return (
-    <div className="logo">
+    <div className={classNames('logo', { 'logo--alt': alt })}>
       <Link
         to="/"
         className={classNames('logo__link', {

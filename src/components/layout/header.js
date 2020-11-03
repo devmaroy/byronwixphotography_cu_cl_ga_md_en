@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../common/logo';
 import Navigation from './navigation';
 
@@ -8,6 +8,14 @@ const Header = () => {
   const toggleNavigation = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    document.body.classList.toggle('is-open', isOpen);
+
+    return () => {
+      document.body.classList.remove('is-open');
+    };
+  }, [isOpen]);
 
   return (
     <header className="header">

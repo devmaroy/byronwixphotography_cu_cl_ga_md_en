@@ -9,7 +9,7 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
     <>
       <button
         type="button"
-        className="navigation-toggle"
+        className={classNames('navigation-toggle', { 'is-open': isOpen })}
         onClick={toggleNavigation}
       >
         <div
@@ -49,18 +49,6 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
           <li className="navigation__item">
             <Link to="/" className="navigation__link">
               Portfolio
-            </Link>
-          </li>
-
-          <li className="navigation__item">
-            <Link to="/" className="navigation__link">
-              Gallery
-            </Link>
-          </li>
-
-          <li className="navigation__item">
-            <Link to="/" className="navigation__link">
-              Contact
             </Link>
           </li>
 
