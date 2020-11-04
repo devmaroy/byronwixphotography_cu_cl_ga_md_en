@@ -1,0 +1,55 @@
+/*------------------------------------*\
+  # About
+\*------------------------------------*/
+
+.about__photo {
+  margin-top: 5.6rem;
+
+  img {
+    height: 31.2rem;
+    object-fit: cover;
+  }
+}
+
+.about__social {
+  text-align: center;
+  margin-top: 3.2rem;
+
+  .social__item:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+
+  .social__link {
+    font-size: 2.4rem;
+  }
+}
+
+.about__text {
+  margin-top: 6.4rem;
+
+  h2 {
+    font-family: $ff-heading;
+    font-weight: $fw-bold;
+    font-size: 2.4rem;
+    line-height: 3.4rem;
+    margin: 0 0 1.6rem 0;
+    color: $clr-dark-off;
+  }
+
+  p {
+    font-family: $ff-base;
+    font-weight: $fw-normal;
+    font-size: 1.6rem;
+    line-height: 2.9rem;
+    margin: 0;
+    color: $clr-base;
+
+    &:not(:last-child) {
+      margin-bottom: 3.2rem;
+    }
+  }
+}
+
+.about__cta {
+  margin-top: 4rem;
+}

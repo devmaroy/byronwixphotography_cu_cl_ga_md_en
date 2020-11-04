@@ -20,3 +20,14 @@
     color: $clr-primary-off-dkst;
   }
 }
+
+.button--secondary {
+  background: $clr-secondary;
+  color: $clr-blue;
+
+  &:hover,
+  &:focus {
+    background: $clr-primary-off-dkr;
+    color: $clr-primary-off-dkst;
+  }
+}
