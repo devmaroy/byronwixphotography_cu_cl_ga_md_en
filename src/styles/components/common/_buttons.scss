@@ -21,6 +21,17 @@
   }
 }
 
+.button--outline-primary {
+  border: 0.2rem solid $clr-primary-off-dk;
+  color: $clr-primary-off-dk;
+
+  &:hover,
+  &:focus {
+    background: $clr-primary-off-dk;
+    color: $clr-primary-off-dkst;
+  }
+}
+
 .button--secondary {
   background: $clr-secondary;
   color: $clr-blue;
