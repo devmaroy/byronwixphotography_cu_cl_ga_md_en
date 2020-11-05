@@ -1,0 +1,48 @@
+/*------------------------------------*\
+  # Custom Checkbox
+\*------------------------------------*/
+
+.custom-checkbox__label {
+  display: flex;
+}
+
+.custom-checkbox__control {
+  display: none;
+
+  &:checked + .custom-checkbox__field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:checked + .custom-checkbox__field::before {
+    content: '';
+    background: url('../images/icons/custom-checkbox.svg');
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+.custom-checkbox__field {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-right: 0.8rem;
+  background: $clr-custom-checkbox-bg;
+}
+
+.custom-checkbox__text {
+  font-family: $ff-base;
+  font-weight: $fw-normal;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  color: $clr-custom-checkbox-base;
+}
+
+.custom-checkbox__link {
+  @include link-reset;
+  @include link($clr-primary, darken($clr-primary, 15%));
+  font-weight: $fw-medium;
+}

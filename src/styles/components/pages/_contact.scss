@@ -1,0 +1,71 @@
+/*------------------------------------*\
+  # Contact
+\*------------------------------------*/
+
+.contact-details {
+  margin-top: 5.6rem;
+}
+
+.contact-details__heading {
+  font-family: $ff-heading;
+  font-weight: $fw-medium;
+  font-size: 2.4rem;
+  line-height: 1;
+  margin: 0 0 2.4rem 0;
+  color: $clr-dark-off;
+}
+
+.contact-details__text {
+  p {
+    font-family: $ff-base;
+    font-weight: $fw-normal;
+    font-size: 1.6rem;
+    line-height: 2.9rem;
+    margin: 0;
+    color: $clr-base;
+
+    &:not(:last-child) {
+      margin-bottom: 2.4rem;
+    }
+  }
+}
+
+.contact-details__list {
+  @include list-unstyled;
+  margin-top: 4.8rem;
+}
+
+.contact-details__item {
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+.contact-details__subheading {
+  font-family: $ff-heading;
+  font-weight: $fw-medium;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0 0 2.4rem 0;
+  color: $clr-dark-off;
+}
+
+.contact-details__subtext {
+  a {
+    @include link-reset;
+    @include link($clr-base, $clr-primary);
+  }
+
+  p {
+    margin: 0;
+    color: $clr-base;
+
+    &:not(:last-child) {
+      margin-bottom: 1.6rem;
+    }
+  }
+}
+
+.contact-details-form {
+  margin-top: 8rem;
+}
