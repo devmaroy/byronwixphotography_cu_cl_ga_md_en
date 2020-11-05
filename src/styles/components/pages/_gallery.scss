@@ -1,0 +1,50 @@
+/*------------------------------------*\
+  # Gallery
+\*------------------------------------*/
+
+.gallery-images {
+  margin-top: 5.6rem;
+}
+
+.gallery-image {
+  &:not(:last-child) {
+    margin-bottom: 3.2rem;
+  }
+}
+
+.gallery-image__description {
+  margin-top: 1.6rem;
+}
+
+.gallery-image__heading {
+  font-family: $ff-heading;
+  font-weight: $fw-medium;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  margin: 0 0 0.8rem 0;
+  color: $clr-dark-off;
+}
+
+.gallery-image__text {
+  p {
+    font-family: $ff-base;
+    font-weight: $fw-normal;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    margin: 0;
+    color: $clr-base;
+
+    &:not(:last-child) {
+      margin-bottom: 2.4rem;
+    }
+  }
+}
+
+.gallery__meta {
+  text-align: center;
+  margin-top: 6.4rem;
+}
+
+.gallery__cta {
+  font-size: 1.4rem;
+}
