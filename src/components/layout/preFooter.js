@@ -34,7 +34,7 @@ const PreFooter = () => {
 
               <div className="pre-footer-form__meta">
                 <button
-                  type="submit"
+                  type="button"
                   className="button button--sm button--primary"
                 >
                   Send
