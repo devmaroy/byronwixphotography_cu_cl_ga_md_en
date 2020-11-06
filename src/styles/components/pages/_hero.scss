@@ -11,6 +11,10 @@
     position: absolute;
     top: -7.3rem;
   }
+
+  @media (min-width: 1020px) {
+    margin-top: 9.6rem;
+  }
 }
 
 .hero__heading {
@@ -20,6 +24,11 @@
   line-height: 5.1rem;
   margin: 0;
   color: $clr-dark;
+
+  @media (min-width: 1020px) {
+    font-size: 4.4rem;
+    line-height: 7rem;
+  }
 }
 
 .hero__highlight {
@@ -33,6 +42,10 @@
 .hero__text {
   margin-top: 3.2rem;
 
+  @media (min-width: 1020px) {
+    margin-top: 4rem;
+  }
+
   p {
     font-family: $ff-base;
     font-weight: $fw-normal;
@@ -41,13 +54,22 @@
     margin: 0;
     color: $clr-base;
 
-    &:not(:last-child) {
-      margin-bottom: 4rem;
+    @media (min-width: 1020px) {
+      font-size: 1.8rem;
+      line-height: 3.2rem;
+    }
+  }
+
+  p:not(:last-child) {
+    margin-bottom: 4rem;
+
+    @media (min-width: 1020px) {
+      margin-bottom: 4.8rem;
     }
   }
 }
 
-.hero__cta {
+.hero-cta {
   margin-top: 5.6rem;
 
   &::after {
@@ -58,7 +80,7 @@
   }
 }
 
-.hero__cta_link {
+.hero-cta__link {
   @include link-reset;
   @include link($clr-dark, $clr-primary);
   font-size: 1.6rem;
@@ -66,7 +88,20 @@
   text-transform: uppercase;
   display: flex;
 
-  img {
+  @media (min-width: 1020px) {
+    font-size: 1.8rem;
+  }
+
+  &::before {
+    content: url('../images/icons/long-arrow.svg');
+    display: inline-block;
     margin-right: 2.4rem;
+
+    position: relative;
+    top: 0.2rem;
+
+    @media (min-width: 1020px) {
+      content: url('../images/icons/long-arrow-lg.svg');
+    }
   }
 }

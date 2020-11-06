@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import longArrowIcon from '../../images/icons/long-arrow.svg';
 
 const Hero = () => {
   return (
@@ -30,9 +29,8 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="hero__cta">
-            <Link to="/" className="hero__cta_link">
-              <img src={longArrowIcon} alt="Long arrow icon" />
+          <div className="hero-cta">
+            <Link to="/" className="hero-cta__link">
               See my portfolio
             </Link>
           </div>
