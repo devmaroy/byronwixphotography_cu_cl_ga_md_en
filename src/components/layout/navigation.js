@@ -32,42 +32,44 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
         />
       </button>
 
-      <nav className={classNames('navigation', { 'is-open': isOpen })}>
-        <ul className="navigation__list">
-          <li className="navigation__item">
-            <Link to="/" className="navigation__link">
-              Home
-            </Link>
-          </li>
+      <div className="navigation-wrapper">
+        <nav className={classNames('navigation', { 'is-open': isOpen })}>
+          <ul className="navigation__list">
+            <li className="navigation__item">
+              <Link to="/" className="navigation__link">
+                Home
+              </Link>
+            </li>
 
-          <li className="navigation__item">
-            <Link to="/" className="navigation__link">
-              About
-            </Link>
-          </li>
+            <li className="navigation__item">
+              <Link to="/" className="navigation__link">
+                About
+              </Link>
+            </li>
 
-          <li className="navigation__item">
-            <Link to="/" className="navigation__link">
-              Portfolio
-            </Link>
-          </li>
+            <li className="navigation__item">
+              <Link to="/" className="navigation__link">
+                Portfolio
+              </Link>
+            </li>
 
-          <li className="navigation__item">
-            <Link to="/" className="navigation__link">
-              Contact
-            </Link>
-          </li>
+            <li className="navigation__item">
+              <Link to="/" className="navigation__link">
+                Contact
+              </Link>
+            </li>
 
-          <li className="navigation__item">
-            <Link to="/" className="navigation__link">
-              Blog
-            </Link>
-          </li>
-        </ul>
-      </nav>
+            <li className="navigation__item">
+              <Link to="/" className="navigation__link">
+                Blog
+              </Link>
+            </li>
+          </ul>
+        </nav>
 
-      <div className="navigation__social">
-        <Social />
+        <div className="navigation__social">
+          <Social />
+        </div>
       </div>
     </>
   );

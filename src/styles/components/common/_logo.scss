@@ -29,4 +29,8 @@
   margin-top: 0.4rem;
   font-weight: $fw-normal;
   color: $clr-primary;
+
+  @media (min-width: 768px) {
+    display: inline-block;
+  }
 }
