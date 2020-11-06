@@ -11,9 +11,13 @@
   margin: 0;
   color: $clr-dark-off;
 
+  @media (min-width: 1020px) {
+    font-size: 2.8rem;
+  }
+
   &::before {
     content: url('../images/shapes/line.svg');
     position: absolute;
-    top: -3.6rem;
+    top: -4rem;
   }
 }
