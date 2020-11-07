@@ -15,6 +15,10 @@
     position: absolute;
     top: -5rem;
     right: 0;
+
+    @media (min-width: 1020px) {
+      content: url('../images/shapes/rect-shape-lg.svg');
+    }
   }
 }
 

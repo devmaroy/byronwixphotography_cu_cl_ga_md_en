@@ -14,6 +14,10 @@
     content: url('../images/shapes/rect-shape.svg');
     position: absolute;
     top: 3rem;
+
+    @media (min-width: 1020px) {
+      content: url('../images/shapes/rect-shape-lg.svg');
+    }
   }
 
   // Slick slider
