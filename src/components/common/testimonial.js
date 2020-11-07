@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
 const Testimonial = ({
   authorImage,
@@ -13,7 +14,7 @@ const Testimonial = ({
 
       <div className="testimonial-author">
         <div className="testimonial-author__image">
-          <img src={authorImage} alt={`${authorName} portrait`} />
+          <Img fixed={authorImage} alt={`${authorName} portrait`} />
         </div>
 
         <div className="testimonial-author__meta">
@@ -27,7 +28,13 @@ const Testimonial = ({
 };
 
 Testimonial.propTypes = {
-  authorImage: PropTypes.string.isRequired,
+  authorImage: PropTypes.shape({
+    base64: PropTypes.string.isRequired,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    src: PropTypes.string.isRequired,
+    srcSet: PropTypes.string.isRequired,
+  }).isRequired,
   authorName: PropTypes.string.isRequired,
   authorPosition: PropTypes.string,
   children: PropTypes.node.isRequired,

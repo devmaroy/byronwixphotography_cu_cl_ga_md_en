@@ -1,22 +1,43 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Slider from 'react-slick';
 import Testimonial from '../common/testimonial';
-import testimonialImage01 from '../../images/pages/testimonials/testimonial-01.jpg';
-import testimonialImage02 from '../../images/pages/testimonials/testimonial-02.jpg';
-import testimonialImage03 from '../../images/pages/testimonials/testimonial-03.jpg';
+
+// Query
+const query = graphql`
+  {
+    testimonialsImages: allFile(
+      filter: {
+        sourceInstanceName: { eq: "images" }
+        relativeDirectory: { eq: "pages/testimonials" }
+        base: { regex: "/testimonial-/" }
+      }
+      sort: { fields: [name], order: ASC }
+    ) {
+      nodes {
+        childImageSharp {
+          fixed(width: 32, height: 32, quality: 100) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  }
+`;
 
 const Testimonials = () => {
+  const data = useStaticQuery(query);
+  const testimonialsImages = data.testimonialsImages.nodes;
+
   const settings = {
     dots: true,
     arrows: false,
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 2,
-    // autoplay: true,
-    autoplay: false,
-    // autoplaySpeed: 6000,
-    autoplaySpeed: 6000000000,
+    autoplay: true,
+    autoplaySpeed: 6000,
     pauseOnHover: true,
     responsive: [
       {
@@ -40,7 +61,7 @@ const Testimonials = () => {
           <div className="testimonials__list">
             <Slider {...settings}>
               <Testimonial
-                authorImage={testimonialImage01}
+                authorImage={testimonialsImages[0].childImageSharp.fixed}
                 authorName="Debbie W. Stephens"
                 authorPosition="Freelancer"
               >
@@ -52,7 +73,7 @@ const Testimonials = () => {
               </Testimonial>
 
               <Testimonial
-                authorImage={testimonialImage02}
+                authorImage={testimonialsImages[1].childImageSharp.fixed}
                 authorName="Timothy B. Shaw"
                 authorPosition="CEO at Shawness Technology, Inc."
               >
@@ -64,7 +85,7 @@ const Testimonials = () => {
               </Testimonial>
 
               <Testimonial
-                authorImage={testimonialImage03}
+                authorImage={testimonialsImages[2].childImageSharp.fixed}
                 authorName="William Molina"
                 authorPosition="Developer"
               >
