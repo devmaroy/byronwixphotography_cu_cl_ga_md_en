@@ -3,17 +3,34 @@
 \*------------------------------------*/
 
 .footer {
-  padding: 4rem 0;
+  margin-top: 3.2rem;
+  margin-bottom: 2.4rem;
+
   font-size: $fs-sm;
   color: $clr-base;
+
+  @media (min-width: 900px) {
+    margin-top: 4.8rem;
+  }
 
   p {
     margin: 0;
   }
 }
 
+.footer__inner {
+  @media (min-width: 900px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .footer__copyright {
   margin-bottom: 1.6rem;
+
+  @media (min-width: 900px) {
+    margin-bottom: 0;
+  }
 }
 
 .footer__social {
