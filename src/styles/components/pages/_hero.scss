@@ -11,7 +11,7 @@
     position: absolute;
     top: -7.3rem;
 
-    @media (min-width: 1020px) {
+    @media (min-width: 1600px) {
       content: url('../images/shapes/rect-shape-lg.svg');
     }
   }
@@ -95,7 +95,7 @@
     bottom: 4rem;
     right: 0;
 
-    @media (min-width: 1020px) {
+    @media (min-width: 1600px) {
       content: url('../images/shapes/rect-shape-lg.svg');
     }
   }
