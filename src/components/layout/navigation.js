@@ -42,25 +42,25 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
             </li>
 
             <li className="navigation__item">
-              <Link to="/" className="navigation__link">
+              <Link to="/about" className="navigation__link">
                 About
               </Link>
             </li>
 
             <li className="navigation__item">
-              <Link to="/" className="navigation__link">
+              <Link to="/portfolio" className="navigation__link">
                 Portfolio
               </Link>
             </li>
 
             <li className="navigation__item">
-              <Link to="/" className="navigation__link">
+              <Link to="/contact" className="navigation__link">
                 Contact
               </Link>
             </li>
 
             <li className="navigation__item">
-              <Link to="/" className="navigation__link">
+              <Link to="/blog" className="navigation__link">
                 Blog
               </Link>
             </li>

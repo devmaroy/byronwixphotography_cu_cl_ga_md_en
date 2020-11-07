@@ -27,8 +27,6 @@ const Hero = () => {
   const data = useStaticQuery(query);
   const heroPhoto = data.heroPhoto.nodes[0].childImageSharp;
 
-  console.log(heroPhoto);
-
   return (
     <div className="hero">
       <div className="container">
@@ -58,7 +56,7 @@ const Hero = () => {
             </div>
 
             <div className="hero-cta">
-              <Link to="/" className="hero-cta__link">
+              <Link to="/portfolio" className="hero-cta__link">
                 See my portfolio
               </Link>
             </div>
