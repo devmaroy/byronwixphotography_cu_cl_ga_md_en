@@ -21,6 +21,21 @@
   }
 }
 
+.hero__inner {
+  @media (min-width: 1020px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 4rem;
+  }
+
+  @media (min-width: 1320px) {
+    grid-template-columns: 688px 576px;
+    justify-content: space-between;
+    // grid-template-columns: 1fr 1fr;
+    // grid-gap: 6.4rem;
+  }
+}
+
 .hero__heading {
   font-family: $ff-heading;
   font-size: 3.2rem;
@@ -112,4 +127,16 @@
       content: url('../images/icons/long-arrow-lg.svg');
     }
   }
+}
+
+.hero__photo {
+  display: none;
+
+  @media (min-width: 1020px) {
+    display: block;
+  }
+}
+
+.hero__image {
+  height: 57.6rem;
 }
