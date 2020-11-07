@@ -1,15 +1,36 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Slider from 'react-slick';
-import instagramItem01 from '../../images/instagram-feed/instagram-item-01.jpg';
-import instagramItem02 from '../../images/instagram-feed/instagram-item-02.jpg';
-import instagramItem03 from '../../images/instagram-feed/instagram-item-03.jpg';
-import instagramItem04 from '../../images/instagram-feed/instagram-item-04.jpg';
-import instagramItem05 from '../../images/instagram-feed/instagram-item-05.jpg';
-import instagramItem06 from '../../images/instagram-feed/instagram-item-06.jpg';
-import instagramItem07 from '../../images/instagram-feed/instagram-item-07.jpg';
+import Img from 'gatsby-image';
+
+// Query
+const query = graphql`
+  {
+    instagramFeedImages: allFile(
+      filter: {
+        sourceInstanceName: { eq: "images" }
+        relativeDirectory: { eq: "instagram-feed" }
+      }
+      sort: { fields: [name], order: ASC }
+    ) {
+      nodes {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`;
 
 const InstagramFeed = () => {
+  const data = useStaticQuery(query);
+  const instagramFeedImages = data.instagramFeedImages.nodes;
+
+  console.log(instagramFeedImages);
+
   const settings = {
     dots: false,
     arrows: false,
@@ -78,52 +99,52 @@ const InstagramFeed = () => {
 
       <div className="instagram-feed__list">
         <Slider {...settings}>
-          <div>
-            <div
-              className="instagram-item"
-              style={{ backgroundImage: `url(${instagramItem01})` }}
+          <div className="instagram-feed__item">
+            <Img
+              fluid={instagramFeedImages[0].childImageSharp.fluid}
+              className="instagram-feed__image"
             />
           </div>
 
-          <div>
-            <div
-              className="instagram-item"
-              style={{ backgroundImage: `url(${instagramItem02})` }}
+          <div className="instagram-feed__item">
+            <Img
+              fluid={instagramFeedImages[1].childImageSharp.fluid}
+              className="instagram-feed__image"
             />
           </div>
 
-          <div>
-            <div
-              className="instagram-item"
-              style={{ backgroundImage: `url(${instagramItem03})` }}
+          <div className="instagram-feed__item">
+            <Img
+              fluid={instagramFeedImages[2].childImageSharp.fluid}
+              className="instagram-feed__image"
             />
           </div>
 
-          <div>
-            <div
-              className="instagram-item"
-              style={{ backgroundImage: `url(${instagramItem04})` }}
+          <div className="instagram-feed__item">
+            <Img
+              fluid={instagramFeedImages[3].childImageSharp.fluid}
+              className="instagram-feed__image"
             />
           </div>
 
-          <div>
-            <div
-              className="instagram-item"
-              style={{ backgroundImage: `url(${instagramItem05})` }}
+          <div className="instagram-feed__item">
+            <Img
+              fluid={instagramFeedImages[4].childImageSharp.fluid}
+              className="instagram-feed__image"
             />
           </div>
 
-          <div>
-            <div
-              className="instagram-item"
-              style={{ backgroundImage: `url(${instagramItem06})` }}
+          <div className="instagram-feed__item">
+            <Img
+              fluid={instagramFeedImages[5].childImageSharp.fluid}
+              className="instagram-feed__image"
             />
           </div>
 
-          <div>
-            <div
-              className="instagram-item"
-              style={{ backgroundImage: `url(${instagramItem07})` }}
+          <div className="instagram-feed__item">
+            <Img
+              fluid={instagramFeedImages[6].childImageSharp.fluid}
+              className="instagram-feed__image"
             />
           </div>
         </Slider>
