@@ -6,19 +6,21 @@ const PreFooter = () => {
     <div className="pre-footer">
       <div className="container">
         <div className="pre-footer__inner">
-          <h3 className="pre-footer__heading">
-            Topping pastry cheesecake pastry
-          </h3>
+          <div className="pre-footer__info">
+            <h3 className="pre-footer__heading">
+              Topping pastry cheesecake pastry
+            </h3>
 
-          <div className="pre-footer__text">
-            <p>
-              Donut pie sweet roll sugar plum carrot cake sweet. Chupa chups
-              donut danish icing pastry pudding sweet ice cream cheesecake.
-            </p>
-          </div>
+            <div className="pre-footer__text">
+              <p>
+                Donut pie sweet roll sugar plum carrot cake sweet. Chupa chups
+                donut danish icing pastry pudding sweet ice cream cheesecake.
+              </p>
+            </div>
 
-          <div className="pre-footer__social">
-            <Social type="square" />
+            <div className="pre-footer__social">
+              <Social type="square" />
+            </div>
           </div>
 
           <div className="pre-footer__newsletter">
@@ -35,7 +37,7 @@ const PreFooter = () => {
               <div className="pre-footer-form__meta">
                 <button
                   type="button"
-                  className="button button--sm button--primary"
+                  className="button button--sm button--primary pre-footer-form__button"
                 >
                   Send
                 </button>
