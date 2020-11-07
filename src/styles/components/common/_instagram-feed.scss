@@ -6,6 +6,10 @@
   position: relative;
   margin-top: 9.6rem;
 
+  @media (min-width: 1020px) {
+    margin-top: 12.8rem;
+  }
+
   &::before {
     content: url('../images/shapes/rect-shape.svg');
     position: absolute;
@@ -25,6 +29,11 @@
   line-height: 1.6rem;
   margin: 0 0 0.8rem 0;
   color: $clr-dark-off;
+
+  @media (min-width: 1020px) {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
 }
 
 .instagram-feed__link {
