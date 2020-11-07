@@ -135,6 +135,10 @@
     font-size: 1.6rem;
     font-weight: $fw-medium;
   }
+
+  &--active {
+    color: $clr-primary;
+  }
 }
 
 .navigation__social {

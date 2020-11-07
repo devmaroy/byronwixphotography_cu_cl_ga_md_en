@@ -36,31 +36,47 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
         <nav className={classNames('navigation', { 'is-open': isOpen })}>
           <ul className="navigation__list">
             <li className="navigation__item">
-              <Link to="/" className="navigation__link">
+              <Link
+                to="/"
+                className="navigation__link"
+                activeClassName="navigation__link--active"
+              >
                 Home
               </Link>
             </li>
 
             <li className="navigation__item">
-              <Link to="/about" className="navigation__link">
+              <Link
+                to="/about"
+                className="navigation__link"
+                activeClassName="navigation__link--active"
+              >
                 About
               </Link>
             </li>
 
             <li className="navigation__item">
-              <Link to="/portfolio" className="navigation__link">
+              <Link
+                to="/portfolio"
+                className="navigation__link"
+                activeClassName="navigation__link--active"
+              >
                 Portfolio
               </Link>
             </li>
 
             <li className="navigation__item">
-              <Link to="/contact" className="navigation__link">
+              <Link
+                to="/contact"
+                className="navigation__link"
+                activeClassName="navigation__link--active"
+              >
                 Contact
               </Link>
             </li>
 
             <li className="navigation__item">
-              <Link to="/blog" className="navigation__link">
+              <Link to="/blog" className="navigation__link" v>
                 Blog
               </Link>
             </li>
