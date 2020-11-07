@@ -11,11 +11,22 @@ const Testimonials = () => {
     dots: true,
     arrows: false,
     infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 6000,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    // autoplay: true,
+    autoplay: false,
+    // autoplaySpeed: 6000,
+    autoplaySpeed: 6000000000,
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 680,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (

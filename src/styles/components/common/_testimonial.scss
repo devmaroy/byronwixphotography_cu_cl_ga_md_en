@@ -3,17 +3,34 @@
 \*------------------------------------*/
 
 .testimonial {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
   padding: 1.6rem;
   background: $clr-light;
+
+  @media (min-width: 768px) {
+    padding: 2.4rem;
+  }
+
+  @media (min-width: 1020px) {
+    padding: 4rem;
+  }
 }
 
 .testimonial__text {
   font-family: $ff-base;
   font-weight: $fw-medium;
-  font-style: italic;
   font-size: 1.6rem;
   line-height: 2.9rem;
+  margin-bottom: 2.4rem;
   color: $clr-gray;
+
+  @media (min-width: 1020px) {
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+  }
 
   p {
     margin: 0;
@@ -26,7 +43,7 @@
 
 .testimonial-author {
   display: flex;
-  margin-top: 2.4rem;
+  margin-top: auto;
 }
 
 .testimonial-author__image {
