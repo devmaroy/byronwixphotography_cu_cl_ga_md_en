@@ -17,6 +17,9 @@
 }
 
 .subpage-header__text {
+  max-width: 68.8rem;
+  margin: 0 auto;
+
   p {
     font-family: $ff-base;
     font-weight: $fw-normal;
