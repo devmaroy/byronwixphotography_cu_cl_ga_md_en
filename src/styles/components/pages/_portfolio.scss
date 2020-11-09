@@ -5,6 +5,14 @@
 .portfolio-menu {
   @include list-unstyled;
   margin-top: 5.6rem;
+
+  @media (min-width: 768px) {
+    text-align: center;
+  }
+
+  @media (min-width: 840px) {
+    margin-top: 8rem;
+  }
 }
 
 .portfolio-menu__item {
@@ -27,16 +35,45 @@
 
 .portfolio-gallery {
   margin-top: 4rem;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4.8rem 2.4rem;
+  }
+
+  @media (min-width: 1020px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 6.4rem 3.2rem;
+  }
 }
 
 .portfolio-gallery__item {
   &:not(:last-child) {
     margin-bottom: 4.8rem;
+
+    @media (min-width: 768px) {
+      margin: 0;
+    }
   }
 }
 
 .portfolio-gallery__image {
   height: 28.8rem;
+  transition: all $transition;
+
+  @media (min-width: 600px) {
+    height: 32rem;
+  }
+
+  @media (min-width: 1320px) {
+    height: 44.8rem;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
 }
 
 .portfolio-gallery-categories {
@@ -60,6 +97,10 @@
   font-size: 2rem;
   line-height: 1;
   color: $clr-dark-off;
+
+  @media (min-width: 1020px) {
+    font-size: 2.4rem;
+  }
 }
 
 .portfolio-gallery__text {
@@ -73,17 +114,30 @@
     margin: 0;
     color: $clr-base;
 
-    &:not(:last-child) {
-      margin-bottom: 2.4rem;
+    @media (min-width: 1020px) {
+      font-size: 1.6rem;
+      line-height: 2.9rem;
     }
+  }
+
+  p:not(:last-child) {
+    margin-bottom: 2.4rem;
   }
 }
 
 .portfolio-gallery__meta {
   text-align: center;
   margin-top: 6.4rem;
+
+  @media (min-width: 1020px) {
+    margin-top: 8rem;
+  }
 }
 
 .portfolio-gallery__cta {
   font-size: 1.4rem;
+
+  @media (min-width: 1020px) {
+    font-size: 1.6rem;
+  }
 }
