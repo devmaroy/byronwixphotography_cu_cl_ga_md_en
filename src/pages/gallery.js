@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
+import Masonry from 'react-masonry-component';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
@@ -11,13 +12,13 @@ const query = graphql`
     galleryImages: allFile(
       filter: {
         sourceInstanceName: { eq: "images" }
-        relativeDirectory: { eq: "pages/gallery" }
+        relativeDirectory: { eq: "subpages/gallery" }
       }
       sort: { fields: [name], order: ASC }
     ) {
       nodes {
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 600, quality: 100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -30,7 +31,9 @@ const Gallery = () => {
   const data = useStaticQuery(query);
   const galleryImages = data.galleryImages.nodes;
 
-  console.log(galleryImages);
+  const masonryOptions = {
+    transitionDuration: 0,
+  };
 
   return (
     <Layout>
@@ -49,152 +52,155 @@ const Gallery = () => {
                 powder jujubes.
               </p>
             </SubpageHeader>
-
             <div className="gallery-images">
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[0].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+              <Masonry options={masonryOptions}>
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[0].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">Gingerbread</h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">Gingerbread</h3>
 
-                  <div className="gallery-image__text">
-                    <p>Liquorice tart powder macaroon wafer cheesecake</p>
+                    <div className="gallery-image__text">
+                      <p>Liquorice tart powder macaroon wafer cheesecake</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[1].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[1].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">
-                    Sugar plum cake sweet
-                  </h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">
+                      Sugar plum cake sweet
+                    </h3>
 
-                  <div className="gallery-image__text">
-                    <p>Cake sesame snaps cotton caramels caramels</p>
+                    <div className="gallery-image__text">
+                      <p>Cake sesame snaps cotton caramels caramels</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[2].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[2].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">
-                    Liquorice cheesecake sweet
-                  </h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">
+                      Liquorice cheesecake sweet
+                    </h3>
 
-                  <div className="gallery-image__text">
-                    <p>Danish tiramisu sesame snaps candy canes brownie</p>
+                    <div className="gallery-image__text">
+                      <p>Danish tiramisu sesame snaps candy canes brownie</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[3].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[3].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">Cotton candy</h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">
+                      Toffee candy canes
+                    </h3>
 
-                  <div className="gallery-image__text">
-                    <p>Donut muffin jujubes jelly pudding carrot</p>
+                    <div className="gallery-image__text">
+                      <p>Gingerbread cake tiramisu muffin gummi bears</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[4].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[4].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">Toffee candy canes</h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">Cotton candy</h3>
 
-                  <div className="gallery-image__text">
-                    <p>Gingerbread cake tiramisu muffin gummi bears</p>
+                    <div className="gallery-image__text">
+                      <p>Donut muffin jujubes jelly pudding carrot</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[5].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[5].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">Lemon drops</h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">Lemon drops</h3>
 
-                  <div className="gallery-image__text">
-                    <p>Gummi bears sweet tart ice cream</p>
+                    <div className="gallery-image__text">
+                      <p>Gummi bears sweet tart ice cream </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[6].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[6].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">
-                    Cake halvah soufflé
-                  </h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">
+                      Cake oat cake macaroon jujubes
+                    </h3>
 
-                  <div className="gallery-image__text">
-                    <p>
-                      Bonbon tart lemon drops oat cake tootsie roll pie pastry
-                    </p>
+                    <div className="gallery-image__text">
+                      <p>Marzipan brownie cotton candy icing jelly-o dessert</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[7].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[7].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">Powder cake</h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">
+                      Cake halvah soufflé
+                    </h3>
 
-                  <div className="gallery-image__text">
-                    <p>Pudding powder tootsie roll cream tootsie</p>
+                    <div className="gallery-image__text">
+                      <p>
+                        Bonbon tart lemon drops oat cake tootsie roll pie pastry
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="gallery-image">
-                <Img
-                  fluid={galleryImages[8].childImageSharp.fluid}
-                  className="gallery-image__img"
-                />
+                <div className="gallery-image">
+                  <Img
+                    fluid={galleryImages[8].childImageSharp.fluid}
+                    className="gallery-image__img"
+                  />
 
-                <div className="gallery-image__description">
-                  <h3 className="gallery-image__heading">
-                    Cake oat cake macaroon jujubes
-                  </h3>
+                  <div className="gallery-image__description">
+                    <h3 className="gallery-image__heading">Powder cake</h3>
 
-                  <div className="gallery-image__text">
-                    <p>Marzipan brownie cotton candy icing jelly-o dessert</p>
+                    <div className="gallery-image__text">
+                      <p>Pudding powder tootsie roll cream tootsie</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Masonry>
             </div>
 
             <div className="gallery__meta">
