@@ -67,6 +67,16 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
 
             <li className="navigation__item">
               <Link
+                to="/gallery"
+                className="navigation__link"
+                activeClassName="navigation__link--active"
+              >
+                Gallery
+              </Link>
+            </li>
+
+            <li className="navigation__item">
+              <Link
                 to="/contact"
                 className="navigation__link"
                 activeClassName="navigation__link--active"
