@@ -28,9 +28,24 @@
 
 textarea.form__control {
   height: 16rem;
+
+  @media (min-width: 600px) {
+    height: 24rem;
+  }
+}
+
+.form__meta-group {
+  @media (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .form__meta {
   margin-top: 3.2rem;
   text-align: right;
+
+  @media (min-width: 1440px) {
+    margin: 0;
+  }
 }

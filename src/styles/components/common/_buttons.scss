@@ -4,6 +4,7 @@
 
 .button {
   @include button;
+  font-family: $ff-base;
 }
 
 .button--sm {

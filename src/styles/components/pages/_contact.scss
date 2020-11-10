@@ -2,8 +2,35 @@
   # Contact
 \*------------------------------------*/
 
+.contact__wrapper {
+  @media (min-width: 840px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem;
+
+    margin-top: 8rem;
+  }
+
+  @media (min-width: 1020px) {
+    grid-gap: 6rem;
+  }
+
+  @media (min-width: 1240px) {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: 68.8rem 56.8rem;
+    justify-content: space-between;
+  }
+}
+
 .contact-details {
   margin-top: 5.6rem;
+
+  @media (min-width: 840px) {
+    margin: 0;
+  }
 }
 
 .contact-details__heading {
@@ -13,6 +40,10 @@
   line-height: 1;
   margin: 0 0 2.4rem 0;
   color: $clr-dark-off;
+
+  @media (min-width: 1020px) {
+    font-size: 2.8rem;
+  }
 }
 
 .contact-details__text {
@@ -33,11 +64,22 @@
 .contact-details__list {
   @include list-unstyled;
   margin-top: 4.8rem;
+
+  @media (min-width: 1020px) {
+    margin-top: 5.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 20rem);
+    grid-gap: 4rem;
+  }
 }
 
 .contact-details__item {
   &:not(:last-child) {
     margin-bottom: 4rem;
+
+    @media (min-width: 1020px) {
+      margin: 0;
+    }
   }
 }
 
@@ -48,6 +90,10 @@
   line-height: 1;
   margin: 0 0 2.4rem 0;
   color: $clr-dark-off;
+
+  @media (min-width: 1020px) {
+    font-size: 2.2rem;
+  }
 }
 
 .contact-details__subtext {
@@ -59,13 +105,17 @@
   p {
     margin: 0;
     color: $clr-base;
+  }
 
-    &:not(:last-child) {
-      margin-bottom: 1.6rem;
-    }
+  p:not(:last-child) {
+    margin-bottom: 1.6rem;
   }
 }
 
 .contact-details-form {
   margin-top: 8rem;
+
+  @media (min-width: 840px) {
+    margin: 0;
+  }
 }
