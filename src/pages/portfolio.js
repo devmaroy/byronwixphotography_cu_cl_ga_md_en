@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import classnames from 'classnames';
 import Img from 'gatsby-image';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
+import { portfolioCategories, getPortfolioItems } from '../data/portfolio';
 
 // Query
 const query = graphql`
@@ -27,8 +29,77 @@ const query = graphql`
 `;
 
 const Portfolio = () => {
+  const [page, setPage] = useState(1);
+  const [perPage] = useState(1);
+  const [allLoaded, setAllLoaded] = useState(false);
+
+  const [selectedCategory, setSelectedCategory] = useState(
+    portfolioCategories[0].slug,
+  );
+
   const data = useStaticQuery(query);
   const portfolioImages = data.portfolioImages.nodes;
+  const portfolioItems = getPortfolioItems(portfolioImages);
+
+  const filterPortfolio = (portfolioData, categorySlug = selectedCategory) => {
+    return portfolioData.filter((portfolio) => {
+      return portfolio.categories.some((category) => {
+        return category.slug === categorySlug;
+      });
+    });
+  };
+
+  const paginatePortfolio = (portfolioData) => {
+    return portfolioData.slice(0, page * perPage);
+  };
+
+  const changeCategory = (slug) => {
+    setPage(1);
+    setAllLoaded(false);
+    setSelectedCategory(slug);
+  };
+
+  const renderPortfolio = () => {
+    const filteredPortfolio = filterPortfolio(portfolioItems);
+    const paginatedPortfolio = paginatePortfolio(filteredPortfolio);
+
+    return paginatedPortfolio.map(({ id, image, categories, content }) => (
+      <div key={id} className="portfolio-gallery__item">
+        <Img fluid={image} className="portfolio-gallery__image" />
+
+        <div className="portfolio-gallery__description">
+          <ul className="portfolio-gallery-categories">
+            {categories.map(({ id: catId, name, slug }) => (
+              <li key={catId} className="portfolio-gallery-categories__item">
+                <Link
+                  to={`/${slug}`}
+                  className="portfolio-gallery-categories__link"
+                >
+                  {name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div
+            className="portfolio-gallery__text"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </div>
+      </div>
+    ));
+  };
+
+  const loadMore = () => {
+    const filteredPortfolio = filterPortfolio(portfolioItems);
+    // const paginatedPortfolio = paginatePortfolio(filteredPortfolio);
+    const totalPages = Math.ceil(filteredPortfolio.length / perPage);
+    const endReached = page + 1 === totalPages;
+
+    setPage((currentPage) => currentPage + 1);
+    setAllLoaded(endReached);
+  };
 
   return (
     <Layout>
@@ -48,229 +119,35 @@ const Portfolio = () => {
             </SubpageHeader>
 
             <ul className="portfolio-menu">
-              <li className="portfolio-menu__item">
-                <Link to="/" className="portfolio-menu__link">
-                  Muffin
-                </Link>
-              </li>
-
-              <li className="portfolio-menu__item">
-                <Link to="/" className="portfolio-menu__link">
-                  Cupcake
-                </Link>
-              </li>
-
-              <li className="portfolio-menu__item">
-                <Link to="/" className="portfolio-menu__link">
-                  Bonbon pie
-                </Link>
-              </li>
-
-              <li className="portfolio-menu__item">
-                <Link to="/" className="portfolio-menu__link">
-                  Tarts
-                </Link>
-              </li>
-
-              <li className="portfolio-menu__item">
-                <Link to="/" className="portfolio-menu__link">
-                  Sesame
-                </Link>
-              </li>
-
-              <li className="portfolio-menu__item">
-                <Link to="/" className="portfolio-menu__link">
-                  Bear
-                </Link>
-              </li>
-
-              <li className="portfolio-menu__item">
-                <Link to="/" className="portfolio-menu__link">
-                  Liquorice
-                </Link>
-              </li>
+              {portfolioCategories.map(({ id, slug, name }) => (
+                <li key={id} className="portfolio-menu__item">
+                  <button
+                    type="button"
+                    onClick={() => changeCategory(slug)}
+                    className={classnames('portfolio-menu__link', {
+                      'portfolio-menu__link--active': slug === selectedCategory,
+                    })}
+                  >
+                    {name}
+                  </button>
+                </li>
+              ))}
             </ul>
 
-            <div className="portfolio-gallery">
-              <div className="portfolio-gallery__item">
-                <Img
-                  fluid={portfolioImages[0].childImageSharp.fluid}
-                  className="portfolio-gallery__image"
-                />
-
-                <div className="portfolio-gallery__description">
-                  <ul className="portfolio-gallery-categories">
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Muffin
-                      </Link>
-                    </li>
-                  </ul>
-
-                  <div className="portfolio-gallery__text">
-                    <p>Pudding bear claw jelly beans chupa chups marzipan</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="portfolio-gallery__item">
-                <Img
-                  fluid={portfolioImages[1].childImageSharp.fluid}
-                  className="portfolio-gallery__image"
-                />
-
-                <div className="portfolio-gallery__description">
-                  <ul className="portfolio-gallery-categories">
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Cupcakes
-                      </Link>
-                    </li>
-
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Bonbon pie
-                      </Link>
-                    </li>
-                  </ul>
-
-                  <div className="portfolio-gallery__text">
-                    <p>Icing sesame snaps tiramisu cookie jelly-o</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="portfolio-gallery__item">
-                <Img
-                  fluid={portfolioImages[2].childImageSharp.fluid}
-                  className="portfolio-gallery__image"
-                />
-
-                <div className="portfolio-gallery__description">
-                  <ul className="portfolio-gallery-categories">
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Tarts
-                      </Link>
-                    </li>
-                  </ul>
-
-                  <div className="portfolio-gallery__text">
-                    <p>Cupcake cake cookie muffin chocolate candy</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="portfolio-gallery__item">
-                <Img
-                  fluid={portfolioImages[3].childImageSharp.fluid}
-                  className="portfolio-gallery__image"
-                />
-
-                <div className="portfolio-gallery__description">
-                  <ul className="portfolio-gallery-categories">
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Sesame
-                      </Link>
-                    </li>
-
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Bear
-                      </Link>
-                    </li>
-
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Liquorice
-                      </Link>
-                    </li>
-                  </ul>
-
-                  <div className="portfolio-gallery__text">
-                    <p>Jujubes cheesecake gummi bears jujubes lollipop apple</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="portfolio-gallery__item">
-                <Img
-                  fluid={portfolioImages[4].childImageSharp.fluid}
-                  className="portfolio-gallery__image"
-                />
-
-                <div className="portfolio-gallery__description">
-                  <ul className="portfolio-gallery-categories">
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Muffin
-                      </Link>
-                    </li>
-                  </ul>
-
-                  <div className="portfolio-gallery__text">
-                    <p>Marzipan donut tootsie roll bonbon</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="portfolio-gallery__item">
-                <Img
-                  fluid={portfolioImages[5].childImageSharp.fluid}
-                  className="portfolio-gallery__image"
-                />
-
-                <div className="portfolio-gallery__description">
-                  <ul className="portfolio-gallery-categories">
-                    <li className="portfolio-gallery-categories__item">
-                      <Link
-                        to="/"
-                        className="portfolio-gallery-categories__link"
-                      >
-                        Liquorice
-                      </Link>
-                    </li>
-                  </ul>
-
-                  <div className="portfolio-gallery__text">
-                    <p>Pudding jelly beans icing bonbon danish gummies</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="portfolio-gallery">{renderPortfolio()}</div>
 
             <div className="portfolio-gallery__meta">
-              <button
-                className="button button--outline-primary portfolio-gallery__cta"
-                type="button"
-              >
-                Load more
-              </button>
+              {console.log(filterPortfolio(portfolioItems).length)}
+              {filterPortfolio(portfolioItems).length <= perPage ||
+                (!allLoaded && (
+                  <button
+                    className="button button--outline-primary portfolio-gallery__cta"
+                    type="button"
+                    onClick={loadMore}
+                  >
+                    Load more
+                  </button>
+                ))}
             </div>
           </div>
         </div>

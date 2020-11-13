@@ -29,8 +29,6 @@ const InstagramFeed = () => {
   const data = useStaticQuery(query);
   const instagramFeedImages = data.instagramFeedImages.nodes;
 
-  console.log(instagramFeedImages);
-
   const settings = {
     dots: false,
     arrows: false,
