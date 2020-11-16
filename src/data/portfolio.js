@@ -1,4 +1,9 @@
-export const portfolioCategories = [
+export const categories = [
+  {
+    id: 'f98ac1dc-d04c-4b21-b1d6-1b1d1a4dd6bf',
+    slug: 'all',
+    name: 'All',
+  },
   {
     id: '6e4cb51f-e069-48cb-9f3c-79d78523d1e4',
     slug: 'muffin',
@@ -36,7 +41,7 @@ export const portfolioCategories = [
   },
 ];
 
-export const getPortfolioItems = (images) => {
+export const getItems = (images) => {
   return [
     {
       id: 'e03fb245-b159-4fb7-82fb-31d8ae5dd09c',
