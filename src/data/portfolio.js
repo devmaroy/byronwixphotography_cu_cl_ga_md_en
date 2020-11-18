@@ -49,7 +49,7 @@ export const getItems = (images) => {
       image: images[0].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
+          id: 'cbf7b2bd-d10e-4089-9d2d-34dcce8c54a7',
           name: 'Muffin',
           slug: 'muffin',
         },
@@ -61,12 +61,12 @@ export const getItems = (images) => {
       image: images[1].childImageSharp.fluid,
       categories: [
         {
-          id: 'f327024a-b139-4aca-bb64-42ed8236c717',
+          id: '3a8b94c1-6749-49d5-97f5-23d3a831f27d',
           name: 'Cupcakes',
           slug: 'cupcakes',
         },
         {
-          id: '68520066-e520-4d41-8cab-e09e84396116',
+          id: 'c463b089-7a43-4658-b793-020a242681b6',
           name: 'Bonbon pie',
           slug: 'bonbon-pie',
         },
@@ -78,7 +78,7 @@ export const getItems = (images) => {
       image: images[2].childImageSharp.fluid,
       categories: [
         {
-          id: '237682a0-79aa-449a-98a4-25eb018bc17a',
+          id: '',
           name: 'Tarts',
           slug: 'tarts',
         },
@@ -90,17 +90,17 @@ export const getItems = (images) => {
       image: images[3].childImageSharp.fluid,
       categories: [
         {
-          id: 'b1af4c59-090e-490b-bc78-a2f5914e41c9',
+          id: '20ae4ec1-e32f-4632-8e1d-693d2ffe98d7',
           name: 'Sesame',
           slug: 'sesame',
         },
         {
-          id: 'b2bd56cd-6d28-4e11-ace8-148bfc331f92',
+          id: '6e216705-58bb-4335-aed6-d3472d464ea8',
           name: 'Bear',
           slug: 'bear',
         },
         {
-          id: '7309d7f5-ab58-4313-a747-8f43f2fc584e',
+          id: 'a6226b23-1b6a-42b6-a8d6-bd760cb98323',
           name: 'Liquorice',
           slug: 'liquorice',
         },
@@ -112,7 +112,7 @@ export const getItems = (images) => {
       image: images[4].childImageSharp.fluid,
       categories: [
         {
-          id: 'b3ccbc3d-86ae-4d7f-a0a4-98f53660eb94',
+          id: '35e997ff-3226-41d3-96d9-29155b529f5a',
           name: 'Muffin',
           slug: 'muffin',
         },
@@ -124,7 +124,7 @@ export const getItems = (images) => {
       image: images[5].childImageSharp.fluid,
       categories: [
         {
-          id: '96646db9-06c9-4289-b18b-ad98976d8870',
+          id: 'c6ddb933-6e0b-4e16-8af7-39f4254170af',
           name: 'Liquorice',
           slug: 'liquorice',
         },
@@ -132,95 +132,115 @@ export const getItems = (images) => {
     },
     {
       id: 'e03fb245-b1e59-4fb7-82fb-31d8ae5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Chocolate cake sesame snaps dragée danish bear</p>',
       image: images[6].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
-          name: 'Muffin',
-          slug: 'muffin',
+          id: '1742dc2f-d0b5-43a3-bee5-187bd6057760',
+          name: 'Bear',
+          slug: 'bear',
+        },
+        {
+          id: 'e67f536c-d870-4d59-a39f-4104369c6555',
+          name: 'Cupcakes',
+          slug: 'cupcakes',
         },
       ],
     },
     {
       id: 'e03fb245-rb159-4fb7-82fb-31d8ae5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Biscuit marshmallow gummi bears soufflé bonbon</p>',
       image: images[7].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
+          id: 'b8a17910-ab53-45f5-9014-bf1b9f2e9342',
           name: 'Muffin',
           slug: 'muffin',
+        },
+        {
+          id: '220c4696-db38-43fe-94b4-8138625ccfcf',
+          name: 'Bear',
+          slug: 'bear',
         },
       ],
     },
     {
       id: 'e03fb245-b15t9-4fb7-82fb-31d8ae5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Gummies danish gingerbread tart jujubes tart halvah</p>',
       image: images[8].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
-          name: 'Muffin',
-          slug: 'muffin',
+          id: '709e42f7-e06a-4908-8528-0f5c73b2d014',
+          name: 'Tarts',
+          slug: 'tarts',
         },
       ],
     },
     {
       id: 'e03fb245-b1y59-4fb7-82fb-31d8ae5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Powder croissant chocolate bar liquorice marzipan</p>',
       image: images[9].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
-          name: 'Muffin',
-          slug: 'muffin',
+          id: '11c0a3cb-d6e0-4153-bdec-8de4a83519ff',
+          name: 'Liquorice',
+          slug: 'liquorice',
         },
       ],
     },
     {
       id: 'e03fb245-bz159-4fb7-82fb-31d8ae5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Toffee cotton candy cupcake lemon drops</p>',
       image: images[10].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
-          name: 'Muffin',
-          slug: 'muffin',
+          id: 'aae6e211-4063-4154-a01d-85d643530c79',
+          name: 'Bear',
+          slug: 'bear',
+        },
+        {
+          id: '9e05efcf-7902-4de7-a32b-95b98b53cbeb',
+          name: 'Sesame',
+          slug: 'sesame',
         },
       ],
     },
     {
       id: 'e03fb245-bz159-4fb7-82feb-31d8ae5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Marzipan gummies pie soufflé biscuit</p>',
       image: images[11].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
-          name: 'Muffin',
-          slug: 'muffin',
+          id: '6c183693-8b38-4797-9d57-21300659dbec',
+          name: 'Cupcakes',
+          slug: 'cupcakes',
         },
       ],
     },
     {
       id: 'e03fb245-bz159-4fb7-82feb-31d8a5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Chocolate cake toffee chocolate macaroon</p>',
       image: images[12].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
-          name: 'Muffin',
-          slug: 'muffin',
+          id: 'bcf708e3-c8f3-417e-8c47-27136c8293c0',
+          name: 'Sesame',
+          slug: 'sesame',
+        },
+        {
+          id: 'fd7aeddd-586c-4dc3-9e1e-406ef41a3aff',
+          name: 'Bear',
+          slug: 'bear',
         },
       ],
     },
     {
       id: 'e03fb245-bz159-4fb7-82feb-31d81a5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Sweet brownie candy canes bear claw sesame snaps</p>',
       image: images[13].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
+          id: '8da78710-333e-490b-a185-c1fbf2a21372',
           name: 'Muffin',
           slug: 'muffin',
         },
@@ -228,25 +248,37 @@ export const getItems = (images) => {
     },
     {
       id: 'e03fb245-bz959-4fb7-82feb-31d81a5dd09c',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Fruitcake macaroon danish liquorice cheesecake macaroon</p>',
       image: images[14].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
-          name: 'Muffin',
-          slug: 'muffin',
+          id: '0ee629a6-9f40-49a1-8554-f08ef0a91019',
+          name: 'Liquorice',
+          slug: 'liquorice',
         },
       ],
     },
     {
       id: 'e03fb245-bz159-4fb7-82feb-31d81a5dd09',
-      content: '<p>Pudding bear claw jelly beans chupa chups marzipan</p>',
+      content: '<p>Apple pie gingerbread powder sesame snaps</p>',
       image: images[15].childImageSharp.fluid,
       categories: [
         {
-          id: 'e302e8d9-20e3-4c5b-8370-3b7aaf6d0e08',
-          name: 'Muffin',
-          slug: 'muffin',
+          id: '9e00a2fb-2e5c-4547-a2ee-3dc38db6ab98',
+          name: 'Bonbon pie',
+          slug: 'bonbon-pie',
+        },
+      ],
+    },
+    {
+      id: 'b420c39e-79a7-405a-a6d3-f93b941f3957',
+      content: '<p>Gummies sesame snaps jelly tiramisu apple</p>',
+      image: images[16].childImageSharp.fluid,
+      categories: [
+        {
+          id: 'f2402b62-c566-45f5-9775-ef11bd4562f4',
+          name: 'Sesame',
+          slug: 'sesame',
         },
       ],
     },

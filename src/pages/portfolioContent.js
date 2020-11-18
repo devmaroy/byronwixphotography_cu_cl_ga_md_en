@@ -10,7 +10,7 @@ const query = graphql`
     portfolioImages: allFile(
       filter: {
         sourceInstanceName: { eq: "images" }
-        relativeDirectory: { eq: "pages/portfolio" }
+        relativeDirectory: { eq: "subpages/portfolio" }
       }
       sort: { fields: [name], order: ASC }
     ) {
@@ -69,7 +69,7 @@ const PortfolioContent = ({
   };
 
   const hasPortfolioItemsToPaginate = () => {
-    return getPortfolioItems().length >= perPage;
+    return getPortfolioItems().length > perPage;
   };
 
   return (
