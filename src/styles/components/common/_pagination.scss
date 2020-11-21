@@ -1,0 +1,20 @@
+/*------------------------------------*\
+  # Pagination
+\*------------------------------------*/
+
+.pagination {
+  text-align: center;
+  margin-top: 6.4rem;
+
+  @media (min-width: 1020px) {
+    margin-top: 8rem;
+  }
+}
+
+.pagination__button {
+  font-size: 1.4rem;
+
+  @media (min-width: 1020px) {
+    font-size: 1.6rem;
+  }
+}

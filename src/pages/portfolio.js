@@ -6,17 +6,19 @@ import PortfolioCategories from './portfolioCategories';
 import PortfolioContent from './portfolioContent';
 
 const Portfolio = () => {
-  // State that will be passed to subcomponents - portfolio categories and content
-  const [selectedCategory, setSelectedCategory] = useState('all'); // Selected category slug (all is default)
-
-  const [page, setPage] = useState(1);
-  const [perPage] = useState(3);
-  const [isAllLoaded, setIsAllLoaded] = useState(false);
+  // Selected category slug (all is default)
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  let resetCategoriesFunc;
 
   const changeCategory = (category) => {
     setSelectedCategory(category);
-    setIsAllLoaded(false);
-    setPage(1);
+
+    // run cleanup
+    resetCategoriesFunc();
+  };
+
+  const resetCategories = (resetChildFunc) => {
+    resetCategoriesFunc = resetChildFunc;
   };
 
   return (
@@ -42,12 +44,8 @@ const Portfolio = () => {
             />
 
             <PortfolioContent
-              page={page}
-              setPage={setPage}
-              perPage={perPage}
-              isAllLoaded={isAllLoaded}
-              setIsAllLoaded={setIsAllLoaded}
               selectedCategory={selectedCategory}
+              resetCategories={resetCategories}
             />
           </div>
         </div>
