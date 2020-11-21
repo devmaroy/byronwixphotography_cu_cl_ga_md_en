@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const PaginationList = ({ items }) => items;
-
 const Pagination = ({ perPage, items, children, onReset }) => {
   const [page, setPage] = useState(1);
   const [isAllLoaded, setIsAllLoaded] = useState(false);
@@ -40,7 +38,7 @@ const Pagination = ({ perPage, items, children, onReset }) => {
 
   return (
     <>
-      <PaginationList items={children(getPaginatedItems())} />
+      {children(getPaginatedItems())}
 
       <div className="pagination">
         {!isAllLoaded && hasItemsToPaginate() && (
