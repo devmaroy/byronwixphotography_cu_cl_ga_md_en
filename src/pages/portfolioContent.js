@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import Pagination from '../components/common/pagination';
+import LoadMorePagination from '../components/common/loadMorePagination';
 import { getItems } from '../data/portfolio';
 
 // Query
@@ -43,7 +43,7 @@ const PortfolioContent = ({ selectedCategory, resetCategories }) => {
 
   return (
     <>
-      <Pagination
+      <LoadMorePagination
         perPage={3}
         items={filterPortfolioItems(portfolioItems)}
         onReset={resetCategories}
@@ -83,7 +83,7 @@ const PortfolioContent = ({ selectedCategory, resetCategories }) => {
             )}
           </div>
         )}
-      </Pagination>
+      </LoadMorePagination>
     </>
   );
 };

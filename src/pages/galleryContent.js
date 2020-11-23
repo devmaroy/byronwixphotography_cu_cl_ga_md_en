@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Masonry from 'react-masonry-component';
-import Pagination from '../components/common/pagination';
+import LoadMorePagination from '../components/common/loadMorePagination';
 import getItems from '../data/gallery';
 
 // Query
@@ -38,7 +38,7 @@ const GalleryContent = () => {
   return (
     <>
       <div className="gallery-images">
-        <Pagination perPage={9} items={galleryItems}>
+        <LoadMorePagination perPage={9} items={galleryItems}>
           {(galleryItemsPaginated) => (
             <Masonry options={masonryOptions}>
               {galleryItemsPaginated.map(({ id, image, heading, content }) => (
@@ -58,7 +58,7 @@ const GalleryContent = () => {
               ))}
             </Masonry>
           )}
-        </Pagination>
+        </LoadMorePagination>
       </div>
     </>
   );

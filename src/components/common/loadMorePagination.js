@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const Pagination = ({ perPage, items, children, onReset }) => {
+const LoadMorePagination = ({ perPage, items, children, onReset }) => {
   const [page, setPage] = useState(1);
   const [isAllLoaded, setIsAllLoaded] = useState(false);
 
@@ -40,10 +40,10 @@ const Pagination = ({ perPage, items, children, onReset }) => {
     <>
       {children(getPaginatedItems())}
 
-      <div className="pagination">
+      <div className="load-more-pagination">
         {!isAllLoaded && hasItemsToPaginate() && (
           <button
-            className="button button--outline-primary pagination__button"
+            className="button button--outline-primary load-more-pagination__button"
             type="button"
             onClick={loadMoreItems}
           >
@@ -55,11 +55,11 @@ const Pagination = ({ perPage, items, children, onReset }) => {
   );
 };
 
-Pagination.propTypes = {
+LoadMorePagination.propTypes = {
   perPage: PropTypes.number.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   children: PropTypes.func.isRequired,
   onReset: PropTypes.func,
 };
 
-export default Pagination;
+export default LoadMorePagination;
