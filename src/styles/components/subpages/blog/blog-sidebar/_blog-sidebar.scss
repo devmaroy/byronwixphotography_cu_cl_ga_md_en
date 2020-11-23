@@ -1,0 +1,94 @@
+/*------------------------------------*\
+  # Blog Sidebar
+\*------------------------------------*/
+
+.blog-sidebar {
+  margin-top: 7.2rem;
+}
+
+.blog-sidebar-author {
+  margin-bottom: 4rem;
+}
+
+.blog-sidebar-author__image-wrapper {
+  margin-bottom: 2.4rem;
+}
+
+.blog-sidebar-author__image {
+  height: 21.6rem;
+}
+
+.blog-sidebar__heading {
+  font-family: $ff-base;
+  font-weight: $fw-bold;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin: 0 0 1.6rem 0;
+}
+
+// Author
+.blog-sidebar-author__content {
+  font-family: $ff-base;
+  font-weight: $fw-normal;
+  font-size: 1.4rem;
+  line-height: 2.5rem;
+  color: $clr-base;
+
+  p {
+    margin: 0;
+  }
+
+  p:not(:last-child):last-child {
+    margin-bottom: 2.4rem;
+  }
+}
+
+// Categories
+.blog-sidebar-categories {
+  margin-bottom: 4rem;
+}
+
+.blog-sidebar-categories__list {
+  @include list-unstyled;
+}
+
+.blog-sidebar-categories__item {
+  font-family: $ff-base;
+  font-weight: $fw-normal;
+  font-size: 1.4rem;
+  line-height: 2.5rem;
+
+  &:not(:last-child) {
+    margin-bottom: 0.8rem;
+  }
+}
+
+.blog-sidebar-categories__link {
+  @include link-reset;
+  @include link($clr-base, $clr-primary);
+}
+
+.blog-sidebar-search {
+  margin-bottom: 4rem;
+}
+
+// Recent posts
+.blog-sidebar-recent-posts__list {
+  @include list-unstyled;
+}
+
+.blog-sidebar-recent-posts__item {
+  font-family: $ff-base;
+  font-weight: $fw-normal;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1.6rem;
+  }
+}
+
+.blog-sidebar-recent-posts__link {
+  @include link-reset;
+  @include link($clr-base, $clr-primary);
+}

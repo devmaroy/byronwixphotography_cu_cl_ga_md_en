@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
+import BlogSidebar from '../components/subpages/blog/blog-sidebar/blogSidebar';
 
 // TODO: Categories key change to slug
 
@@ -136,133 +137,7 @@ const BlogPostListTemplate = ({ data }) => {
             </ul>
           </div>
 
-          <div className="blog-sidebar">
-            <div className="blog-sidebar-author">
-              <div className="blog-sidebar-author__image-wrapper">
-                {/* <Img fluid={} /> */}
-              </div>
-
-              <h3 className="blog-sidebar__heading">About</h3>
-
-              <div className="blog-sidebar-author__content">
-                <p>
-                  Halvah macaroon marzipan sugar plum powder cotton candy
-                  cheesecake.
-                </p>
-              </div>
-            </div>
-
-            <div className="blog-sidebar-categories">
-              <ul className="blog-sidebar-categories__list">
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Toffee
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Pudding
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Cupcake pie
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Pudding
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Sugar plum
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Topping
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Lemon
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Gingerbread
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-categories__item">
-                  <Link to="/" className="blog-sidebar-categories__link">
-                    Cupcake
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="blog-sidebar-search">
-              <h3 className="blog-sidebar__heading">Search</h3>
-
-              <form className="blog-sidebar-search-form">
-                <input
-                  type="search"
-                  className="blog-sidebar-search-form__input"
-                />
-              </form>
-            </div>
-
-            <div className="blog-sidebar-recent-posts">
-              <h3 className="blog-sidebar__heading">Recent articles</h3>
-
-              <ul className="blog-sidebar-recent-posts__list">
-                <li className="blog-sidebar-recent-posts__item">
-                  <Link to="/" className="blog-sidebar-recent-posts__link">
-                    Danish cookie chocolate bar brownie sesame
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-recent-posts__item">
-                  <Link to="/" className="blog-sidebar-recent-posts__link">
-                    Oat cake lemon drops topping gingerbread
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-recent-posts__item">
-                  <Link to="/" className="blog-sidebar-recent-posts__link">
-                    Halvah danish candy jelly cookie
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-recent-posts__item">
-                  <Link to="/" className="blog-sidebar-recent-posts__link">
-                    Jelly beans toffee macaroon oat cake
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-recent-posts__item">
-                  <Link to="/" className="blog-sidebar-recent-posts__link">
-                    Chocolate dragée halvah jelly-o muffin tart
-                  </Link>
-                </li>
-
-                <li className="blog-sidebar-recent-posts__item">
-                  <Link to="/" className="blog-sidebar-recent-posts__link">
-                    Candy canes cotton marzipan
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <BlogSidebar />
         </div>
       </section>
     </Layout>
