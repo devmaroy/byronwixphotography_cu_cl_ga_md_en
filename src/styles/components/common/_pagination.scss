@@ -1,0 +1,34 @@
+/*------------------------------------*\
+  # Pagination
+\*------------------------------------*/
+
+.pagination {
+  margin-top: 4rem;
+  text-align: right;
+}
+
+.pagination-list {
+  @include list-unstyled;
+}
+
+.pagination-list__item {
+  font-family: $ff-base;
+  font-weight: $fw-normal;
+  font-size: 1.6rem;
+  line-height: 2.9rem;
+  display: inline-block;
+  color: $clr-base;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.pagination-list__link {
+  @include link-reset;
+  @include link($clr-base, $clr-dark-off);
+
+  &--active {
+    color: $clr-dark-off;
+  }
+}

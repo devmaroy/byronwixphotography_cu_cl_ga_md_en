@@ -1,5 +1,5 @@
 import React from 'react';
-import Service from '../common/service';
+import Service from './service';
 
 const Services = () => {
   return (

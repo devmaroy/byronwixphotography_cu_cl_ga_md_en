@@ -3,9 +3,9 @@ import React from 'react';
 import FontAwesomeLibrary from '../libraries/fontAwesome';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
-import Hero from '../components/pages/hero';
-import Services from '../components/pages/services';
-import Testimonials from '../components/pages/testimonials';
+import Hero from '../components/pages/hero/hero';
+import Services from '../components/pages/services/services';
+import Testimonials from '../components/pages/testimonials/testimonials';
 
 const IndexPage = () => {
   return (

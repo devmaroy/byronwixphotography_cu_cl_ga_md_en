@@ -26,10 +26,9 @@
 @import './components/common/logo';
 @import './components/common/section';
 @import './components/common/load-more-pagination';
+@import './components/common/pagination';
 @import './components/common/social';
-@import './components/common/service';
 @import './components/common/subpage-header';
-@import './components/common/testimonial';
 @import './components/common/instagram-feed';
 
 // Layout
@@ -39,11 +38,15 @@
 @import './components/layout/pre-footer';
 
 // Pages
-@import './components/pages/hero';
-@import './components/pages/services';
-@import './components/pages/testimonials';
-@import './components/pages/about';
-@import './components/pages/portfolio';
-@import './components/pages/gallery';
-@import './components/pages/contact';
-@import './components/pages/blog';
+@import './components/pages/hero/hero';
+@import './components/pages/services/services';
+@import './components/pages/services/service';
+@import './components/pages/testimonials/testimonials';
+@import './components/pages/testimonials/testimonial';
+
+// Subpages
+@import './components/subpages/about/about';
+@import './components/subpages/portfolio/portfolio';
+@import './components/subpages/gallery/gallery';
+@import './components/subpages/contact/contact';
+@import './components/subpages/blog/blog';

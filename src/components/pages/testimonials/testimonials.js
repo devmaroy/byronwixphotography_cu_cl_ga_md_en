@@ -2,7 +2,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Slider from 'react-slick';
-import Testimonial from '../common/testimonial';
+import Testimonial from './testimonial';
 
 // Query
 const query = graphql`
