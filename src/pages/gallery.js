@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
-import GalleryContent from './galleryContent';
+import GalleryContent from '../components/subpages/gallery/galleryContent';
 
 const Gallery = () => {
   return (

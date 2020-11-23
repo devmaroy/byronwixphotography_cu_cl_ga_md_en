@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
-import PortfolioCategories from './portfolioCategories';
-import PortfolioContent from './portfolioContent';
+import PortfolioCategories from '../components/subpages/portfolio/portfolioCategories';
+import PortfolioContent from '../components/subpages/portfolio/portfolioContent';
 
 const Portfolio = () => {
   // Selected category slug (all is default)

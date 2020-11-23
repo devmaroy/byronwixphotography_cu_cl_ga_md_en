@@ -2,8 +2,8 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import Masonry from 'react-masonry-component';
-import LoadMorePagination from '../components/common/loadMorePagination';
-import getItems from '../data/gallery';
+import LoadMorePagination from '../../common/loadMorePagination';
+import getItems from '../../../data/gallery';
 
 // Query
 const query = graphql`

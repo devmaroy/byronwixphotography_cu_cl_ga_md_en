@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { categories } from '../data/portfolio';
+import { categories } from '../../../data/portfolio';
 
 const PortfolioCategories = ({ selectedCategory, changeCategory }) => {
   return (

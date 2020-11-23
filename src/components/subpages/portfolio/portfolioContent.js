@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import LoadMorePagination from '../components/common/loadMorePagination';
-import { getItems } from '../data/portfolio';
+import LoadMorePagination from '../../common/loadMorePagination';
+import { getItems } from '../../../data/portfolio';
 
 // Query
 const query = graphql`
