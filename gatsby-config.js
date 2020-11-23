@@ -32,6 +32,27 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1160,
+              backgroundColor: 'transparent',
+            },
+          },
+          {
+            resolve: `gatsby-remark-image-attributes`,
+            options: {
+              styleAttributes: [`float`, `width`, `height`],
+              dataAttributes: true,
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         includePaths: ['node_modules/normalize-scss/sass'],
@@ -42,6 +63,13 @@ module.exports = {
       options: {
         name: 'images',
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'markdown-pages',
+        path: `${__dirname}/src/markdown-pages`,
       },
     },
     {
