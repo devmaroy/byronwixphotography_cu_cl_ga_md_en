@@ -86,7 +86,11 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
             </li>
 
             <li className="navigation__item">
-              <Link to="/blog" className="navigation__link">
+              <Link
+                to="/blog"
+                className="navigation__link"
+                activeClassName="navigation__link--active"
+              >
                 Blog
               </Link>
             </li>

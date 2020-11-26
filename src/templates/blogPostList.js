@@ -37,107 +37,112 @@ const BlogPostListTemplate = ({ data }) => {
             </SubpageHeader>
           </div>
 
-          <div className="blog-list">
-            {blogPosts.map(
-              ({
-                frontmatter: {
-                  id,
-                  title,
-                  slug,
-                  date,
-                  formattedDate,
-                  featuredImage,
-                  categories,
-                },
-                html,
-              }) => (
-                <div key={id} className="blog-list-item">
-                  <div className="blog-list-item__image-wrapper">
-                    <Img
-                      fluid={featuredImage.childImageSharp.fluid}
-                      className="blog-list-item__image"
-                    />
-                  </div>
+          <div className="blog-layout">
+            <div className="blog-main">
+              <div className="blog-list">
+                {blogPosts.map(
+                  ({
+                    frontmatter: {
+                      id,
+                      title,
+                      slug,
+                      date,
+                      formattedDate,
+                      featuredImage,
+                      categories,
+                    },
+                    html,
+                  }) => (
+                    <div key={id} className="blog-list-item">
+                      <div className="blog-list-item__image-wrapper">
+                        <Img
+                          fluid={featuredImage.childImageSharp.fluid}
+                          className="blog-list-item__image"
+                        />
+                      </div>
 
-                  <ul className="blog-list-item-categories">
-                    {categories.map(
-                      ({
-                        id: categoryId,
-                        name: categoryName,
-                        slug: categorySlug,
-                      }) => (
-                        <li
-                          key={categoryId}
-                          className="blog-list-item-categories__item"
+                      <ul className="blog-list-item-categories">
+                        {categories.map(
+                          ({
+                            id: categoryId,
+                            name: categoryName,
+                            slug: categorySlug,
+                          }) => (
+                            <li
+                              key={categoryId}
+                              className="blog-list-item-categories__item"
+                            >
+                              <Link
+                                to={`/blog/category/${categorySlug}`}
+                                className="blog-list-item-categories__link"
+                              >
+                                {categoryName}
+                              </Link>
+                            </li>
+                          ),
+                        )}
+                      </ul>
+
+                      <span className="blog-list-item__date">
+                        written on the{' '}
+                        <time dateTime={date}>{formattedDate}</time>
+                      </span>
+
+                      <h2 className="blog-list-item__title">
+                        <Link
+                          to={`/blog/${slug}`}
+                          className="blog-list-item__title-link"
                         >
-                          <Link
-                            to={`/blog/category/${categorySlug}`}
-                            className="blog-list-item-categories__link"
-                          >
-                            {categoryName}
-                          </Link>
-                        </li>
-                      ),
-                    )}
-                  </ul>
+                          {title}
+                        </Link>
+                      </h2>
 
-                  <span className="blog-list-item__date">
-                    written on the <time dateTime={date}>{formattedDate}</time>
-                  </span>
+                      <div
+                        className="blog-list-item__content"
+                        // eslint-disable-next-line react/no-danger
+                        dangerouslySetInnerHTML={{ __html: html }}
+                      />
+                    </div>
+                  ),
+                )}
+              </div>
 
-                  <h2 className="blog-list-item__title">
+              <div className="pagination">
+                <ul className="pagination-list">
+                  <li className="pagination-list__item">
                     <Link
-                      to={`/blog/${slug}`}
-                      className="blog-list-item__title-link"
+                      to="/"
+                      className="pagination-list__link pagination-list__link--active"
                     >
-                      {title}
+                      1
                     </Link>
-                  </h2>
+                  </li>
 
-                  <div
-                    className="blog-list-item__content"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{ __html: html }}
-                  />
-                </div>
-              ),
-            )}
+                  <li className="pagination-list__item">
+                    <Link to="/" className="pagination-list__link">
+                      2
+                    </Link>
+                  </li>
+
+                  <li className="pagination-list__item">
+                    <Link to="/" className="pagination-list__link">
+                      3
+                    </Link>
+                  </li>
+
+                  <li className="pagination-list__item">...</li>
+
+                  <li className="pagination-list__item">
+                    <Link to="/" className="pagination-list__link">
+                      9
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <BlogSidebar />
           </div>
-
-          <div className="pagination">
-            <ul className="pagination-list">
-              <li className="pagination-list__item">
-                <Link
-                  to="/"
-                  className="pagination-list__link pagination-list__link--active"
-                >
-                  1
-                </Link>
-              </li>
-
-              <li className="pagination-list__item">
-                <Link to="/" className="pagination-list__link">
-                  2
-                </Link>
-              </li>
-
-              <li className="pagination-list__item">
-                <Link to="/" className="pagination-list__link">
-                  3
-                </Link>
-              </li>
-
-              <li className="pagination-list__item">...</li>
-
-              <li className="pagination-list__item">
-                <Link to="/" className="pagination-list__link">
-                  9
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <BlogSidebar />
         </div>
       </section>
     </Layout>

@@ -26,7 +26,6 @@ const query = graphql`
 const BlogSidebar = () => {
   const data = useStaticQuery(query);
   const aboutPhoto = data.aboutPhoto.nodes[0].childImageSharp;
-  console.log(aboutPhoto);
 
   return (
     <div className="blog-sidebar">
