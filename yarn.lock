@@ -1111,6 +1111,13 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.32"
 
+"@fortawesome/pro-regular-svg-icons@^5.15.1":
+  version "5.15.1"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-regular-svg-icons/-/5.15.1/pro-regular-svg-icons-5.15.1.tgz#628d37cff0e0af6575603cf639887a39c3085546"
+  integrity sha512-DsY0Dn9jjt0jJIHHm5AKR3PUDzd5z9KXzwllaxqxk8cAvNZv1+JsBXdsMVe5HQf60Fj8M+G7oRnTg1dpGL2v2A==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.32"
+
 "@fortawesome/react-fontawesome@^0.1.12":
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/@fortawesome/react-fontawesome/-/react-fontawesome-0.1.12.tgz#fbdea86e8b73032895e6ded1ee1dbb1874902d1a"
@@ -13422,6 +13429,13 @@ react-masonry-component@^6.2.1:
     lodash "^4.17.4"
     masonry-layout "^4.2.0"
     prop-types "^15.5.8"
+
+react-paginate@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-6.5.0.tgz#b9baf53627b115cfd688afa048776aa45bffda19"
+  integrity sha512-H7xSi9jyiJzgfaj+2nNhQcjZfwzJ/Mxb64V2RiyDctjZyCWojwsaGwMqhLBpQ58iAuMVtBMRQ7ECqMcUKG9QSQ==
+  dependencies:
+    prop-types "^15.6.1"
 
 react-refresh@^0.8.3:
   version "0.8.3"

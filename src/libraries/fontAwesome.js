@@ -14,6 +14,10 @@ import {
   faUsers,
   faQuestionCircle,
 } from '@fortawesome/pro-light-svg-icons';
+import {
+  faChevronRight,
+  faChevronLeft,
+} from '@fortawesome/pro-regular-svg-icons';
 
 // Create Font Awesome Icons Library
 export default library.add(
@@ -27,4 +31,6 @@ export default library.add(
   faCameraMovie,
   faUsers,
   faQuestionCircle,
+  faChevronRight,
+  faChevronLeft,
 );

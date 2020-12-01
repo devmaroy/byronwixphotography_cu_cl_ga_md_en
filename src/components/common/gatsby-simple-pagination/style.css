@@ -1,0 +1,26 @@
+.gsp-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gsp-list__item {
+  display: inline-block;
+}
+
+.gsp-list__item:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.gsp-list__link {
+  text-decoration: none;
+  color: #2d3142;
+  border-radius: 0.2rem;
+  transition: all 0.2s linear;
+}
+
+.gsp-list__link:hover,
+.gsp-list__link:focus,
+.gsp-list__link--active {
+  color: #adacb5;
+}

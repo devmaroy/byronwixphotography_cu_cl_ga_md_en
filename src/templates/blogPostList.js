@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
+import Pagination from '../components/common/pagination';
 import BlogSidebar from '../components/subpages/blog/blog-sidebar/blogSidebar';
 
 // TODO: Categories key change to slug
@@ -16,8 +17,9 @@ import BlogSidebar from '../components/subpages/blog/blog-sidebar/blogSidebar';
    };
 })} */
 
-const BlogPostListTemplate = ({ data }) => {
+const BlogPostListTemplate = ({ pageContext, data }) => {
   const blogPosts = data.blogPosts.nodes;
+  const { totalPages } = pageContext;
 
   return (
     <Layout>
@@ -107,38 +109,7 @@ const BlogPostListTemplate = ({ data }) => {
                 )}
               </div>
 
-              <div className="pagination">
-                <ul className="pagination-list">
-                  <li className="pagination-list__item">
-                    <Link
-                      to="/"
-                      className="pagination-list__link pagination-list__link--active"
-                    >
-                      1
-                    </Link>
-                  </li>
-
-                  <li className="pagination-list__item">
-                    <Link to="/" className="pagination-list__link">
-                      2
-                    </Link>
-                  </li>
-
-                  <li className="pagination-list__item">
-                    <Link to="/" className="pagination-list__link">
-                      3
-                    </Link>
-                  </li>
-
-                  <li className="pagination-list__item">...</li>
-
-                  <li className="pagination-list__item">
-                    <Link to="/" className="pagination-list__link">
-                      9
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+              <Pagination pageCount={totalPages} />
             </div>
 
             <BlogSidebar />
@@ -151,9 +122,11 @@ const BlogPostListTemplate = ({ data }) => {
 
 // eslint-disable-next-line no-undef
 export const BlogPostListQuery = graphql`
-  query BlogPosts {
+  query BlogPosts($skip: Int!, $limit: Int!) {
     blogPosts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      skip: $skip
+      limit: $limit
     ) {
       nodes {
         frontmatter {
@@ -182,6 +155,9 @@ export const BlogPostListQuery = graphql`
 `;
 
 BlogPostListTemplate.propTypes = {
+  pageContext: PropTypes.shape({
+    totalPages: PropTypes.number.isRequired,
+  }).isRequired,
   data: PropTypes.shape({
     blogPosts: PropTypes.shape({
       nodes: PropTypes.arrayOf(

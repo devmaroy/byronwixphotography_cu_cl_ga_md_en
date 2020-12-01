@@ -55,7 +55,6 @@ exports.createPages = async ({ graphql, actions }) => {
         limit: perPage,
         skip: i * perPage,
         totalPages,
-        currentPage: i + 1,
       },
     });
   });

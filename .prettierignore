@@ -6,3 +6,4 @@ package-lock.json
 lint-staged.config.js
 .stylelintrc
 README.md
+src/components/common/gatsby-simple-pagination/gsp.js
