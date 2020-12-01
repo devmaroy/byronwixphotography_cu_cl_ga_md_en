@@ -72,7 +72,7 @@ const GatsbySimplePagination = ({
 
 GatsbySimplePagination.propTypes = {
   totalPages: PropTypes.number.isRequired,
-  prefix: PropTypes.string.isRequired,
+  prefix: PropTypes.string,
   containerClassName: PropTypes.string,
   listClassName: PropTypes.string,
   listItemClassName: PropTypes.string,
