@@ -54,6 +54,7 @@
 
 .blog-list-item__image {
   height: 21.6rem;
+  transition: all $transition;
 
   @media (min-width: 400px) {
     height: 26rem;
@@ -69,6 +70,11 @@
 
   @media (min-width: 1200px) {
     height: 32rem;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
   }
 }
 

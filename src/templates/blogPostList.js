@@ -57,10 +57,12 @@ const BlogPostListTemplate = ({ pageContext, data }) => {
                   }) => (
                     <div key={id} className="blog-list-item">
                       <div className="blog-list-item__image-wrapper">
-                        <Img
-                          fluid={featuredImage.childImageSharp.fluid}
-                          className="blog-list-item__image"
-                        />
+                        <Link to={`/blog/${slug}`}>
+                          <Img
+                            fluid={featuredImage.childImageSharp.fluid}
+                            className="blog-list-item__image"
+                          />
+                        </Link>
                       </div>
 
                       <ul className="blog-list-item-categories">
