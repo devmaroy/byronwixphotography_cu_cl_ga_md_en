@@ -1,6 +1,6 @@
 const path = require('path');
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage, createRedirect } = actions;
 
   // Redirect
@@ -11,51 +11,124 @@ exports.createPages = async ({ graphql, actions }) => {
     redirectInBrowser: true,
   });
 
-  // Templates
-  const blogPostTemplate = path.resolve('src/templates/blogPost.js');
-  const blogPostListTemplate = path.resolve('src/templates/blogPostList.js');
+  //
 
-  // Queries
+  /* Get results */
   const result = await graphql(`
-    query BlogPosts {
-      blogPosts: allMarkdownRemark {
+    {
+      blogPosts: allFile(
+        filter: {
+          internal: { mediaType: { eq: "text/markdown" } }
+          sourceInstanceName: { eq: "markdown-data" }
+          relativeDirectory: { regex: "/blog/posts/list/" }
+        }
+      ) {
         nodes {
-          frontmatter {
-            title
-            slug
+          childMarkdownRemark {
+            frontmatter {
+              id
+              title
+              slug
+            }
           }
+        }
+      }
+      blogCategories: allMarkdownRemark {
+        group(field: frontmatter___categories___name) {
+          name: fieldValue
+          totalCategories: totalCount
         }
       }
     }
   `);
+  /* END Get results */
 
-  // Results
+  //
+
+  // Check if we have errors
+  if (result.errors) {
+    reporter.panicOnBuild('Error while running GraphQL query.');
+  }
+
+  //
+
+  /* Data */
   const blogPosts = result.data.blogPosts.nodes;
+  const blogCategories = result.data.blogCategories.group;
+  /* END Data */
 
-  // Create pages
-  blogPosts.forEach(({ frontmatter }) => {
-    createPage({
-      path: `/blog/${frontmatter.slug}`,
-      component: blogPostTemplate,
-      context: {
-        title: frontmatter.title,
-      },
-    });
-  });
+  //
 
-  // Create paginated pages
-  const perPage = 6;
-  const totalPages = Math.ceil(blogPosts.length / perPage);
+  /* Templates */
+  const blogPostListTemplate = path.resolve('src/templates/blogPostList.js');
+  const blogCategoryListTemplate = path.resolve(
+    'src/templates/blogCategoryList.js',
+  );
+  /* END Templates */
 
-  Array.from({ length: totalPages }).forEach((_, i) => {
+  //
+
+  /* Blog Posts */
+
+  // Create paginated blog posts
+  const blogPostsPerPage = 6;
+  const blogPostsTotalPages = Math.ceil(blogPosts.length / blogPostsPerPage);
+
+  Array.from({ length: blogPostsTotalPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? '/blog' : `/blog/${i + 1}`,
       component: blogPostListTemplate,
       context: {
-        limit: perPage,
-        skip: i * perPage,
-        totalPages,
+        limit: blogPostsPerPage,
+        skip: i * blogPostsPerPage,
+        totalPages: blogPostsTotalPages,
       },
     });
   });
+
+  /* END Blog Posts */
+
+  //
+
+  /* Blog Categories */
+
+  // Create paginated blog categories
+
+  blogCategories.forEach(({ name, totalCategories }) => {
+    // Create
+    const slug = name.replace(/ /g, '-').toLowerCase();
+    const blogCategoriesPerPage = 6;
+    const blogCategoriesTotalPages = Math.ceil(
+      totalCategories / blogCategoriesPerPage,
+    );
+
+    // Redirect
+    createRedirect({
+      fromPath: `/blog/category/${slug}/1`,
+      toPath: `/blog/category/${slug}`,
+      isPermanent: false,
+      redirectInBrowser: true,
+    });
+
+    // Create pages
+    Array.from({ length: totalCategories }).forEach((_, i) => {
+      createPage({
+        path:
+          i === 0
+            ? `/blog/category/${slug}`
+            : `/blog/category/${slug}/${i + 1}`,
+        component: blogCategoryListTemplate,
+        context: {
+          name,
+          slug,
+          limit: blogCategoriesPerPage,
+          skip: i * blogCategoriesPerPage,
+          totalPages: blogCategoriesTotalPages,
+        },
+      });
+    });
+  });
+  /* END Blog Categories */
+
+  //
 };

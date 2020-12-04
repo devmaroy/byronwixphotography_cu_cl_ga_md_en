@@ -8,29 +8,37 @@ import Pagination from '../components/common/pagination';
 import BlogMainPostList from '../components/subpages/blog/blog-main/blogMainPostList';
 import BlogSidebar from '../components/subpages/blog/blog-sidebar/blogSidebar';
 
-const BlogPostListTemplate = ({ pageContext, data }) => {
-  const { totalPages } = pageContext;
-  const blogPostsInfo = data.blogPostsInfo.nodes[0].childMarkdownRemark;
-  const blogPosts = data.blogPosts.nodes;
+const BlogCategoryListTemplate = ({ pageContext, data }) => {
+  const { name, slug, totalPages } = pageContext;
+  const blogCategoryPostsInfo =
+    data.blogCategoryPostsInfo.nodes[0].childMarkdownRemark;
+  const blogCategoryPosts = data.blogCategoryPosts.nodes;
 
   return (
     <Layout>
       <SEO
-        title={blogPostsInfo.frontmatter.seo.title}
-        description={blogPostsInfo.frontmatter.seo.description}
+        title={blogCategoryPostsInfo.frontmatter.seo.title}
+        description={blogCategoryPostsInfo.frontmatter.seo.description}
       />
 
       <section className="subpage blog">
         <div className="container">
           <div className="subpage__inner">
-            <SubpageHeader heading={blogPostsInfo.frontmatter.info.heading}>
-              {blogPostsInfo.frontmatter.info.text}
+            <SubpageHeader
+              heading={blogCategoryPostsInfo.frontmatter.info.heading}
+              subheading={name}
+              showDescription={false}
+            >
+              {blogCategoryPostsInfo.frontmatter.info.text}
             </SubpageHeader>
 
             <div className="blog-layout">
               <div className="blog-main">
-                <BlogMainPostList posts={blogPosts} />
-                <Pagination pageCount={totalPages} />
+                <BlogMainPostList posts={blogCategoryPosts} />
+                <Pagination
+                  prefix={`blog/category/${slug}`}
+                  pageCount={totalPages}
+                />
               </div>
 
               <BlogSidebar />
@@ -42,15 +50,15 @@ const BlogPostListTemplate = ({ pageContext, data }) => {
   );
 };
 
-// Blog Post List Template Query
-export const BlogPostListTemplateQuery = graphql`
-  query BlogPosts($skip: Int!, $limit: Int!) {
-    blogPostsInfo: allFile(
+// Blog Category List Template Query
+export const BlogCategoryListTemplateQuery = graphql`
+  query BlogCategoryPosts($skip: Int!, $limit: Int!, $slug: String!) {
+    blogCategoryPostsInfo: allFile(
       filter: {
         internal: { mediaType: { eq: "text/markdown" } }
         sourceInstanceName: { eq: "markdown-data" }
-        relativeDirectory: { regex: "/subpages/blog/posts/" }
-        name: { eq: "posts_info" }
+        relativeDirectory: { regex: "/subpages/blog/category/" }
+        name: { eq: "category_info" }
       }
     ) {
       nodes {
@@ -69,11 +77,14 @@ export const BlogPostListTemplateQuery = graphql`
         }
       }
     }
-    blogPosts: allFile(
+    blogCategoryPosts: allFile(
       filter: {
         internal: { mediaType: { eq: "text/markdown" } }
         sourceInstanceName: { eq: "markdown-data" }
         relativeDirectory: { regex: "/subpages/blog/posts/list/" }
+        childMarkdownRemark: {
+          frontmatter: { categories: { elemMatch: { slug: { eq: $slug } } } }
+        }
       }
       sort: { fields: [childMarkdownRemark___frontmatter___date], order: DESC }
       skip: $skip
@@ -108,14 +119,16 @@ export const BlogPostListTemplateQuery = graphql`
   }
 `;
 
-BlogPostListTemplate.propTypes = {
+BlogCategoryListTemplate.propTypes = {
   pageContext: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     limit: PropTypes.number.isRequired,
     skip: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired,
   }).isRequired,
   data: PropTypes.shape({
-    blogPostsInfo: PropTypes.shape({
+    blogCategoryPostsInfo: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
           childMarkdownRemark: PropTypes.shape({
@@ -134,7 +147,7 @@ BlogPostListTemplate.propTypes = {
         }).isRequired,
       ).isRequired,
     }).isRequired,
-    blogPosts: PropTypes.shape({
+    blogCategoryPosts: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
           childMarkdownRemark: PropTypes.shape({
@@ -172,4 +185,4 @@ BlogPostListTemplate.propTypes = {
   }).isRequired,
 };
 
-export default BlogPostListTemplate;
+export default BlogCategoryListTemplate;

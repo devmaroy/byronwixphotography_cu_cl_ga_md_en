@@ -1,35 +1,66 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-const BlogSidebarAuthor = ({ heading, image, children }) => {
+// Query
+const query = graphql`
+  query BlogSidebarAuthorQuery {
+    blogSidebarAuthor: allFile(
+      filter: {
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/subpages/blog/author/" }
+        name: { eq: "author_info" }
+      }
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter {
+            id
+            heading
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          html
+        }
+      }
+    }
+  }
+`;
+
+const BlogSidebarAuthor = () => {
+  const data = useStaticQuery(query);
+  const blogSidebarAuthor = data.blogSidebarAuthor.nodes[0].childMarkdownRemark;
+
   return (
     <div className="blog-sidebar-author">
       <div className="blog-sidebar-author__image-wrapper">
-        <Img fluid={image} className="blog-sidebar-author__image" />
+        <Img
+          fluid={blogSidebarAuthor.frontmatter.image.childImageSharp.fluid}
+          className="blog-sidebar-author__image"
+        />
       </div>
 
       <h3
         className="blog-sidebar__heading"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: heading }}
+        dangerouslySetInnerHTML={{
+          __html: blogSidebarAuthor.frontmatter.heading,
+        }}
       />
 
-      <div className="blog-sidebar-author__content">{children}</div>
+      <div
+        className="blog-sidebar-author__content"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: blogSidebarAuthor.html }}
+      />
     </div>
   );
-};
-
-BlogSidebarAuthor.propTypes = {
-  heading: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    base64: PropTypes.string.isRequired,
-    aspectRatio: PropTypes.number.isRequired,
-    sizes: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
-    srcSet: PropTypes.string.isRequired,
-  }).isRequired,
-  children: PropTypes.node.isRequired,
 };
 
 export default BlogSidebarAuthor;

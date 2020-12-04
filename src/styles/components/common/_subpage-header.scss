@@ -24,6 +24,28 @@
   }
 }
 
+.subpage-header__subheading {
+  font-family: $ff-heading;
+  font-weight: $fw-medium;
+  font-style: italic;
+  font-size: 2.2rem;
+  line-height: 1;
+  margin: 0 0 2.4rem 0;
+  color: $clr-primary;
+
+  @media (min-width: 1020px) {
+    font-size: 2.6rem;
+  }
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+}
+
 .subpage-header__text {
   max-width: 68.8rem;
   margin: 0 auto;

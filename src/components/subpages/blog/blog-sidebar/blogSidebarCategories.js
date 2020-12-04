@@ -1,41 +1,78 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
-const BlogSidebarCategories = ({ heading, categories }) => {
+// Query
+const query = graphql`
+  query BlogSidebarCategoriesQuery {
+    blogSidebarCategoriesInfo: allFile(
+      filter: {
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/subpages/blog/categories/" }
+        name: { eq: "categories_info" }
+      }
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter {
+            id
+            heading
+          }
+        }
+      }
+    }
+    blogSidebarCategories: allFile(
+      filter: {
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/subpages/blog/categories/list/" }
+      }
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter {
+            id
+            name
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
+
+const BlogSidebarCategories = () => {
+  const data = useStaticQuery(query);
+  const blogSidebarCategoriesInfo =
+    data.blogSidebarCategoriesInfo.nodes[0].childMarkdownRemark;
+  const blogSidebarCategories = data.blogSidebarCategories.nodes;
+
   return (
     <div className="blog-sidebar-categories">
       <h3
         className="blog-sidebar__heading"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: heading }}
+        dangerouslySetInnerHTML={{
+          __html: blogSidebarCategoriesInfo.frontmatter.heading,
+        }}
       />
 
       <ul className="blog-sidebar-categories__list">
-        {categories.map(({ id, name, slug }) => (
-          <li key={id} className="blog-sidebar-categories__item">
-            <Link
-              to={`/blog/category/${slug}`}
-              className="blog-sidebar-categories__link"
-            >
-              {name}
-            </Link>
-          </li>
-        ))}
+        {blogSidebarCategories.map(
+          ({ childMarkdownRemark: { frontmatter } }) => (
+            <li key={frontmatter.id} className="blog-sidebar-categories__item">
+              <Link
+                to={`/blog/category/${frontmatter.slug}`}
+                className="blog-sidebar-categories__link"
+              >
+                {frontmatter.name}
+              </Link>
+            </li>
+          ),
+        )}
       </ul>
     </div>
   );
-};
-
-BlogSidebarCategories.propTypes = {
-  heading: PropTypes.string.isRequired,
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
 };
 
 export default BlogSidebarCategories;
