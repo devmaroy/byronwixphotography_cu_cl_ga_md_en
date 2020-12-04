@@ -71,7 +71,6 @@ export const BlogCategoryListTemplateQuery = graphql`
             }
             info {
               heading
-              text
             }
           }
         }

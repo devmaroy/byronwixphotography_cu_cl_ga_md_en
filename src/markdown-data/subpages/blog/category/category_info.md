@@ -7,11 +7,5 @@ seo:
       'Jelly pastry pie muffin sesame snaps dessert sugar plum. Fruitcake
       cupcake bear claw.',
   }
-info:
-  {
-    heading: 'Category',
-    text:
-      '<p>Jelly pastry pie muffin sesame snaps dessert sugar plum. Fruitcake
-      cupcake bear claw.</p>',
-  }
+info: { heading: 'Category' }
 ---
