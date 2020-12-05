@@ -1,4 +1,17 @@
 ---
-id: '0443e2a6-934e-4e75-83a6-4e4a6d95745c'
-heading: 'Search'
+id: '72400257-7a9a-455e-a23e-4370dc7778e5'
+seo:
+  {
+    title: 'Search results',
+    description:
+      'Carrot cake wafer ice cream cotton candy. Gummi bears tootsie roll
+      chocolate cake sesame snaps cake pastry sugar plum.',
+  }
+info:
+  {
+    heading: 'Search results',
+    text:
+      '<p>Carrot cake wafer ice cream cotton candy. Gummi bears tootsie roll
+      chocolate cake sesame snaps cake pastry sugar plum.</p>',
+  }
 ---

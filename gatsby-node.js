@@ -60,6 +60,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   //
 
   /* Templates */
+  const blogPostTemplate = path.resolve('src/templates/blogPost.js');
   const blogPostListTemplate = path.resolve('src/templates/blogPostList.js');
   const blogCategoryListTemplate = path.resolve(
     'src/templates/blogCategoryList.js',
@@ -69,6 +70,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   //
 
   /* Blog Posts */
+
+  // Create single blog post
+  blogPosts.forEach(({ childMarkdownRemark: blogPost }) => {
+    createPage({
+      path: `/blog/${blogPost.frontmatter.slug}`,
+      component: blogPostTemplate,
+      context: {
+        slug: blogPost.frontmatter.slug,
+      },
+    });
+  });
 
   // Create paginated blog posts
   const blogPostsPerPage = 6;

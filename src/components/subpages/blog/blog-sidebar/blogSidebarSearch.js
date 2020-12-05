@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import SearchForm from '../../../common/search/searchForm';
 
 // Query
 const query = graphql`
@@ -9,7 +10,7 @@ const query = graphql`
         internal: { mediaType: { eq: "text/markdown" } }
         sourceInstanceName: { eq: "markdown-data" }
         relativeDirectory: { regex: "/subpages/blog/search/" }
-        name: { eq: "search_info" }
+        name: { eq: "sidebar_info" }
       }
     ) {
       nodes {
@@ -39,12 +40,7 @@ const BlogSidebarSearch = () => {
         }}
       />
 
-      <form className="form blog-sidebar-search-form">
-        <input
-          type="search"
-          className="form__control blog-sidebar-search-form__input"
-        />
-      </form>
+      <SearchForm />
     </div>
   );
 };

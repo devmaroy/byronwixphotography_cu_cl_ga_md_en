@@ -1,3 +1,6 @@
+const remark = require('remark');
+const stripMarkdown = require('strip-markdown');
+
 module.exports = {
   siteMetadata: {
     lang: 'en',
@@ -70,6 +73,60 @@ module.exports = {
       options: {
         name: 'markdown-data',
         path: `${__dirname}/src/markdown-data`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-lunr',
+      options: {
+        languages: [
+          {
+            name: 'en',
+            filterNodes: (node) =>
+              node.frontmatter && node.frontmatter.searchable,
+          },
+        ],
+        fields: [
+          { name: 'id', store: true },
+          { name: 'title', store: true, attributes: { boost: 20 } },
+          { name: 'content' },
+          { name: 'excerpt', store: true },
+          { name: 'date', store: true },
+          { name: 'author', store: true },
+          { name: 'slug', store: true },
+          { name: 'categories', store: true },
+          { name: 'path', store: true },
+        ],
+        resolvers: {
+          MarkdownRemark: {
+            title: (node) => node.frontmatter.title,
+            content: (node) => node.rawMarkdownBody,
+            excerpt: (node) => {
+              const text = remark()
+                .use(stripMarkdown)
+                .processSync(node.rawMarkdownBody);
+
+              const excerptLength = 140; // Hard coded excerpt length
+              const excerpt = `${String(text).substring(0, excerptLength)} ...`;
+
+              return excerpt;
+            },
+            date: (node) => {
+              const date = new Date(node.frontmatter.date);
+              const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              };
+
+              return date.toLocaleDateString('en-US', options);
+            },
+            author: (node) => node.frontmatter.author,
+            slug: (node) => node.frontmatter.slug,
+            categories: (node) => node.frontmatter.categories,
+            path: (node) => node.frontmatter.path,
+          },
+        },
+        filename: 'search_index.json',
       },
     },
     {
