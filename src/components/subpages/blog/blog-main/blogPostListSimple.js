@@ -1,17 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 const BlogPostListSimple = ({ posts }) => {
-  console.log(posts);
-
   return (
-    <div>
-      {posts.map((item) => (
-        <div key={item.id}>
-          <h2>{item.title}</h2>
-          <div>{item.excerpt}</div>
-        </div>
-      ))}
+    <div className="blog-list-simple">
+      {posts.map(
+        ({ id, title, slug, excerpt, categories, date, formattedDate }) => (
+          <div key={id} className="blog-list-item blog-list-simple-item">
+            <h2 className="blog-list-item__title blog-list-simple-item__title">
+              <Link
+                to={`/blog/${slug}`}
+                className="blog-list-item__title-link blog-list-simple-item__title-link"
+              >
+                {title}
+              </Link>
+            </h2>
+
+            <div className="blog-list-item__meta blog-list-simple-item__meta">
+              <ul className="blog-list-item-categories blog-list-simple-item-categories">
+                {categories.map(
+                  ({
+                    id: categoryId,
+                    name: categoryName,
+                    slug: categorySlug,
+                  }) => (
+                    <li
+                      key={categoryId}
+                      className="blog-list-item-categories__item blog-list-simple-item-categories__item"
+                    >
+                      <Link
+                        to={`/blog/category/${categorySlug}`}
+                        className="blog-list-item-categories__link blog-list-simple-item-categories__link"
+                      >
+                        {categoryName}
+                      </Link>
+                    </li>
+                  ),
+                )}
+              </ul>
+
+              <span className="blog-list-item__date blog-list-simple-item__date">
+                written on the <time dateTime={date}>{formattedDate}</time>
+              </span>
+            </div>
+
+            <div className="blog-list-item__content blog-list-simple-item__content">
+              <p>{excerpt}</p>
+            </div>
+          </div>
+        ),
+      )}
     </div>
   );
 };
@@ -20,19 +59,20 @@ BlogPostListSimple.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
+      formattedDate: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
       categories: PropTypes.arrayOf(
         PropTypes.shape({
           id: PropTypes.string.isRequired,
           name: PropTypes.string.isRequired,
           slug: PropTypes.string.isRequired,
-        }),
+        }).isRequired,
       ).isRequired,
-    }),
+    }).isRequired,
   ).isRequired,
 };
 

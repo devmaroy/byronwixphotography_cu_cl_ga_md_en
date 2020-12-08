@@ -22,4 +22,4 @@ searchable: true
 ---
 
 Sugar plum wafer topping chupa chups lemon drops pie chocolate cake. Tiramisu
-oat cake toffee sugar plum pudding ...
+oat cake toffee sugar plum pudding

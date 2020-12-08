@@ -91,6 +91,7 @@ module.exports = {
           { name: 'content' },
           { name: 'excerpt', store: true },
           { name: 'date', store: true },
+          { name: 'formattedDate', store: true },
           { name: 'author', store: true },
           { name: 'slug', store: true },
           { name: 'categories', store: true },
@@ -110,7 +111,7 @@ module.exports = {
 
               return excerpt;
             },
-            date: (node) => {
+            formattedDate: (node) => {
               const date = new Date(node.frontmatter.date);
               const options = {
                 year: 'numeric',
@@ -120,6 +121,7 @@ module.exports = {
 
               return date.toLocaleDateString('en-US', options);
             },
+            date: (node) => node.frontmatter.date,
             author: (node) => node.frontmatter.author,
             slug: (node) => node.frontmatter.slug,
             categories: (node) => node.frontmatter.categories,

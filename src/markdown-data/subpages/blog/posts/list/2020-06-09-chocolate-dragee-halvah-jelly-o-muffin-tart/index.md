@@ -17,4 +17,4 @@ searchable: true
 ---
 
 Cupcake gummi bears pastry jelly beans tootsie roll. Dessert chupa chups
-marshmallow wafer candy muffin sweet roll ...
+marshmallow wafer candy muffin sweet roll

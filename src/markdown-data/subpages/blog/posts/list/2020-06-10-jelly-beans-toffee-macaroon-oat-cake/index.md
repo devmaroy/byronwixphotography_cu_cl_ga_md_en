@@ -17,4 +17,4 @@ searchable: true
 ---
 
 Danish caramels halvah fruitcake oat cake danish. Gingerbread bear claw
-chocolate lollipop halvah cookie lemon drops ...
+chocolate lollipop halvah cookie lemon drops

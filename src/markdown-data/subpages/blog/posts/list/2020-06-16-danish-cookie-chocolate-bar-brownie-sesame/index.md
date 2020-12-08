@@ -22,4 +22,4 @@ searchable: true
 ---
 
 Tart chocolate cake sweet roll sweet roll cotton. Lollipop cake cheesecake
-dragée tootsie roll tootsie roll cheesecake ...
+dragée tootsie roll tootsie roll cheesecake

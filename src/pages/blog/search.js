@@ -5,7 +5,6 @@ import { graphql, useStaticQuery, navigate } from 'gatsby';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/common/seo';
 import SubpageHeader from '../../components/common/subpageHeader';
-// import Pagination from '../components/common/pagination';
 import BlogPostListSimple from '../../components/subpages/blog/blog-main/blogPostListSimple';
 import BlogSidebar from '../../components/subpages/blog/blog-sidebar/blogSidebar';
 
@@ -47,26 +46,22 @@ const SearchPage = ({ location }) => {
 
   useEffect(() => {
     // Check if search term is empty
-    if (!searchTerm) {
+    if (!window.__LUNR__ || !searchTerm) {
       navigate('/blog');
       return;
     }
 
-    // Check if LUNR exist and if we have some query to search for
-
     // Load results
-    if (window.__LUNR__ && !searchTerm !== '') {
-      window.__LUNR__.__loaded.then((lunr) => {
-        // Lunr is loaded here - get refs
-        const refs = lunr.en.index.search(searchTerm);
+    window.__LUNR__.__loaded.then((lunr) => {
+      // Lunr is loaded here - get refs
+      const refs = lunr.en.index.search(searchTerm);
 
-        // Get posts based on refs
-        const posts = refs.map(({ ref }) => lunr.en.store[ref]);
+      // Get posts based on refs
+      const posts = refs.map(({ ref }) => lunr.en.store[ref]);
 
-        // Set results to state
-        setResults(posts);
-      });
-    }
+      // Set results to state
+      setResults(posts);
+    });
   }, [searchTerm]);
 
   return (
@@ -85,10 +80,16 @@ const SearchPage = ({ location }) => {
 
             <div className="blog-layout">
               <div className="blog-main">
-                <h3>
-                  Results for: <strong>“cake cheesecake”</strong>
+                <h3 className="blog-search__heading">
+                  Results for:{' '}
+                  <span className="blog-search__term">{searchTerm}</span>
                 </h3>
-                {results.length !== 0 && <BlogPostListSimple posts={results} />}
+
+                {results.length !== 0 && (
+                  <div className="blog-search__results">
+                    <BlogPostListSimple posts={results} />
+                  </div>
+                )}
               </div>
 
               <BlogSidebar />

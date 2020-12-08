@@ -27,4 +27,4 @@ searchable: true
 ---
 
 Caramels cheesecake cotton candy chocolate bar chocolate bar gummi bears powder.
-Danish toffee apple pie gingerbread ...
+Danish toffee apple pie gingerbread
