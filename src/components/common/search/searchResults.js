@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 const SearchResults = ({ searchTerm, showMore = true, results }) => {
-  console.log(results);
-
   return (
     <div className="blog-sidebar-search-results">
       <h4 className="blog-sidebar-search-results__heading">

@@ -81,7 +81,7 @@ const SearchPage = ({ location }) => {
             <div className="blog-layout">
               <div className="blog-main">
                 <h3 className="blog-search__heading">
-                  Results for:{' '}
+                  Results ({results.length}) for:{' '}
                   <span className="blog-search__term">{searchTerm}</span>
                 </h3>
 
