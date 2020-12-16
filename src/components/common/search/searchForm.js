@@ -32,10 +32,10 @@ const SearchForm = () => {
           const refs = lunr.en.index.search(currentSearchTerm);
 
           // Get the data based on the refs
-          const data = refs.map(({ ref }) => lunr.en.store[ref]);
+          const lunrData = refs.map(({ ref }) => lunr.en.store[ref]);
 
           // Limit data
-          const limitedData = limitResults(data);
+          const limitedData = limitResults(lunrData);
 
           // Update state with the data
           setResults(limitedData);
@@ -58,7 +58,6 @@ const SearchForm = () => {
           type="search"
           className="form__control blog-sidebar-search-form__input"
           onChange={handleChange}
-          // onKeyDown={handleKeyDown}
         />
 
         {searchTerm !== '' && results.length !== 0 && (

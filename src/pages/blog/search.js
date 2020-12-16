@@ -45,22 +45,22 @@ const SearchPage = ({ location }) => {
   const searchTerm = new URLSearchParams(location.search).get('keywords') || '';
 
   useEffect(() => {
-    // Check if search term is empty
+    // Check if Lunr exists and if we have query to search for
     if (!window.__LUNR__ || !searchTerm) {
       navigate('/blog');
       return;
     }
 
-    // Load results
+    // Look for results
     window.__LUNR__.__loaded.then((lunr) => {
-      // Lunr is loaded here - get refs
+      // Lunr is loaded at this point - get refs
       const refs = lunr.en.index.search(searchTerm);
 
-      // Get posts based on refs
-      const posts = refs.map(({ ref }) => lunr.en.store[ref]);
+      // Get the data based on the refs
+      const lunrData = refs.map(({ ref }) => lunr.en.store[ref]);
 
-      // Set results to state
-      setResults(posts);
+      // Update state with the data
+      setResults(lunrData);
     });
   }, [searchTerm]);
 
