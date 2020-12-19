@@ -13,6 +13,24 @@ categories:
       slug: 'topping',
     },
   ]
+tags:
+  [
+    {
+      id: 'cdad0b61-eaf5-4729-885d-a13b77cccfbb',
+      name: Gummi Bears',
+      slug: 'gummi-bears',
+    },
+    {
+      id: '9eece37b-78dd-4a0f-b8dc-784e5688338f',
+      name: 'Rolls',
+      slug: 'rolls',
+    },
+    {
+      id: '6dcf651c-a7eb-4bed-bfcd-4540c9a86deb',
+      name: 'Chupa chups',
+      slug: 'chupa-chups',
+    },
+  ]
 searchable: true
 ---
 

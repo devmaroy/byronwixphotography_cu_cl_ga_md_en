@@ -13,6 +13,19 @@ categories:
       slug: 'pudding',
     },
   ]
+tags:
+  [
+    {
+      id: '185b1411-9e13-481a-bf4c-559578e5f5f3',
+      name: 'Fruit Cake',
+      slug: 'fruit-cake',
+    },
+    {
+      id: '1d1d5022-7e17-480b-b0c5-c94a86abcfd1',
+      name: 'Danish',
+      slug: 'danish',
+    },
+  ]
 searchable: true
 ---
 

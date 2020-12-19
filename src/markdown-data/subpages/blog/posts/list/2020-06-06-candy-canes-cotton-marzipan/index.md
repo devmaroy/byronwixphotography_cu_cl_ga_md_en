@@ -23,6 +23,19 @@ categories:
       slug: 'cupcake',
     },
   ]
+tags:
+  [
+    {
+      id: 'bf433db9-3a2a-402d-bd74-01314e7e7ef0',
+      name: Powder',
+      slug: 'powder',
+    },
+    {
+      id: '22986d40-590f-45e6-8510-46c4de7c5c6f',
+      name: 'Apple',
+      slug: 'apple',
+    },
+  ]
 searchable: true
 ---
 

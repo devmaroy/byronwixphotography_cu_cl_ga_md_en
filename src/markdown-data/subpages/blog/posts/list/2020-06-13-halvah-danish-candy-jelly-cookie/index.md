@@ -18,6 +18,14 @@ categories:
       slug: 'sugar-plum',
     },
   ]
+tags:
+  [
+    {
+      id: 'd1ccde04-c28c-4719-917c-e39d0c0164b0',
+      name: 'Bonbon',
+      slug: 'bonbon',
+    },
+  ]
 searchable: true
 ---
 

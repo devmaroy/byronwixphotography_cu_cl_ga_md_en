@@ -18,6 +18,19 @@ categories:
       slug: 'pudding',
     },
   ]
+tags:
+  [
+    {
+      id: '928fb9ec-e059-4a1d-a452-a08bc992da93',
+      name: 'Cupcake',
+      slug: 'cupcake',
+    },
+    {
+      id: '2ff9504c-8bf8-4d95-8341-85018d09b50b',
+      name: 'Tarts',
+      slug: 'tarts',
+    },
+  ]
 searchable: true
 ---
 
