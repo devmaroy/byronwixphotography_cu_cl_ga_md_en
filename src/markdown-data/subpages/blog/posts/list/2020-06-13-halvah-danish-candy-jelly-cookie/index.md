@@ -26,6 +26,9 @@ tags:
       slug: 'bonbon',
     },
   ]
+teaser:
+  '<p>Sugar plum wafer topping chupa chups lemon drops pie chocolate cake.
+  Tiramisu oat cake toffee sugar plum pudding ...</p>'
 searchable: true
 ---
 

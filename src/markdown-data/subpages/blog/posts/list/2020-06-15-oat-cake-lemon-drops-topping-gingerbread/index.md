@@ -12,11 +12,6 @@ categories:
       name: 'Cupcake pie',
       slug: 'cupcake-pie',
     },
-    {
-      id: 'ddc9c238-8e3c-4b0b-8a94-61f3a2ab313a',
-      name: 'Pudding',
-      slug: 'pudding',
-    },
   ]
 tags:
   [
@@ -36,6 +31,9 @@ tags:
       slug: 'liquorice',
     },
   ]
+teaser:
+  '<p>Halvah macaroon marzipan sugar plum powder cotton  cheesecake dessert.
+  Macaroon pudding powder wafer sweet ...</p>'
 searchable: true
 ---
 
@@ -101,11 +99,11 @@ muffin.
 - Chocolate bar icing pudding marshmallow tart oat cake
 - Powder tootsie roll marzipan cake pudding
 
-> Lemon drops cookie brownie powder tart marshmallow pudding. Macaroon wafer
+> "Lemon drops cookie brownie powder tart marshmallow pudding. Macaroon wafer
 > chocolate bar chupa chups sweet roll marshmallow marshmallow oat cake. Topping
 > sweet roll lollipop wafer liquorice pie jujubes. Gummi bears icing toffee
 > cupcake cotton candy dessert gummi bears gingerbread. Cupcake dessert
-> cheesecake topping.
+> cheesecake topping."
 
 ![Camera with plants](./images/image02.jpg)
 

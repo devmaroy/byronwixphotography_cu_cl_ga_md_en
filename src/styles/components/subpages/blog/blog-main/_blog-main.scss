@@ -1,0 +1,13 @@
+/*------------------------------------*\
+  # Blog Main
+\*------------------------------------*/
+
+.blog-main {
+  .pagination {
+    margin-top: 4rem;
+
+    @media (min-width: 768px) {
+      margin-top: 5.6rem;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+/*------------------------------------*\
+  # Blog Post Comments
+\*------------------------------------*/
+
+.blog-post-comments {
+  margin-top: 6.4rem;
+
+  @media (min-width: 1020px) {
+    margin-top: 8rem;
+  }
+}
+
+.blog-post-comments__heading {
+  margin: 0 0 3.2rem 0;
+  font-family: $ff-heading;
+  font-weight: $fw-bold;
+  font-size: 2rem;
+  line-height: 1;
+  color: $clr-dark-off;
+
+  @media (min-width: 1020px) {
+    margin-bottom: 4rem;
+  }
+}

@@ -15,8 +15,8 @@ const BlogPostTemplate = ({ data }) => {
         description="oat-cake-lemon-drops-topping-gingerbread"
       />
 
-      <section className="blog-post">
-        <div className="blog-post__inner">
+      <section className="subpage blog-post-page">
+        <div className="subpage__inner blog-post-page__inner">
           <BlogPost data={blogPostData} />
         </div>
       </section>
@@ -38,6 +38,7 @@ export const BlogPostQueryTemplate = graphql`
       nodes {
         childMarkdownRemark {
           frontmatter {
+            id
             title
             slug
             date

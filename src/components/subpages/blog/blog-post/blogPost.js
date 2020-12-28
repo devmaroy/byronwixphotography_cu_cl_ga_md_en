@@ -9,7 +9,7 @@ const BlogPost = ({ data }) => {
   const { frontmatter, html } = data;
 
   return (
-    <article className="blog-article">
+    <article className="blog-post">
       <BlogPostHeader
         categories={frontmatter.categories}
         date={frontmatter.date}
@@ -18,11 +18,16 @@ const BlogPost = ({ data }) => {
         featuredImage={frontmatter.featuredImage.childImageSharp}
       />
 
-      <BlogPostContent content={html} />
+      <div className="blog-post-container">
+        <BlogPostContent content={html} />
 
-      <BlogPostMeta tags={frontmatter.tags} />
+        <BlogPostMeta tags={frontmatter.tags} />
 
-      <BlogPostComments />
+        <BlogPostComments
+          identifier={frontmatter.slug}
+          title={frontmatter.title}
+        />
+      </div>
     </article>
   );
 };
@@ -38,6 +43,7 @@ BlogPost.propTypes = {
         }).isRequired,
       ).isRequired,
       title: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       formattedDate: PropTypes.string.isRequired,
       featuredImage: PropTypes.shape({

@@ -5,7 +5,7 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
 import Pagination from '../components/common/pagination';
-import BlogMainPostList from '../components/subpages/blog/blog-main/blogMainPostList';
+import BlogPostList from '../components/subpages/blog/blogPostList';
 import BlogSidebar from '../components/subpages/blog/blog-sidebar/blogSidebar';
 
 const BlogPostListTemplate = ({ pageContext, data }) => {
@@ -20,7 +20,7 @@ const BlogPostListTemplate = ({ pageContext, data }) => {
         description={blogPostsInfo.frontmatter.seo.description}
       />
 
-      <section className="subpage blog">
+      <section className="subpage blog-page">
         <div className="container">
           <div className="subpage__inner">
             <SubpageHeader heading={blogPostsInfo.frontmatter.info.heading}>
@@ -29,7 +29,7 @@ const BlogPostListTemplate = ({ pageContext, data }) => {
 
             <div className="blog-layout">
               <div className="blog-main">
-                <BlogMainPostList posts={blogPosts} />
+                <BlogPostList posts={blogPosts} />
                 <Pagination pageCount={totalPages} />
               </div>
 
@@ -88,6 +88,7 @@ export const BlogPostListTemplateQuery = graphql`
             formattedDate: date(formatString: "MMMM D, YYYY")
             date
             author
+            teaser
             featuredImage {
               childImageSharp {
                 fluid {
@@ -101,7 +102,6 @@ export const BlogPostListTemplateQuery = graphql`
               slug
             }
           }
-          html
         }
       }
     }
@@ -145,6 +145,7 @@ BlogPostListTemplate.propTypes = {
               author: PropTypes.string.isRequired,
               date: PropTypes.string.isRequired,
               formattedDate: PropTypes.string.isRequired,
+              teaser: PropTypes.string.isRequired,
               categories: PropTypes.arrayOf(
                 PropTypes.shape({
                   id: PropTypes.string.isRequired,
@@ -164,7 +165,6 @@ BlogPostListTemplate.propTypes = {
                 }).isRequired,
               }).isRequired,
             }).isRequired,
-            html: PropTypes.string.isRequired,
           }).isRequired,
         }),
       ).isRequired,

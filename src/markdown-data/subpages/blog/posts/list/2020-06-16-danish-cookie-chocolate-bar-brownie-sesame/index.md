@@ -31,6 +31,9 @@ tags:
       slug: 'tarts',
     },
   ]
+teaser:
+  '<p>Tart chocolate cake sweet roll sweet roll cotton. Lollipop cake cheesecake
+  dragée tootsie roll tootsie roll cheesecake ...</p>'
 searchable: true
 ---
 

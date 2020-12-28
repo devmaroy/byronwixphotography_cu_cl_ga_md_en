@@ -26,6 +26,9 @@ tags:
       slug: 'danish',
     },
   ]
+teaser:
+  '<p>Danish caramels halvah fruitcake oat cake danish. Gingerbread bear claw
+  chocolate lollipop halvah cookie lemon drops ...</p>'
 searchable: true
 ---
 

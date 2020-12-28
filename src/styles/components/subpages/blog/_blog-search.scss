@@ -1,0 +1,31 @@
+/*------------------------------------*\
+  # Blog Search
+\*------------------------------------*/
+
+.blog-search__heading {
+  font-family: $ff-heading;
+  font-weight: $fw-medium;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin: 0;
+  padding-bottom: 1.6rem;
+  border-bottom: 0.1rem solid $clr-lightgray;
+  color: $clr-base;
+
+  @media (min-width: 1200px) {
+    font-size: 1.8rem;
+  }
+}
+
+.blog-search__term {
+  font-style: italic;
+  color: $clr-primary;
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+}

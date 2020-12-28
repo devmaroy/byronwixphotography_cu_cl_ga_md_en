@@ -12,13 +12,13 @@ const BlogPostHeader = ({
   featuredImage,
 }) => {
   return (
-    <header className="blog-article-header">
-      <ul className="blog-article-header-categories">
+    <header className="blog-post-header">
+      <ul className="blog-post-header-categories">
         {categories.map(({ id, slug, name }) => (
-          <li key={id} className="blog-article-header-categories__item">
+          <li key={id} className="blog-post-header-categories__item">
             <Link
               to={`/blog/${slug}`}
-              className="blog-article-header-categories__link"
+              className="blog-post-header-categories__link"
             >
               {name}
             </Link>
@@ -26,19 +26,19 @@ const BlogPostHeader = ({
         ))}
       </ul>
 
-      <time dateTime={date} className="blog-article-header__date">
+      <time dateTime={date} className="blog-post-header__date">
         written on the {formattedDate}
       </time>
 
       <h1
-        className="blog-article-header__title"
+        className="blog-post-header__title"
         dangerouslySetInnerHTML={{ __html: title }}
       />
 
-      <div className="blog-article-header-image">
+      <div className="blog-post-header-image">
         <Img
           fluid={featuredImage.fluid}
-          className="blog-article-header-image__img"
+          className="blog-post-header-image__img"
         />
       </div>
     </header>

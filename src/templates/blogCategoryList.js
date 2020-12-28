@@ -5,7 +5,7 @@ import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
 import Pagination from '../components/common/pagination';
-import BlogMainPostList from '../components/subpages/blog/blog-main/blogMainPostList';
+import BlogPostList from '../components/subpages/blog/blogPostList';
 import BlogSidebar from '../components/subpages/blog/blog-sidebar/blogSidebar';
 
 const BlogCategoryListTemplate = ({ pageContext, data }) => {
@@ -34,7 +34,7 @@ const BlogCategoryListTemplate = ({ pageContext, data }) => {
 
             <div className="blog-layout">
               <div className="blog-main">
-                <BlogMainPostList posts={blogCategoryPosts} />
+                <BlogPostList posts={blogCategoryPosts} />
                 <Pagination
                   prefix={`blog/category/${slug}`}
                   pageCount={totalPages}
@@ -98,6 +98,7 @@ export const BlogCategoryListTemplateQuery = graphql`
             formattedDate: date(formatString: "MMMM D, YYYY")
             date
             author
+            teaser
             featuredImage {
               childImageSharp {
                 fluid {
@@ -111,7 +112,6 @@ export const BlogCategoryListTemplateQuery = graphql`
               slug
             }
           }
-          html
         }
       }
     }

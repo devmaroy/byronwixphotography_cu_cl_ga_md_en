@@ -31,6 +31,9 @@ tags:
       slug: 'chupa-chups',
     },
   ]
+teaser:
+  '<p>Cupcake gummi bears pastry jelly beans tootsie roll. Dessert chupa chups
+  marshmallow wafer candy muffin sweet roll ...</p>'
 searchable: true
 ---
 

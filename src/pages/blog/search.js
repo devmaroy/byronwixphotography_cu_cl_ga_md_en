@@ -5,7 +5,7 @@ import { graphql, useStaticQuery, navigate } from 'gatsby';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/common/seo';
 import SubpageHeader from '../../components/common/subpageHeader';
-import BlogPostListSimple from '../../components/subpages/blog/blog-main/blogPostListSimple';
+import BlogPostListSimple from '../../components/subpages/blog/blogPostListSimple';
 import BlogSidebar from '../../components/subpages/blog/blog-sidebar/blogSidebar';
 
 // Query

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-const BlogMainPostList = ({ posts }) => {
+const BlogPostList = ({ posts }) => {
   return (
     <div className="blog-list">
-      {posts.map(({ childMarkdownRemark: { frontmatter, html } }) => (
+      {posts.map(({ childMarkdownRemark: { frontmatter } }) => (
         <div key={frontmatter.id} className="blog-list-item">
           <div className="blog-list-item__image-wrapper">
             <Link to={`/blog/${frontmatter.slug}`}>
@@ -16,7 +16,6 @@ const BlogMainPostList = ({ posts }) => {
               />
             </Link>
           </div>
-
           <ul className="blog-list-item-categories">
             {frontmatter.categories.map(
               ({ id: categoryId, name: categoryName, slug: categorySlug }) => (
@@ -34,12 +33,10 @@ const BlogMainPostList = ({ posts }) => {
               ),
             )}
           </ul>
-
           <span className="blog-list-item__date">
             written on the{' '}
             <time dateTime={frontmatter.date}>{frontmatter.formattedDate}</time>
           </span>
-
           <h2 className="blog-list-item__title">
             <Link
               to={`/blog/${frontmatter.slug}`}
@@ -50,9 +47,9 @@ const BlogMainPostList = ({ posts }) => {
           </h2>
 
           <div
-            className="blog-list-item__content"
+            className="blog-list-item__teaser"
             // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: html }}
+            dangerouslySetInnerHTML={{ __html: frontmatter.teaser }}
           />
         </div>
       ))}
@@ -60,7 +57,7 @@ const BlogMainPostList = ({ posts }) => {
   );
 };
 
-BlogMainPostList.propTypes = {
+BlogPostList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       childMarkdownRemark: PropTypes.shape({
@@ -70,6 +67,7 @@ BlogMainPostList.propTypes = {
           slug: PropTypes.string.isRequired,
           author: PropTypes.string.isRequired,
           date: PropTypes.string.isRequired,
+          teaser: PropTypes.string.isRequired,
           categories: PropTypes.arrayOf(
             PropTypes.shape({
               id: PropTypes.string.isRequired,
@@ -89,10 +87,9 @@ BlogMainPostList.propTypes = {
             }).isRequired,
           }).isRequired,
         }).isRequired,
-        html: PropTypes.string.isRequired,
       }).isRequired,
     }).isRequired,
   ).isRequired,
 };
 
-export default BlogMainPostList;
+export default BlogPostList;

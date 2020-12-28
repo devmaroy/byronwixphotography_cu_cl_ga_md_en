@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const BlogPostContent = ({ content }) => {
   return (
     <div
-      className="blog-article-content"
+      className="blog-post-content"
       dangerouslySetInnerHTML={{ __html: content }}
     />
   );

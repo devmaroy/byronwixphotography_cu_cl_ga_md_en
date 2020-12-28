@@ -36,6 +36,9 @@ tags:
       slug: 'apple',
     },
   ]
+teaser:
+  '<p>Caramels cheesecake cotton candy chocolate bar chocolate bar gummi bears
+  powder. Danish toffee apple pie gingerbread ...</p>'
 searchable: true
 ---
 

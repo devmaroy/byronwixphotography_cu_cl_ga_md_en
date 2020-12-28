@@ -1,0 +1,7 @@
+/*------------------------------------*\
+  # Blog Post Base
+\*------------------------------------*/
+
+.blog-post-container {
+  @include grid-container($maxWidth: 92.8rem);
+}

@@ -1,3 +1,8 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const remark = require('remark');
 const stripMarkdown = require('strip-markdown');
 
@@ -48,7 +53,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-image-attributes`,
             options: {
-              styleAttributes: [`float`, `width`, `height`],
+              styleAttributes: [`float`],
               dataAttributes: true,
             },
           },
