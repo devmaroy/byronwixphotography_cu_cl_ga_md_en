@@ -9,7 +9,11 @@ const Service = ({ icon, children }) => {
         <FontAwesomeIcon icon={['fal', icon]} fixedWidth />
       </div>
 
-      <div className="service__text">{children}</div>
+      <div
+        className="service__text"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
     </div>
   );
 };

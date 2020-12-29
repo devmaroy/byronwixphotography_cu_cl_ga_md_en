@@ -4,19 +4,36 @@ import Img from 'gatsby-image';
 
 // Query
 const query = graphql`
-  {
-    heroPhoto: allFile(
+  query HeroPageQuery {
+    hero: allFile(
       filter: {
-        sourceInstanceName: { eq: "images" }
-        relativeDirectory: { eq: "pages/hero" }
-        name: { eq: "hero" }
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/pages/hero/" }
       }
     ) {
       nodes {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+        childMarkdownRemark {
+          frontmatter {
+            id
+            heading_1
+            heading_2
+            heading_3
+            headingHighlight_1
+            headingHighlight_2
+            cta {
+              text
+              url
+            }
+            image {
+              childImageSharp {
+                fluid(quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
+          html
         }
       }
     }
@@ -25,7 +42,7 @@ const query = graphql`
 
 const Hero = () => {
   const data = useStaticQuery(query);
-  const heroPhoto = data.heroPhoto.nodes[0].childImageSharp;
+  const heroData = data.hero.nodes[0].childMarkdownRemark;
 
   return (
     <div className="hero">
@@ -33,37 +50,40 @@ const Hero = () => {
         <div className="hero__inner">
           <div className="hero__welcome">
             <h1 className="hero__heading">
-              <span className="hero__heading_break">Hi! :)</span> My name is{' '}
-              <span className="hero__highlight">Byron Wix</span> and I’m
-              freelance <span className="hero__highlight">protographer</span>
+              <span className="hero__heading_break">
+                {heroData.frontmatter.heading_1}
+              </span>
+              {heroData.frontmatter.heading_2}{' '}
+              <span className="hero__highlight">
+                {heroData.frontmatter.headingHighlight_1}
+              </span>{' '}
+              {heroData.frontmatter.heading_3}{' '}
+              <span className="hero__highlight">
+                {heroData.frontmatter.headingHighlight_2}
+              </span>
             </h1>
 
-            <div className="hero__text">
-              <p>
-                Chocolate cake tart halvah caramels wafer chocolate sugar plum
-                jelly beans candy. Ice cream toffee tiramisu bear claw sweet.
-                Gummies cake icing chocolate bar tart jujubes topping sugar plum
-                soufflé.
-              </p>
-
-              <p>
-                Pastry danish powder muffin candy cookie. Biscuit muffin oat
-                cake candy canes dragée tart cupcake marzipan. Pudding fruitcake
-                brownie cupcake marshmallow jelly-o danish. Bonbon sugar plum
-                tart sweet sweet roll cotton candy cupcake. Chocolate cookie
-                cupcake toffee donut dessert.
-              </p>
-            </div>
+            <div
+              className="hero__text"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{ __html: heroData.html }}
+            />
 
             <div className="hero-cta">
-              <Link to="/portfolio" className="hero-cta__link">
-                See my portfolio
+              <Link
+                to={heroData.frontmatter.cta.url}
+                className="hero-cta__link"
+              >
+                {heroData.frontmatter.cta.text}
               </Link>
             </div>
           </div>
 
           <div className="hero__photo">
-            <Img fluid={heroPhoto.fluid} className="hero__image" />
+            <Img
+              fluid={heroData.frontmatter.image.childImageSharp.fluid}
+              className="hero__image"
+            />
           </div>
         </div>
       </div>
