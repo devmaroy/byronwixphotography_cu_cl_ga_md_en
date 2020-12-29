@@ -33,8 +33,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
-      blogCategories: allMarkdownRemark {
-        group(field: frontmatter___categories___name) {
+      blogCategories: allFile(
+        filter: {
+          internal: { mediaType: { eq: "text/markdown" } }
+          sourceInstanceName: { eq: "markdown-data" }
+          relativeDirectory: { regex: "/blog/posts/list/" }
+        }
+      ) {
+        group(field: childMarkdownRemark___frontmatter___categories___name) {
           name: fieldValue
           totalCategories: totalCount
         }

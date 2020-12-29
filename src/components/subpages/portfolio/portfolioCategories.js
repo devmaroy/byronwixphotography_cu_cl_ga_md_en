@@ -1,13 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { categories } from '../../../data/portfolio';
 
-const PortfolioCategories = ({ selectedCategory, changeCategory }) => {
+const PortfolioCategories = ({
+  portfolioCategories,
+  selectedCategory,
+  changeCategory,
+}) => {
   return (
     <ul className="portfolio-menu">
-      {categories.map(({ id, slug, name }) => (
-        <li key={id} className="portfolio-menu__item">
+      <li className="portfolio-menu__item">
+        <button
+          type="button"
+          className={classNames('portfolio-menu__link', {
+            'portfolio-menu__link--active': selectedCategory === 'all',
+          })}
+          onClick={() => changeCategory('all')}
+        >
+          All
+        </button>
+      </li>
+
+      {portfolioCategories.map(({ slug, name }) => (
+        <li key={slug} className="portfolio-menu__item">
           <button
             type="button"
             className={classNames('portfolio-menu__link', {
@@ -24,6 +39,12 @@ const PortfolioCategories = ({ selectedCategory, changeCategory }) => {
 };
 
 PortfolioCategories.propTypes = {
+  portfolioCategories: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
   selectedCategory: PropTypes.string.isRequired,
   changeCategory: PropTypes.func.isRequired,
 };

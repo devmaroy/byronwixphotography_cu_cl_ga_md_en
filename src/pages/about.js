@@ -68,7 +68,7 @@ const About = () => {
                   <Img
                     fluid={aboutData.frontmatter.image.childImageSharp.fluid}
                     className="about__image"
-                    alt="Byron Wix portrait"
+                    alt="Portrait"
                   />
                 </div>
 
