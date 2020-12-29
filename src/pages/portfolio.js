@@ -71,7 +71,6 @@ const query = graphql`
     ) {
       group(field: childMarkdownRemark___frontmatter___categories___name) {
         name: fieldValue
-        totalCategories: totalCount
       }
     }
   }

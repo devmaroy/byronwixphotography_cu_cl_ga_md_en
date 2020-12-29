@@ -25,17 +25,12 @@ const query = graphql`
       filter: {
         internal: { mediaType: { eq: "text/markdown" } }
         sourceInstanceName: { eq: "markdown-data" }
-        relativeDirectory: { regex: "/subpages/blog/categories/list/" }
+        relativeDirectory: { regex: "/blog/posts/list/" }
       }
     ) {
-      nodes {
-        childMarkdownRemark {
-          frontmatter {
-            id
-            name
-            slug
-          }
-        }
+      group(field: childMarkdownRemark___frontmatter___categories___name) {
+        name: fieldValue
+        totalCategories: totalCount
       }
     }
   }
@@ -45,7 +40,18 @@ const BlogSidebarCategories = () => {
   const data = useStaticQuery(query);
   const blogSidebarCategoriesInfo =
     data.blogSidebarCategoriesInfo.nodes[0].childMarkdownRemark;
-  const blogSidebarCategories = data.blogSidebarCategories.nodes;
+  const blogSidebarCategories = data.blogSidebarCategories.group;
+
+  const getCategories = () => {
+    return blogSidebarCategories
+      .map(({ name, totalCategories }) => {
+        const slug = name.replace(/ /g, '-').toLowerCase();
+        const updatedCategory = { slug, name, totalCategories };
+
+        return updatedCategory;
+      })
+      .sort((a, b) => b.totalCategories - a.totalCategories);
+  };
 
   return (
     <div className="blog-sidebar-categories">
@@ -58,18 +64,16 @@ const BlogSidebarCategories = () => {
       />
 
       <ul className="blog-sidebar-categories__list">
-        {blogSidebarCategories.map(
-          ({ childMarkdownRemark: { frontmatter } }) => (
-            <li key={frontmatter.id} className="blog-sidebar-categories__item">
-              <Link
-                to={`/blog/category/${frontmatter.slug}`}
-                className="blog-sidebar-categories__link"
-              >
-                {frontmatter.name}
-              </Link>
-            </li>
-          ),
-        )}
+        {getCategories().map(({ slug, name, totalCategories }) => (
+          <li key={slug} className="blog-sidebar-categories__item">
+            <Link
+              to={`/blog/category/${slug}`}
+              className="blog-sidebar-categories__link"
+            >
+              {name} ({totalCategories})
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
