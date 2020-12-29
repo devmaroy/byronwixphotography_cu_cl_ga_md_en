@@ -5,6 +5,13 @@ slug: 'halvah-danish-candy-jelly-cookie'
 date: '2020-06-13'
 author: 'byronwix'
 featuredImage: './images/image.jpg'
+seo:
+  {
+    title: 'Halvah danish candy jelly cookie',
+    description:
+      'Sugar plum wafer topping chupa chups lemon drops pie chocolate cake.
+      Tiramisu oat cake toffee sugar plum pudding',
+  }
 categories:
   [
     {

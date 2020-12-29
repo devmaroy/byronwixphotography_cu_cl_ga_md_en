@@ -5,6 +5,13 @@ slug: 'candy-canes-cotton-marzipan'
 date: '2020-06-06'
 author: 'byronwix'
 featuredImage: './images/image.jpg'
+seo:
+  {
+    title: 'Candy canes cotton marzipan',
+    description:
+      'Caramels cheesecake cotton candy chocolate bar chocolate bar gummi bears
+      powder. Danish toffee apple pie gingerbread',
+  }
 categories:
   [
     {

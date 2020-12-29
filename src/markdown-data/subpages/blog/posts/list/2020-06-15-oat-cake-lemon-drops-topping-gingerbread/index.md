@@ -5,6 +5,13 @@ slug: 'oat-cake-lemon-drops-topping-gingerbread'
 date: '2020-06-15'
 author: 'byronwix'
 featuredImage: './images/image.jpg'
+seo:
+  {
+    title: 'Oat cake lemon drops topping gingerbread',
+    description:
+      'Halvah macaroon marzipan sugar plum powder cotton  cheesecake dessert.
+      Macaroon pudding powder wafer sweet',
+  }
 categories:
   [
     {

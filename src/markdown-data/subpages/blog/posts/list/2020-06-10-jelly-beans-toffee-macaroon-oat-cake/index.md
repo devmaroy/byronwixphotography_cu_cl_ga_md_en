@@ -5,6 +5,13 @@ slug: 'jelly-beans-toffee-macaroon-oat-cake'
 date: '2020-06-10'
 author: 'byronwix'
 featuredImage: './images/image.jpg'
+seo:
+  {
+    title: 'Jelly beans toffee macaroon oat cake',
+    description:
+      'Danish caramels halvah fruitcake oat cake danish. Gingerbread bear claw
+      chocolate lollipop halvah cookie lemon drops',
+  }
 categories:
   [
     {

@@ -5,6 +5,13 @@ slug: 'chocolate-dragee-halvah-jelly-o-muffin-tart'
 date: '2020-06-09'
 author: 'byronwix'
 featuredImage: './images/image.jpg'
+seo:
+  {
+    title: 'Chocolate dragée halvah jelly-o muffin tart',
+    description:
+      'Cupcake gummi bears pastry jelly beans tootsie roll. Dessert chupa chups
+      marshmallow wafer candy muffin sweet roll',
+  }
 categories:
   [
     {

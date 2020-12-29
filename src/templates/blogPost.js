@@ -11,8 +11,8 @@ const BlogPostTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO
-        title="Oat cake lemon drops topping gingerbread"
-        description="oat-cake-lemon-drops-topping-gingerbread"
+        title={blogPostData.frontmatter.seo.title}
+        description={blogPostData.frontmatter.seo.description}
       />
 
       <section className="subpage blog-post-page">
@@ -49,6 +49,10 @@ export const BlogPostQueryTemplate = graphql`
                   ...GatsbyImageSharpFluid
                 }
               }
+            }
+            seo {
+              title
+              description
             }
             categories {
               id
@@ -92,6 +96,10 @@ BlogPostTemplate.propTypes = {
                     srcSet: PropTypes.string.isRequired,
                   }).isRequired,
                 }).isRequired,
+              }).isRequired,
+              seo: PropTypes.shape({
+                title: PropTypes.string.isRequired,
+                description: PropTypes.string.isRequired,
               }).isRequired,
               categories: PropTypes.arrayOf(
                 PropTypes.shape({

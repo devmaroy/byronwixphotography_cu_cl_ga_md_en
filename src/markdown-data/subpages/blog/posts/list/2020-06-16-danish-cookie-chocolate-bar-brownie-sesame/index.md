@@ -5,6 +5,13 @@ slug: 'danish-cookie-chocolate-bar-brownie-sesame'
 date: '2020-06-16'
 author: 'byronwix'
 featuredImage: './images/image.jpg'
+seo:
+  {
+    title: 'Danish cookie chocolate bar brownie sesame',
+    description:
+      'Tart chocolate cake sweet roll sweet roll cotton. Lollipop cake
+      cheesecake dragée tootsie roll tootsie roll cheesecake',
+  }
 categories:
   [
     {
