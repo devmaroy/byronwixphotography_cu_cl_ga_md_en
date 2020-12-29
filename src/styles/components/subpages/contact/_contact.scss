@@ -22,6 +22,11 @@
   @media (min-width: 1440px) {
     grid-template-columns: 68.8rem 56.8rem;
     justify-content: space-between;
+
+    .custom-checkbox__text {
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }
   }
 }
 

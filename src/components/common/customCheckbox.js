@@ -18,7 +18,11 @@ const CustomCheckbox = ({
 
         <span className="custom-checkbox__field" />
 
-        <div className="custom-checkbox__text">{children}</div>
+        <div
+          className="custom-checkbox__text"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: children }}
+        />
       </label>
     </div>
   );

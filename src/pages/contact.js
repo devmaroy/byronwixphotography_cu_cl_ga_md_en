@@ -1,118 +1,154 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import SubpageHeader from '../components/common/subpageHeader';
 import CustomCheckbox from '../components/common/customCheckbox';
 
+// Query
+const query = graphql`
+  query ContactSubpageQuery {
+    contact: allFile(
+      filter: {
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/subpages/contact/" }
+        base: { regex: "/index/" }
+      }
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter {
+            id
+            seo {
+              title
+              description
+            }
+            info {
+              heading
+              text
+            }
+            contactHeading
+            contactDetails {
+              id
+              heading
+              content {
+                id
+                type
+                url
+                text
+              }
+            }
+            contactFormFields {
+              id
+              label
+              type
+              name
+            }
+            contactFormCheckbox {
+              name
+              text
+            }
+            contactFormButtonText
+          }
+          html
+        }
+      }
+    }
+  }
+`;
+
 const Contact = () => {
+  const data = useStaticQuery(query);
+  const contactData = data.contact.nodes[0].childMarkdownRemark;
+
   return (
     <Layout>
       <SEO
-        title="Contact me"
-        description="Halvah sesame snaps sugar plum. Chocolate halvah wafer gingerbread tootsie
-      roll jelly-o powder caramels powder."
+        title={contactData.frontmatter.seo.title}
+        description={contactData.frontmatter.seo.description}
       />
 
       <section className="subpage contact">
         <div className="container">
           <div className="subpage__inner">
-            <SubpageHeader heading="Contact Me">
-              <p>
-                Halvah sesame snaps sugar plum. Chocolate halvah wafer
-                gingerbread tootsie roll jelly-o powder caramels powder.
-              </p>
+            <SubpageHeader heading={contactData.frontmatter.info.heading}>
+              {contactData.frontmatter.info.text}
             </SubpageHeader>
 
             <div className="contact__wrapper">
               <div className="contact-details">
-                <h2 className="contact-details__heading">Contact details</h2>
+                <h2
+                  className="contact-details__heading"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{
+                    __html: contactData.frontmatter.contactHeading,
+                  }}
+                />
 
-                <div className="contact-details__text">
-                  <p>
-                    Cookie tiramisu tiramisu sesame snaps oat cake. Ties sweet
-                    roll tiramisu sugar plum. Pastry marshmallow brownie. Bear
-                    claw dragée donut biscuit candy canes fruitcake jelly-o
-                    croissant.
-                  </p>
-                </div>
+                <div
+                  className="contact-details__text"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{ __html: contactData.html }}
+                />
 
                 <ul className="contact-details__list">
-                  <li className="contact-details__item">
-                    <h3 className="contact-details__subheading">Address</h3>
-                    <div className="contact-details__subtext">
-                      <p>80 Winding Way Lane</p>
-                      <p>Summerville, SC 29483</p>
-                    </div>
-                  </li>
+                  {contactData.frontmatter.contactDetails.map(
+                    ({ id, heading, content }) => (
+                      <li key={id} className="contact-details__item">
+                        <h3 className="contact-details__subheading">
+                          {heading}
+                        </h3>
 
-                  <li className="contact-details__item">
-                    <h3 className="contact-details__subheading">Email</h3>
-                    <div className="contact-details__subtext">
-                      <p>
-                        <a href="/">contact@byronwix.com</a>
-                      </p>
-                    </div>
-                  </li>
-
-                  <li className="contact-details__item">
-                    <h3 className="contact-details__subheading">Phone</h3>
-                    <div className="contact-details__subtext">
-                      <p>
-                        <a href="/">202-555-0139</a>
-                      </p>
-                    </div>
-                  </li>
+                        <div className="contact-details__subtext">
+                          {content.map(({ id: cid, type, url, text }) => {
+                            return type === 'text' ? (
+                              <p key={cid}>{text}</p>
+                            ) : (
+                              <p key={cid}>
+                                <a href={url}>{text}</a>
+                              </p>
+                            );
+                          })}
+                        </div>
+                      </li>
+                    ),
+                  )}
                 </ul>
               </div>
 
               <form className="form contact-details-form">
-                <div className="form__group">
-                  <label htmlFor="name" className="form__label">
-                    Name
-                    <input type="text" name="name" className="form__control" />
-                  </label>
-                </div>
+                {contactData.frontmatter.contactFormFields.map(
+                  ({ id, label, type, name }) => (
+                    <div key={id} className="form__group">
+                      <label htmlFor="name" className="form__label">
+                        {label}
 
-                <div className="form__group">
-                  <label htmlFor="email" className="form__label">
-                    Email
-                    <input
-                      type="email"
-                      name="email"
-                      className="form__control"
-                    />
-                  </label>
-                </div>
-
-                <div className="form__group">
-                  <label htmlFor="message" className="form__label">
-                    Message
-                    <textarea name="message" className="form__control" />
-                  </label>
-                </div>
+                        {type === 'textarea' ? (
+                          <textarea name={name} className="form__control" />
+                        ) : (
+                          <input
+                            type={type}
+                            name={name}
+                            className="form__control"
+                          />
+                        )}
+                      </label>
+                    </div>
+                  ),
+                )}
 
                 <div className="form__meta-group">
-                  <CustomCheckbox id="acceptedTerms" name="acceptedTerms">
-                    I agree to the{' '}
-                    <Link
-                      to="/terms-of-service"
-                      className="custom-checkbox__link"
-                    >
-                      Terms of Service
-                    </Link>{' '}
-                    &{' '}
-                    <Link
-                      to="/privacy-policy"
-                      className="custom-checkbox__link"
-                    >
-                      Privacy policy
-                    </Link>
+                  <CustomCheckbox
+                    id={contactData.frontmatter.contactFormCheckbox.id}
+                    name={contactData.frontmatter.contactFormCheckbox.name}
+                  >
+                    {contactData.frontmatter.contactFormCheckbox.text}
                   </CustomCheckbox>
 
                   <div className="form__meta">
                     <button type="button" className="button button--secondary">
-                      Send
+                      {contactData.frontmatter.contactFormButtonText}
                     </button>
                   </div>
                 </div>

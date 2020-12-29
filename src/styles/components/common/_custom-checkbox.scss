@@ -39,10 +39,10 @@
   font-size: 1.4rem;
   line-height: 1.9rem;
   color: $clr-custom-checkbox-base;
-}
 
-.custom-checkbox__link {
-  @include link-reset;
-  @include link($clr-primary, darken($clr-primary, 15%));
-  font-weight: $fw-medium;
+  a {
+    @include link-reset;
+    @include link($clr-primary, darken($clr-primary, 15%));
+    font-weight: $fw-medium;
+  }
 }
