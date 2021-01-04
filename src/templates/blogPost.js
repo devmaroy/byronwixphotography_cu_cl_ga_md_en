@@ -25,7 +25,7 @@ const BlogPostTemplate = ({ data }) => {
 };
 
 // Blog Post Template Query
-export const BlogPostQueryTemplate = graphql`
+export const BlogPostTemplateQuery = graphql`
   query BlogPost($slug: String!) {
     blogPost: allFile(
       filter: {
