@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import BlogPost from '../components/subpages/blog/blog-post/blogPost';
+import blogPostType from '../types/blog/blogPostType';
 
 const BlogPostTemplate = ({ data }) => {
   const blogPostData = data.blogPost.nodes[0].childMarkdownRemark;
@@ -80,37 +81,7 @@ BlogPostTemplate.propTypes = {
     blogPost: PropTypes.shape({
       nodes: PropTypes.arrayOf(
         PropTypes.shape({
-          childMarkdownRemark: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-              slug: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              formattedDate: PropTypes.string.isRequired,
-              featuredImage: PropTypes.shape({
-                childImageSharp: PropTypes.shape({
-                  fluid: PropTypes.shape({
-                    aspectRatio: PropTypes.number.isRequired,
-                    base64: PropTypes.string.isRequired,
-                    sizes: PropTypes.string.isRequired,
-                    src: PropTypes.string.isRequired,
-                    srcSet: PropTypes.string.isRequired,
-                  }).isRequired,
-                }).isRequired,
-              }).isRequired,
-              seo: PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                description: PropTypes.string.isRequired,
-              }).isRequired,
-              categories: PropTypes.arrayOf(
-                PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  slug: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-                }).isRequired,
-              ).isRequired,
-            }).isRequired,
-            html: PropTypes.string.isRequired,
-          }).isRequired,
+          childMarkdownRemark: PropTypes.shape(blogPostType).isRequired,
         }).isRequired,
       ).isRequired,
     }).isRequired,

@@ -1,8 +1,8 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
+import blogPostHeaderType from '../../../../types/blog/blogPostHeaderType';
 
 const BlogPostHeader = ({
   categories,
@@ -46,25 +46,7 @@ const BlogPostHeader = ({
 };
 
 BlogPostHeader.propTypes = {
-  categories: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-  date: PropTypes.string.isRequired,
-  formattedDate: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  featuredImage: PropTypes.shape({
-    fluid: PropTypes.shape({
-      aspectRatio: PropTypes.number.isRequired,
-      base64: PropTypes.string.isRequired,
-      sizes: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
-      srcSet: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
+  ...blogPostHeaderType,
 };
 
 export default BlogPostHeader;

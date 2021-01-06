@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { DiscussionEmbed } from 'disqus-react';
+import blogPostCommentsType from '../../../../types/blog/blogPostCommentsType';
 
 const BlogPostComments = ({ identifier, title }) => {
   return (
@@ -20,8 +20,7 @@ const BlogPostComments = ({ identifier, title }) => {
 };
 
 BlogPostComments.propTypes = {
-  identifier: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  ...blogPostCommentsType,
 };
 
 export default BlogPostComments;

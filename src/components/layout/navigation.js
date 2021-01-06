@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import classNames from 'classnames';
+import navigationType from '../../types/components/layout/navigationType';
 import Social from '../common/social';
 
 const Navigation = ({ isOpen, toggleNavigation }) => {
@@ -106,8 +106,7 @@ const Navigation = ({ isOpen, toggleNavigation }) => {
 };
 
 Navigation.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  toggleNavigation: PropTypes.func.isRequired,
+  ...navigationType,
 };
 
 export default Navigation;

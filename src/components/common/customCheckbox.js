@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import customCheckboxType from '../../types/components/common/customCheckboxType';
 
 const CustomCheckbox = ({
   id = 'acceptedTerms',
@@ -29,9 +29,7 @@ const CustomCheckbox = ({
 };
 
 CustomCheckbox.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  ...customCheckboxType,
 };
 
 export default CustomCheckbox;

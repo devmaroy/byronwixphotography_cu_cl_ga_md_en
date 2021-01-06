@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import paginationType from '../../types/components/common/paginationType';
 import GatsbySimplePagination from './gatsby-simple-pagination/gsp';
 
 const Pagination = ({ pageCount, prefix = 'blog' }) => {
@@ -17,8 +17,7 @@ const Pagination = ({ pageCount, prefix = 'blog' }) => {
 };
 
 Pagination.propTypes = {
-  pageCount: PropTypes.number.isRequired,
-  prefix: PropTypes.string,
+  ...paginationType,
 };
 
 export default Pagination;

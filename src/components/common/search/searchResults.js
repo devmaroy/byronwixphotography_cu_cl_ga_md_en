@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import searchResultsType from '../../../types/components/common/search/searchResultsType';
 
 const SearchResults = ({ searchTerm, showMore = true, results }) => {
   return (
@@ -35,26 +35,7 @@ const SearchResults = ({ searchTerm, showMore = true, results }) => {
 };
 
 SearchResults.propTypes = {
-  searchTerm: PropTypes.string.isRequired,
-  showMore: PropTypes.bool,
-  results: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      excerpt: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      formattedDate: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      categories: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          slug: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-    }).isRequired,
-  ).isRequired,
+  ...searchResultsType,
 };
 
 export default SearchResults;

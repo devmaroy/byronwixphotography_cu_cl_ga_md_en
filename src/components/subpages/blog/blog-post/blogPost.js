@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import blogPostType from '../../../../types/blog/blogPostType';
 import BlogPostHeader from './blogPostHeader';
 import BlogPostContent from './blogPostContent';
 import BlogPostMeta from './blogPostMeta';
@@ -33,40 +34,7 @@ const BlogPost = ({ data }) => {
 };
 
 BlogPost.propTypes = {
-  data: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      categories: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          slug: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-      title: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      formattedDate: PropTypes.string.isRequired,
-      featuredImage: PropTypes.shape({
-        childImageSharp: PropTypes.shape({
-          fluid: PropTypes.shape({
-            aspectRatio: PropTypes.number.isRequired,
-            base64: PropTypes.string.isRequired,
-            sizes: PropTypes.string.isRequired,
-            src: PropTypes.string.isRequired,
-            srcSet: PropTypes.string.isRequired,
-          }).isRequired,
-        }).isRequired,
-      }).isRequired,
-      tags: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          slug: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-    }).isRequired,
-    html: PropTypes.string.isRequired,
-  }).isRequired,
+  data: PropTypes.shape(blogPostType).isRequired,
 };
 
 export default BlogPost;

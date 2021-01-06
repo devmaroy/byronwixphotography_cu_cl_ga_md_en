@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import loadMorePaginationType from '../../types/components/common/loadMorePaginationType';
 
 const LoadMorePagination = ({ perPage, items, children, onReset }) => {
   const [page, setPage] = useState(1);
@@ -56,10 +56,7 @@ const LoadMorePagination = ({ perPage, items, children, onReset }) => {
 };
 
 LoadMorePagination.propTypes = {
-  perPage: PropTypes.number.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  children: PropTypes.func.isRequired,
-  onReset: PropTypes.func,
+  ...loadMorePaginationType,
 };
 
 export default LoadMorePagination;

@@ -48,8 +48,6 @@ const Services = () => {
   const servicesData = data.services.nodes[0].childMarkdownRemark;
   const servicesItemsData = data.servicesItems.nodes;
 
-  console.log(servicesItemsData);
-
   return (
     <section className="services">
       <div className="container">

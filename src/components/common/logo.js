@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Link } from 'gatsby';
+import logoType from '../../types/components/common/logoType';
 
 const Logo = ({ alt = false }) => {
   return (
@@ -19,7 +19,7 @@ const Logo = ({ alt = false }) => {
 };
 
 Logo.propTypes = {
-  alt: PropTypes.bool,
+  ...logoType,
 };
 
 export default Logo;

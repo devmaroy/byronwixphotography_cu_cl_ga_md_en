@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
+import socialType from '../../types/components/common/socialType';
 import SocialIcon from './socialIcon';
 
 // Query
@@ -36,8 +36,7 @@ const Social = ({ type = 'normal', fixedWidth = false }) => {
 };
 
 Social.propTypes = {
-  fixedWidth: PropTypes.bool,
-  type: PropTypes.string,
+  ...socialType,
 };
 
 export default Social;

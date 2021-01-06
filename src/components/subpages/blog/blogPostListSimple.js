@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import blogPostListSimpleType from '../../../types/blog/blogPostListSimpleType';
 
 const BlogPostListSimple = ({ posts }) => {
   return (
@@ -56,24 +57,7 @@ const BlogPostListSimple = ({ posts }) => {
 };
 
 BlogPostListSimple.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      excerpt: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      formattedDate: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      categories: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          slug: PropTypes.string.isRequired,
-        }).isRequired,
-      ).isRequired,
-    }).isRequired,
-  ).isRequired,
+  posts: PropTypes.arrayOf(blogPostListSimpleType).isRequired,
 };
 
 export default BlogPostListSimple;

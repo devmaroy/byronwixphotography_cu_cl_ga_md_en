@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
+import blogPostListType from '../../../types/blog/blogPostListType';
 
 const BlogPostList = ({ posts }) => {
   return (
@@ -58,38 +59,8 @@ const BlogPostList = ({ posts }) => {
 };
 
 BlogPostList.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      childMarkdownRemark: PropTypes.shape({
-        frontmatter: PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          title: PropTypes.string.isRequired,
-          slug: PropTypes.string.isRequired,
-          author: PropTypes.string.isRequired,
-          date: PropTypes.string.isRequired,
-          teaser: PropTypes.string.isRequired,
-          categories: PropTypes.arrayOf(
-            PropTypes.shape({
-              id: PropTypes.string.isRequired,
-              name: PropTypes.string.isRequired,
-              slug: PropTypes.string.isRequired,
-            }).isRequired,
-          ).isRequired,
-          featuredImage: PropTypes.shape({
-            childImageSharp: PropTypes.shape({
-              fluid: PropTypes.shape({
-                aspectRatio: PropTypes.number.isRequired,
-                base64: PropTypes.string.isRequired,
-                sizes: PropTypes.string.isRequired,
-                src: PropTypes.string.isRequired,
-                srcSet: PropTypes.string.isRequired,
-              }).isRequired,
-            }).isRequired,
-          }).isRequired,
-        }).isRequired,
-      }).isRequired,
-    }).isRequired,
-  ).isRequired,
+  posts: PropTypes.arrayOf(PropTypes.shape(blogPostListType).isRequired)
+    .isRequired,
 };
 
 export default BlogPostList;

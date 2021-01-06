@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import subpageHeaderType from '../../types/components/common/subpageHeaderType';
 
 const SubpageHeader = ({
   heading,
@@ -27,10 +27,7 @@ const SubpageHeader = ({
 };
 
 SubpageHeader.propTypes = {
-  heading: PropTypes.string.isRequired,
-  subheading: PropTypes.string,
-  showDescription: PropTypes.bool,
-  children: PropTypes.node.isRequired,
+  ...subpageHeaderType,
 };
 
 export default SubpageHeader;

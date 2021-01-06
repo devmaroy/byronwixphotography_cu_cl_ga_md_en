@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import layoutType from '../../types/components/layout/layoutType';
 import Header from './header';
 import Footer from './footer';
 import InstagramFeed from '../common/instagramFeed';
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.node,
+  ...layoutType,
 };
 
 export default Layout;

@@ -1,12 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { graphql, useStaticQuery, navigate } from 'gatsby';
 import Layout from '../../components/layout/layout';
 import SEO from '../../components/common/seo';
 import SubpageHeader from '../../components/common/subpageHeader';
 import BlogPostListSimple from '../../components/subpages/blog/blogPostListSimple';
 import BlogSidebar from '../../components/subpages/blog/blog-sidebar/blogSidebar';
+import blogSearchType from '../../types/blog/blogSearchType';
 
 // Query
 const query = graphql`
@@ -102,9 +102,7 @@ const SearchPage = ({ location }) => {
 };
 
 SearchPage.propTypes = {
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }).isRequired,
+  ...blogSearchType,
 };
 
 export default SearchPage;

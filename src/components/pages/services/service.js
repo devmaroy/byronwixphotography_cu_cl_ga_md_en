@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import serviceType from '../../../types/components/pages/services/serviceType';
 
 const Service = ({ icon, children }) => {
   return (
@@ -19,8 +19,7 @@ const Service = ({ icon, children }) => {
 };
 
 Service.propTypes = {
-  icon: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  ...serviceType,
 };
 
 export default Service;

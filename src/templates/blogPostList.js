@@ -7,6 +7,8 @@ import SubpageHeader from '../components/common/subpageHeader';
 import Pagination from '../components/common/pagination';
 import BlogPostList from '../components/subpages/blog/blogPostList';
 import BlogSidebar from '../components/subpages/blog/blog-sidebar/blogSidebar';
+import pageInfoType from '../types/components/common/pageInfoType';
+import blogPostListType from '../types/blog/blogPostListType';
 
 const BlogPostListTemplate = ({ pageContext, data }) => {
   const { totalPages } = pageContext;
@@ -116,58 +118,10 @@ BlogPostListTemplate.propTypes = {
   }).isRequired,
   data: PropTypes.shape({
     blogPostsInfo: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          childMarkdownRemark: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              id: PropTypes.string.isRequired,
-              info: PropTypes.shape({
-                heading: PropTypes.string.isRequired,
-                text: PropTypes.string.isRequired,
-              }).isRequired,
-              seo: PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                description: PropTypes.string.isRequired,
-              }).isRequired,
-            }).isRequired,
-          }).isRequired,
-        }).isRequired,
-      ).isRequired,
+      nodes: PropTypes.arrayOf(pageInfoType).isRequired,
     }).isRequired,
     blogPosts: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          childMarkdownRemark: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              id: PropTypes.string.isRequired,
-              title: PropTypes.string.isRequired,
-              slug: PropTypes.string.isRequired,
-              author: PropTypes.string.isRequired,
-              date: PropTypes.string.isRequired,
-              formattedDate: PropTypes.string.isRequired,
-              teaser: PropTypes.string.isRequired,
-              categories: PropTypes.arrayOf(
-                PropTypes.shape({
-                  id: PropTypes.string.isRequired,
-                  name: PropTypes.string.isRequired,
-                  slug: PropTypes.string.isRequired,
-                }).isRequired,
-              ).isRequired,
-              featuredImage: PropTypes.shape({
-                childImageSharp: PropTypes.shape({
-                  fluid: PropTypes.shape({
-                    aspectRatio: PropTypes.number.isRequired,
-                    base64: PropTypes.string.isRequired,
-                    sizes: PropTypes.string.isRequired,
-                    src: PropTypes.string.isRequired,
-                    srcSet: PropTypes.string.isRequired,
-                  }).isRequired,
-                }).isRequired,
-              }).isRequired,
-            }).isRequired,
-          }).isRequired,
-        }),
-      ).isRequired,
+      nodes: PropTypes.arrayOf(blogPostListType).isRequired,
     }).isRequired,
   }).isRequired,
 };

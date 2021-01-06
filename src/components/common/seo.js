@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
+import seoType from '../../types/components/common/seoType';
 
 // Query
 const query = graphql`
@@ -130,13 +130,7 @@ const SEO = ({
 };
 
 SEO.propTypes = {
-  lang: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  twitterHandle: PropTypes.string,
-  siteUrl: PropTypes.string,
-  image: PropTypes.string,
-  author: PropTypes.string,
+  ...seoType,
 };
 
 export default SEO;

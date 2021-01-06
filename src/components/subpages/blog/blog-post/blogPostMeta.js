@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import blogPostMetaType from '../../../../types/blog/blogPostMetaType';
 import Social from '../../../common/social';
 
 // TODO: Remove after
@@ -84,13 +84,7 @@ const BlogPostMeta = ({ tags }) => {
 };
 
 BlogPostMeta.propTypes = {
-  tags: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
+  ...blogPostMetaType,
 };
 
 export default BlogPostMeta;

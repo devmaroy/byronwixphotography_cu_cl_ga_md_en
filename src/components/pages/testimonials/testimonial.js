@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
+import testimonialType from '../../../types/components/pages/testimonials/testimonialType';
 
 const Testimonial = ({
   authorImage,
@@ -28,16 +28,7 @@ const Testimonial = ({
 };
 
 Testimonial.propTypes = {
-  authorImage: PropTypes.shape({
-    base64: PropTypes.string.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-    src: PropTypes.string.isRequired,
-    srcSet: PropTypes.string.isRequired,
-  }).isRequired,
-  authorName: PropTypes.string.isRequired,
-  authorPosition: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  ...testimonialType,
 };
 
 export default Testimonial;

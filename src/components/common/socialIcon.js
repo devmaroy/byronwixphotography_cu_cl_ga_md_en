@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import socialIconType from '../../types/components/common/socialIconType';
 
 const SocialIcon = ({ icon, type = 'normal', fixedWidth = true }) => {
   const socialIcon = icon.toLowerCase();
@@ -46,9 +46,7 @@ const SocialIcon = ({ icon, type = 'normal', fixedWidth = true }) => {
 };
 
 SocialIcon.propTypes = {
-  icon: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  fixedWidth: PropTypes.bool,
+  ...socialIconType,
 };
 
 export default SocialIcon;

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
+import blogPostContentType from '../../../../types/blog/blogPostContentType';
 
 const BlogPostContent = ({ content }) => {
   return (
@@ -12,7 +12,7 @@ const BlogPostContent = ({ content }) => {
 };
 
 BlogPostContent.propTypes = {
-  content: PropTypes.string.isRequired,
+  ...blogPostContentType,
 };
 
 export default BlogPostContent;
