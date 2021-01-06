@@ -12,6 +12,7 @@ module.exports = {
     locale: 'en_US',
     title: 'Byron Wix Photography: Professional freelance photographer',
     titleSimplified: 'Byron Wix',
+    titleSimplifiedHighlight: 'Photography',
     description: 'Professional freelance photographer Byron Wix',
     author: 'byron wix',
     twitterHandle: '@byronwixphotography',

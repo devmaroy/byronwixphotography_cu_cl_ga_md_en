@@ -1,9 +1,27 @@
 import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import classNames from 'classnames';
-import { Link } from 'gatsby';
 import logoType from '../../types/components/common/logoType';
 
+// Query
+const query = graphql`
+  query LogoQuery {
+    logo: allSite {
+      nodes {
+        siteMetadata {
+          titleSimplified
+          titleSimplifiedHighlight
+        }
+      }
+    }
+  }
+`;
+
 const Logo = ({ alt = false }) => {
+  const data = useStaticQuery(query);
+  const logoData = data.logo.nodes[0].siteMetadata;
+  const { titleSimplified, titleSimplifiedHighlight } = logoData;
+
   return (
     <div className={classNames('logo', { 'logo--alt': alt })}>
       <Link
@@ -12,7 +30,8 @@ const Logo = ({ alt = false }) => {
           'logo__link--alt': alt,
         })}
       >
-        Byron Wix <span className="logo__highlight">Photography</span>
+        {titleSimplified}{' '}
+        <span className="logo__highlight">{titleSimplifiedHighlight}</span>
       </Link>
     </div>
   );
