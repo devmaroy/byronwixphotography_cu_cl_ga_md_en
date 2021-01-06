@@ -121,7 +121,11 @@ BlogPostListTemplate.propTypes = {
       nodes: PropTypes.arrayOf(pageInfoType).isRequired,
     }).isRequired,
     blogPosts: PropTypes.shape({
-      nodes: PropTypes.arrayOf(blogPostListType).isRequired,
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          childMarkdownRemark: blogPostListType,
+        }).isRequired,
+      ).isRequired,
     }).isRequired,
   }).isRequired,
 };
