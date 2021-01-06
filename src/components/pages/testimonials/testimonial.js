@@ -10,7 +10,11 @@ const Testimonial = ({
 }) => {
   return (
     <div className="testimonial">
-      <div className="testimonial__text">{children}</div>
+      <div
+        className="testimonial__text"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
 
       <div className="testimonial-author">
         <div className="testimonial-author__image">

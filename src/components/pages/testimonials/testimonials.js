@@ -1,25 +1,60 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
 import Slider from 'react-slick';
 import Testimonial from './testimonial';
 
 // Query
 const query = graphql`
-  {
-    testimonialsImages: allFile(
+  query TestimonialsPageQuery {
+    testimonials: allFile(
       filter: {
-        sourceInstanceName: { eq: "images" }
-        relativeDirectory: { eq: "pages/testimonials" }
-        base: { regex: "/testimonial-/" }
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/pages/testimonials/" }
+        base: { regex: "/index/" }
       }
-      sort: { fields: [name], order: ASC }
     ) {
       nodes {
-        childImageSharp {
-          fixed(width: 32, height: 32, quality: 100) {
-            ...GatsbyImageSharpFixed
+        childMarkdownRemark {
+          frontmatter {
+            id
+            heading
+            bgImage {
+              childImageSharp {
+                fluid(maxWidth: 1440, quality: 90) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
+        }
+      }
+    }
+    testimonialsItems: allFile(
+      filter: {
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/pages/testimonials/items/" }
+      }
+      sort: { fields: [base], order: ASC }
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter {
+            id
+            image {
+              childImageSharp {
+                fixed(width: 32, height: 32, quality: 100) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+            name
+            position
+          }
+          html
         }
       }
     }
@@ -28,7 +63,8 @@ const query = graphql`
 
 const Testimonials = () => {
   const data = useStaticQuery(query);
-  const testimonialsImages = data.testimonialsImages.nodes;
+  const testimonialsData = data.testimonials.nodes[0].childMarkdownRemark;
+  const testimonialsItemsData = data.testimonialsItems.nodes;
 
   const settings = {
     dots: true,
@@ -54,49 +90,40 @@ const Testimonials = () => {
     <section className="testimonials">
       <div className="container">
         <div className="testimonials__inner">
-          <h2 className="section__heading testimonials__heading">
-            What people say about me?
-          </h2>
+          <h2
+            className="section__heading testimonials__heading"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: testimonialsData.frontmatter.heading,
+            }}
+          />
 
-          <div className="testimonials__list">
+          <BackgroundImage
+            fluid={testimonialsData.frontmatter.bgImage.childImageSharp.fluid}
+            className="testimonials__list"
+          >
             <Slider {...settings}>
-              <Testimonial
-                authorImage={testimonialsImages[0].childImageSharp.fixed}
-                authorName="Debbie W. Stephens"
-                authorPosition="Freelancer"
-              >
-                <p>
-                  ”Cupcake cake sesame snaps lollipop powder cupcake jelly
-                  marzipan. Halvah pie dragée carrot cake pudding chocolate.
-                  Pastry gummies pastry marshmallow cookie.”
-                </p>
-              </Testimonial>
-
-              <Testimonial
-                authorImage={testimonialsImages[1].childImageSharp.fixed}
-                authorName="Timothy B. Shaw"
-                authorPosition="CEO at Shawness Technology, Inc."
-              >
-                <p>
-                  “Tiramisu tiramisu jelly beans. Ice cream bear claw cookie
-                  danish. Bear claw tart gingerbread chupa chups. Carrot cake
-                  macaroon pie lollipop carrot cake liquorice cotton.”
-                </p>
-              </Testimonial>
-
-              <Testimonial
-                authorImage={testimonialsImages[2].childImageSharp.fixed}
-                authorName="William Molina"
-                authorPosition="Developer"
-              >
-                <p>
-                  “Marshmallow bear claw dessert croissant sweet roll chocolate
-                  cake jelly beans icing. Gummies apple pie marzipan bear claw
-                  lollipop. Carrot cake roll. Soufflé tart donut.”
-                </p>
-              </Testimonial>
+              {testimonialsItemsData.map(
+                ({
+                  childMarkdownRemark: {
+                    frontmatter: { id, image, name, position },
+                    html,
+                  },
+                }) => (
+                  <Testimonial
+                    key={id}
+                    authorImage={image.childImageSharp.fixed}
+                    authorName={name}
+                    authorPosition={position}
+                  >
+                    {html}
+                  </Testimonial>
+                ),
+              )}
             </Slider>
-          </div>
+
+            <div className="testimonials__shape" />
+          </BackgroundImage>
         </div>
       </div>
     </section>
