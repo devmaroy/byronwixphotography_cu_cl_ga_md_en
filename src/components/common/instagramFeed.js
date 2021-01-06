@@ -6,18 +6,45 @@ import Img from 'gatsby-image';
 
 // Query
 const query = graphql`
-  {
-    instagramFeedImages: allFile(
+  query InstagramFeedQuery {
+    instagramFeed: allFile(
       filter: {
-        sourceInstanceName: { eq: "images" }
-        relativeDirectory: { eq: "instagram-feed" }
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/instagram/" }
+        base: { regex: "/index/" }
       }
-      sort: { fields: [name], order: ASC }
     ) {
       nodes {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
+        childMarkdownRemark {
+          frontmatter {
+            id
+            heading
+            name
+            url
+          }
+        }
+      }
+    }
+    instagramFeedItems: allFile(
+      filter: {
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/instagram/items/" }
+      }
+      sort: { fields: [base], order: ASC }
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter {
+            id
+            image {
+              childImageSharp {
+                fluid(maxWidth: 600, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
@@ -27,7 +54,8 @@ const query = graphql`
 
 const InstagramFeed = () => {
   const data = useStaticQuery(query);
-  const instagramFeedImages = data.instagramFeedImages.nodes;
+  const instagramFeedData = data.instagramFeed.nodes[0].childMarkdownRemark;
+  const instagramFeedItemsData = data.instagramFeedItems.nodes;
 
   const settings = {
     dots: false,
@@ -86,65 +114,38 @@ const InstagramFeed = () => {
   return (
     <div className="instagram-feed">
       <div className="instagram-feed__header">
-        <h3 className="instagram-feed__heading">Follow me on Instagram</h3>
+        <h3
+          className="instagram-feed__heading"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: instagramFeedData.frontmatter.heading,
+          }}
+        />
+
         <a
-          href="https://instagram.com/byronwix.photo"
+          href={instagramFeedData.frontmatter.url}
           className="instagram-feed__link"
         >
-          @byronwix.photo
+          {instagramFeedData.frontmatter.name}
         </a>
       </div>
 
       <div className="instagram-feed__list">
         <Slider {...settings}>
-          <div className="instagram-feed__item">
-            <Img
-              fluid={instagramFeedImages[0].childImageSharp.fluid}
-              className="instagram-feed__image"
-            />
-          </div>
-
-          <div className="instagram-feed__item">
-            <Img
-              fluid={instagramFeedImages[1].childImageSharp.fluid}
-              className="instagram-feed__image"
-            />
-          </div>
-
-          <div className="instagram-feed__item">
-            <Img
-              fluid={instagramFeedImages[2].childImageSharp.fluid}
-              className="instagram-feed__image"
-            />
-          </div>
-
-          <div className="instagram-feed__item">
-            <Img
-              fluid={instagramFeedImages[3].childImageSharp.fluid}
-              className="instagram-feed__image"
-            />
-          </div>
-
-          <div className="instagram-feed__item">
-            <Img
-              fluid={instagramFeedImages[4].childImageSharp.fluid}
-              className="instagram-feed__image"
-            />
-          </div>
-
-          <div className="instagram-feed__item">
-            <Img
-              fluid={instagramFeedImages[5].childImageSharp.fluid}
-              className="instagram-feed__image"
-            />
-          </div>
-
-          <div className="instagram-feed__item">
-            <Img
-              fluid={instagramFeedImages[6].childImageSharp.fluid}
-              className="instagram-feed__image"
-            />
-          </div>
+          {instagramFeedItemsData.map(
+            ({
+              childMarkdownRemark: {
+                frontmatter: { id, image },
+              },
+            }) => (
+              <div key={id} className="instagram-feed__item">
+                <Img
+                  fluid={image.childImageSharp.fluid}
+                  className="instagram-feed__image"
+                />
+              </div>
+            ),
+          )}
         </Slider>
       </div>
     </div>
