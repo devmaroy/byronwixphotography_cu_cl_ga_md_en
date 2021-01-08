@@ -14,8 +14,11 @@ const GatsbySimplePagination = ({
   listLinkClassName = 'gsp-list__link',
   listLinkActiveClassName = 'gsp-list__link--active',
 }) => {
-  const initialPage = () =>
-    parseInt(window.localStorage.getItem('gspCurrentPage'), 10) || 1;
+  const initialPage = () => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      parseInt(window.localStorage.getItem('gspCurrentPage'), 10) || 1;
+    }
+  }
 
   const [currentPage, setCurrentPagePage] = useState(initialPage);
 

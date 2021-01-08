@@ -31,8 +31,23 @@ Use these commands to install the dependencies and start the server.
    ```
    $ cd my-folder
    ```
+4. Open or create .env file and set your own settings
 
-4. **Start it up** `$ gatsby develop` <br>
+   You will need a shortname for disqus (https://disqus.com/) - DISQUS_SHORTNAME
+
+5. You will need a license for Font Awesome PRO.
+    
+   Create .npmrc file in the root directory and insert this:
+   ```
+   @fortawesome:registry=https://npm.fontawesome.com///npm.fontawesome.com/:_authToken=${FA_NPM_TOKEN}
+    ```
+    
+   Now you can add the environment variable to your .bashrc or other startup shell file using terminal.
+   ```
+   export FA_NPM_TOKEN=my_token_goes_here_foo_bar
+   ```
+
+6. **Start it up** `$ gatsby develop` <br>
 
 **Your site is now running at `http://localhost:8000`!**
 
