@@ -54,7 +54,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-image-attributes`,
             options: {
-              styleAttributes: [`float`],
+              styleAttributes: true,
               dataAttributes: true,
             },
           },
