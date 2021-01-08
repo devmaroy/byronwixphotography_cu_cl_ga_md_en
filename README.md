@@ -4,7 +4,7 @@
 
 This project is powered by **Gatsby** and is created for a client.
 
-Created with **hard coded data**.
+Created with **markdown**.
 
 <br>
 
@@ -19,7 +19,7 @@ Use these commands to install the dependencies and start the server.
 1. **Clone from Github**
 
    ```
-   $ git clone git@github.com:devmaroy/byronwixphotography_cu_cl_ga_hc_en.git
+   $ git clone git@github.com:devmaroy/byronwixphotography_cu_cl_ga_md_en.git
    ```
 
 2. **Install dependencies**
