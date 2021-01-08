@@ -31,7 +31,7 @@ const query = graphql`
             ctaText
             image {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 900, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
