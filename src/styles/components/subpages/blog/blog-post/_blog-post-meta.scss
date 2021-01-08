@@ -162,6 +162,10 @@
   }
 }
 
+.blog-post-meta-controls--right {
+  justify-content: flex-end;
+}
+
 .blog-post-meta-controls__control:not(:last-child) {
   margin-bottom: 4rem;
 }

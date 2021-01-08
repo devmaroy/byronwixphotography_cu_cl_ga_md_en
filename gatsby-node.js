@@ -78,12 +78,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   /* Blog Posts */
 
   // Create single blog post
-  blogPosts.forEach(({ childMarkdownRemark: blogPost }) => {
+  blogPosts.forEach(({ childMarkdownRemark: blogPost }, index) => {
     createPage({
       path: `/blog/${blogPost.frontmatter.slug}`,
       component: blogPostTemplate,
       context: {
         slug: blogPost.frontmatter.slug,
+        prev: index === 0 ? null : blogPosts[index - 1],
+        next: index === blogPost.length - 1 ? null : blogPosts[index + 1],
       },
     });
   });

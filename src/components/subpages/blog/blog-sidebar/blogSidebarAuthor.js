@@ -18,15 +18,15 @@ const query = graphql`
           frontmatter {
             id
             heading
+            teaser
             image {
               childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 210, height: 264, quality: 100) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
           }
-          html
         }
       }
     }
@@ -41,7 +41,7 @@ const BlogSidebarAuthor = () => {
     <div className="blog-sidebar-author">
       <div className="blog-sidebar-author__image-wrapper">
         <Img
-          fluid={blogSidebarAuthor.frontmatter.image.childImageSharp.fluid}
+          fixed={blogSidebarAuthor.frontmatter.image.childImageSharp.fixed}
           className="blog-sidebar-author__image"
         />
       </div>
@@ -57,7 +57,9 @@ const BlogSidebarAuthor = () => {
       <div
         className="blog-sidebar-author__content"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: blogSidebarAuthor.html }}
+        dangerouslySetInnerHTML={{
+          __html: blogSidebarAuthor.frontmatter.teaser,
+        }}
       />
     </div>
   );

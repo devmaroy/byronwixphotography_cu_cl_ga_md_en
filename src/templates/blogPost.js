@@ -1,13 +1,17 @@
+/* eslint-disable object-curly-newline */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout/layout';
 import SEO from '../components/common/seo';
 import BlogPost from '../components/subpages/blog/blog-post/blogPost';
-import blogPostType from '../types/blog/blogPostType';
+import blogPostType, {
+  blogPostNavigationType,
+} from '../types/blog/blogPostType';
 
-const BlogPostTemplate = ({ data }) => {
+const BlogPostTemplate = ({ data, pageContext }) => {
   const blogPostData = data.blogPost.nodes[0].childMarkdownRemark;
+  const { prev, next } = pageContext;
 
   return (
     <Layout>
@@ -18,7 +22,7 @@ const BlogPostTemplate = ({ data }) => {
 
       <section className="subpage blog-post-page">
         <div className="subpage__inner blog-post-page__inner">
-          <BlogPost data={blogPostData} />
+          <BlogPost data={blogPostData} prev={prev} next={next} />
         </div>
       </section>
     </Layout>
@@ -76,6 +80,8 @@ export const BlogPostTemplateQuery = graphql`
 BlogPostTemplate.propTypes = {
   pageContext: PropTypes.shape({
     slug: PropTypes.string.isRequired,
+    prev: blogPostNavigationType,
+    next: blogPostNavigationType,
   }).isRequired,
   data: PropTypes.shape({
     blogPost: PropTypes.shape({

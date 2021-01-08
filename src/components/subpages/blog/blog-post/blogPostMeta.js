@@ -1,12 +1,47 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import classNames from 'classnames';
+import { blogPostNavigationType } from '../../../../types/blog/blogPostType';
 import blogPostMetaType from '../../../../types/blog/blogPostMetaType';
 import Social from '../../../common/social';
 
-// TODO: Remove after
-import authorImg from '../../../../images/subpages/about/about.jpg';
+// Query
+const query = graphql`
+  query BlogPostMetaQuery {
+    blogPostMetaAuthor: allFile(
+      filter: {
+        internal: { mediaType: { eq: "text/markdown" } }
+        sourceInstanceName: { eq: "markdown-data" }
+        relativeDirectory: { regex: "/subpages/blog/author/" }
+        name: { eq: "author_info" }
+      }
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter {
+            id
+            name
+            image {
+              childImageSharp {
+                fixed(width: 152, height: 152, quality: 100) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+          html
+        }
+      }
+    }
+  }
+`;
 
-const BlogPostMeta = ({ tags }) => {
+const BlogPostMeta = ({ tags, prev, next }) => {
+  const data = useStaticQuery(query);
+  const blogPostMetaAuthor =
+    data.blogPostMetaAuthor.nodes[0].childMarkdownRemark;
+
   return (
     <footer className="blog-post-meta">
       <ul className="blog-post-meta-tags">
@@ -25,27 +60,27 @@ const BlogPostMeta = ({ tags }) => {
       <div className="blog-post-meta-author">
         <div className="blog-post-meta-author__wrapper">
           <div className="blog-post-meta-author-image">
-            <img
-              src={authorImg}
-              alt="Byron Wix"
+            <Img
+              fixed={blogPostMetaAuthor.frontmatter.image.childImageSharp.fixed}
               className="blog-post-meta-author-image__img"
+              alt={`${blogPostMetaAuthor.frontmatter.name} portrait`}
             />
           </div>
 
           <div className="blog-post-meta-author__info">
-            <h3 className="blog-post-meta-author__name">Byron Wix</h3>
+            <h3
+              className="blog-post-meta-author__name"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: blogPostMetaAuthor.frontmatter.name,
+              }}
+            />
 
-            <div className="blog-post-meta-author__bio">
-              <p>
-                Tart chocolate powder gingerbread carrot cake croissant jujubes
-                apple pie. Dragée apple pie chocolate bar powder cookie bonbon
-                cookie muffin. Cookie jelly-o cupcake caramels caramels cotton
-                candy gummies lemon drops. Wafer jelly-o pastry soufflé cake
-                lollipop. Dragée tart gummies muffin carrot cake tart tiramisu
-                cake. Gummies soufflé icing. Lemon drops icing sweet roll
-                pudding.
-              </p>
-            </div>
+            <div
+              className="blog-post-meta-author__bio"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{ __html: blogPostMetaAuthor.html }}
+            />
 
             <div className="blog-post-meta-author__social">
               <Social />
@@ -54,30 +89,44 @@ const BlogPostMeta = ({ tags }) => {
         </div>
       </div>
 
-      <div className="blog-post-meta-controls">
-        <div className="blog-post-meta-controls__control">
-          <span className="blog-post-meta-controls__subheading">
-            Previous post
-          </span>
+      <div
+        className={classNames('blog-post-meta-controls', {
+          'blog-post-meta-controls--right': !prev,
+        })}
+      >
+        {prev && (
+          <div className="blog-post-meta-controls__control">
+            <span className="blog-post-meta-controls__subheading">
+              Previous post
+            </span>
 
-          <h4 className="blog-post-meta-controls__heading">
-            <Link to="/" className="blog-post-meta-controls__link">
-              Cake snaps cheesecake pastry tiramisu
-            </Link>
-          </h4>
-        </div>
+            <h4 className="blog-post-meta-controls__heading">
+              <Link
+                to={`/blog/${prev.childMarkdownRemark.frontmatter.slug}`}
+                className="blog-post-meta-controls__link"
+              >
+                {prev.childMarkdownRemark.frontmatter.title}
+              </Link>
+            </h4>
+          </div>
+        )}
 
-        <div className="blog-post-meta-controls__control">
-          <span className="blog-post-meta-controls__subheading">
-            Following post
-          </span>
+        {next && (
+          <div className="blog-post-meta-controls__control">
+            <span className="blog-post-meta-controls__subheading">
+              Following post
+            </span>
 
-          <h4 className="blog-post-meta-controls__heading">
-            <Link to="/" className="blog-post-meta-controls__link">
-              Lollipop topping cake cheesecake gummi
-            </Link>
-          </h4>
-        </div>
+            <h4 className="blog-post-meta-controls__heading">
+              <Link
+                to={`/blog/${next.childMarkdownRemark.frontmatter.slug}`}
+                className="blog-post-meta-controls__link"
+              >
+                {next.childMarkdownRemark.frontmatter.title}
+              </Link>
+            </h4>
+          </div>
+        )}
       </div>
     </footer>
   );
@@ -85,6 +134,8 @@ const BlogPostMeta = ({ tags }) => {
 
 BlogPostMeta.propTypes = {
   ...blogPostMetaType,
+  prev: blogPostNavigationType,
+  next: blogPostNavigationType,
 };
 
 export default BlogPostMeta;

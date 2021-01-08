@@ -1,5 +1,16 @@
 import { shape, string, number, arrayOf } from 'prop-types';
 
+// Blog Post Navigation Type
+export const blogPostNavigationType = shape({
+  childMarkdownRemark: shape({
+    frontmatter: shape({
+      id: string.isRequired,
+      title: string.isRequired,
+      slug: string.isRequired,
+    }).isRequired,
+  }).isRequired,
+}).isRequired;
+
 // Blog Post Type
 export default shape({
   frontmatter: shape({
