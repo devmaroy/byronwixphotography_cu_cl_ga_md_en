@@ -46,7 +46,7 @@ const BlogPostListSimple = ({ posts }) => {
               </span>
             </div>
 
-            <div className="blog-list-item__content blog-list-simple-item__content">
+            <div className="blog-list-item__teaser blog-list-simple-item__teaser">
               <p>{excerpt}</p>
             </div>
           </div>

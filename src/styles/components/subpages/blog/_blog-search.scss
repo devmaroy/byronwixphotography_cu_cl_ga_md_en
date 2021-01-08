@@ -29,3 +29,12 @@
     content: close-quote;
   }
 }
+
+.blog-search__nothingfound {
+  margin-top: 2.4rem;
+  color: $clr-base-off;
+
+  p {
+    margin: 0;
+  }
+}

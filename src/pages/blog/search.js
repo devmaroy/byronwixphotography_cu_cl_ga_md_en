@@ -85,9 +85,16 @@ const SearchPage = ({ location }) => {
                   <span className="blog-search__term">{searchTerm}</span>
                 </h3>
 
-                {results.length !== 0 && (
+                {results.length !== 0 ? (
                   <div className="blog-search__results">
                     <BlogPostListSimple posts={results} />
+                  </div>
+                ) : (
+                  <div className="blog-search__nothingfound">
+                    <p>
+                      Sorry, but nothing matched your search terms. Please try
+                      again with some different keywords.
+                    </p>
                   </div>
                 )}
               </div>
