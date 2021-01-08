@@ -1,0 +1,11 @@
+/*------------------------------------*\
+  # Subpage
+\*------------------------------------*/
+
+.subpage__inner {
+  margin-top: 6.4rem;
+
+  @media (min-width: 1020px) {
+    margin-top: 9.6rem;
+  }
+}
