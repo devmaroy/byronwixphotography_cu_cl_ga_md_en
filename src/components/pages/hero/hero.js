@@ -27,7 +27,7 @@ const query = graphql`
             }
             image {
               childImageSharp {
-                fluid(quality: 100) {
+                fluid(maxWidth: 640, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
