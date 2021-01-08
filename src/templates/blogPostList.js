@@ -93,7 +93,7 @@ export const BlogPostListTemplateQuery = graphql`
             teaser
             featuredImage {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 1000, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
