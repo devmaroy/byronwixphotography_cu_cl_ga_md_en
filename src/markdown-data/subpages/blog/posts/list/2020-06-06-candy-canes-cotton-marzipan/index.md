@@ -34,7 +34,7 @@ tags:
   [
     {
       id: 'bf433db9-3a2a-402d-bd74-01314e7e7ef0',
-      name: Powder',
+      name: 'Powder',
       slug: 'powder',
     },
     {
