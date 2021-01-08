@@ -50,7 +50,7 @@ export const BlogPostTemplateQuery = graphql`
             formattedDate: date(formatString: "MMMM D, YYYY")
             featuredImage {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 1200, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
