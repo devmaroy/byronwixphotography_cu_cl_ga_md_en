@@ -31,18 +31,16 @@ Use these commands to install the dependencies and start the server.
    ```
    $ cd my-folder
    ```
+
 4. **Open or create .env file and set your own settings**
 
    You will need a shortname for disqus (https://disqus.com/) - DISQUS_SHORTNAME
 
 5. **Add license for Font Awesome PRO**
-    
-   Create .npmrc file in the root directory and insert this:
-   ```
-   @fortawesome:registry=https://npm.fontawesome.com///npm.fontawesome.com/:_authToken=${FA_NPM_TOKEN}
-    ```
-    
-   Now you can add the environment variable to your .bashrc or other startup shell file using terminal.
+
+   Add the environment variable to your .bashrc or other startup shell file
+   using terminal.
+
    ```
    export FA_NPM_TOKEN=my_token_goes_here_foo_bar
    ```
@@ -60,21 +58,25 @@ A quick look at the top-level files and directories you'll see in my project.
     .
     ├── node_modules
     ├── src
+    ├── .env.development
+    ├── .env.example
     ├── .eslintignore
     ├── .eslintrc.js
     ├── .gitignore
+    ├── .npmrc
     ├── .prettierignore
     ├── .prettierrc
     ├── .stylelintignore
     ├── .stylelintrc
     ├── gatsby-browser.js
     ├── gatsby-config.js
+    ├── gatsby-node.js
     ├── lint-staged.config.js
-    ├── package-lock.json
     ├── package.json
+    ├── package-lock.json
     ├── README.md
     ├── screenshot.png
-    ├── yarn-error.lock
+    ├── yarn-error.log
     └── yarn.lock
 
 <br>
@@ -86,56 +88,65 @@ A quick look at the top-level files and directories you'll see in my project.
     will see on the front-end of site (what you see in the browser) such as site
     header or a page template. `src` is a convention for “source code”.
 
-3.  **`.eslintignore`**: Configuration file for eslint - for files to ignore.
+3.  **`.env.development`**: Yours configuration for .env file.
 
-4.  **`.eslintrc.js`**: Configuration file for eslint.
+4.  **`.env.example`**: Example configuration for .env file.
 
-5.  **`.gitignore`**: This file tells git which files it should not track / not
+5.  **`.eslintignore`**: Configuration file for eslint - for files to ignore.
+
+6.  **`.eslintrc.js`**: Configuration file for eslint.
+
+7.  **`.gitignore`**: This file tells git which files it should not track / not
     maintain a version history for.
 
-6.  **`.prettierignore`**: Configuration file for prettier - for files to
+8.  **`.npmrc`**: This file is a configuration file for NPM, it defines the
+    settings on how NPM should behave when running commands.
+
+9.  **`.prettierignore`**: Configuration file for prettier - for files to
     ignore.
 
-7.  **`.prettierrc`**: Configuration file for prettier.
+10. **`.prettierrc`**: Configuration file for prettier.
 
-8.  **`.stylelintignore`**: Configuration file for style lint - for files to
+11. **`.stylelintignore`**: Configuration file for style lint - for files to
     ignore.
 
-9.  **`.stylelintrc`**: Configuration file for style lint.
+12. **`.stylelintrc`**: Configuration file for style lint.
 
-10. **`.env.example`**: Example configuration for .env file.
-
-11. **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage
+13. **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage
     of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/)
     (if any). These allow customization/extension of default Gatsby settings
     affecting the browser.
 
-12. **`gatsby-config.js`**: This is the main configuration file for a Gatsby
+14. **`gatsby-config.js`**: This is the main configuration file for a Gatsby
     site. This is where is information about site (metadata) like the site title
     and description, Gatsby plugins, etc. (Check out the
     [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more
     detail).
 
-13. **`lint-staged.config.js`**: Configuration file for lint staged.
+15. **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of
+    the Gatsby Node APIs (if any). These allow customization/extension of
+    default Gatsby settings affecting pieces of the site build process.
 
-14. **`package-lock.json`** (See `package.json` below, first). This is an
-    automatically generated file based on the exact versions of npm dependencies
-    that were installed for project. **(You won’t change this file directly).**
+16. **`lint-staged.config.js`**: Configuration file for lint staged.
 
-15. **`package.json`**: A manifest file for Node.js projects, which includes
+17. **`package.json`**: A manifest file for Node.js projects, which includes
     things like metadata (the project’s name, author, etc). This manifest is how
     npm knows which packages to install for project.
 
-16. **`README.md`**: A text file containing useful reference information about
+18. **`package-lock.json`** (See `package.json` below, first). This is an
+    automatically generated file based on the exact versions of npm dependencies
+    that were installed for project. **(You won’t change this file directly).**
+
+19. **`README.md`**: A text file containing useful reference information about
     project.
 
-17. **`screenshot.png`**: Screenshot of the final website.
+20. **`screenshot.png`**: Screenshot of the final website.
 
-18. **`yarn-error.lock`**: The whole point of it is that you read the log to
-    find out what went wrong, and if you've not had any errors, it might not
-    even exist at all.
+21. **`yarn-error.log`**: The whole point of it is that you read the log to find
+    out what went wrong, and if you've not had any errors, it might not even
+    exist at all.
 
-19. **`yarn.lock`**: There is an identifier for every dependency and sub
+22. **`yarn.lock`**: There is an identifier for every dependency and sub
     dependency that is used for a project.
 
 <br>
@@ -152,4 +163,5 @@ A quick look at the top-level files and directories you'll see in my project.
 
 Created by **[@devmaroy](https://twitter.com/devmaroy)** feel free to contact me
 
-e-mail: **[hello@devmaroy.com](mailto:hello@devmaroy.com?subject=[GitHub]%20byronwixphotography_cu_cl_ga_md_en)**
+e-mail:
+**[hello@devmaroy.com](mailto:hello@devmaroy.com?subject=[GitHub]%20byronwixphotography_cu_cl_ga_md_en)**
