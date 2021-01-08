@@ -31,11 +31,11 @@ Use these commands to install the dependencies and start the server.
    ```
    $ cd my-folder
    ```
-4. Open or create .env file and set your own settings
+4. **Open or create .env file and set your own settings**
 
    You will need a shortname for disqus (https://disqus.com/) - DISQUS_SHORTNAME
 
-5. You will need a license for Font Awesome PRO.
+5. **Add license for Font Awesome PRO**
     
    Create .npmrc file in the root directory and insert this:
    ```
