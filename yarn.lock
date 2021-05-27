@@ -8367,6 +8367,11 @@ gray-matter@^4.0.2:
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
 
+gsap@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.6.1.tgz#618f2338044d2b78b8cbced8ea8bf246d1cf6407"
+  integrity sha512-hCkjk7UVbeEmlpFbiy7lIsh742bwVlMhdCnnQ1CvVOAdURyPX8hXjFZGh/0YzUyAcWPyJPE0/paMhSYtLhGlfA==
+
 gud@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gud/-/gud-1.0.0.tgz#a489581b17e6a70beca9abe3ae57de7a499852c0"
@@ -13468,6 +13473,13 @@ react-fast-compare@^3.1.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
+react-gsap@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/react-gsap/-/react-gsap-3.2.1.tgz#15c7a0e06c4cdda6ac36ccfcd49f58ba6c3cfbc5"
+  integrity sha512-IX6XiN1a74hmU385yNZAYV1cFe3/Xmbg8eT99VCjmz7yzQq1qIsR47gkX5rkWeml9KmyEgiIzqArYaipPkKIbw==
+  dependencies:
+    react-is "^16.13.1"
+
 react-helmet@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"
@@ -13492,7 +13504,7 @@ react-hot-loader@^4.12.21:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1:
+react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==

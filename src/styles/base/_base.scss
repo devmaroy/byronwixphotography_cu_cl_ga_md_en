@@ -15,3 +15,9 @@ body.is-open {
     padding: 12rem 0;
   }
 }
+
+.site-content {
+  // For GSAP
+  visibility: hidden;
+  // END For GSAP
+}
